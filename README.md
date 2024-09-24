@@ -1,0 +1,1 @@
+# plugins-wrc-pricing-tables
