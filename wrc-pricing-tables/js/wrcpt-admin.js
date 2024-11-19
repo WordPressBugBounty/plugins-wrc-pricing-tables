@@ -1,5 +1,5 @@
 /*!
- * WRC Pricing Tables 2.4.3 - 1-August-2024
+ * WRC Pricing Tables 2.4.4 - 20 November, 2024
  * by @realwebcare - https://www.realwebcare.com
  */
 jQuery(document).ready(function() {
@@ -298,36 +298,65 @@ function wrcptsettableoptions() {
 	// Get the form.
 	const form = jQuery('#wrcpt_edit_form');
 	const formMessages = jQuery('#form-messages');
+
 	// Bind the click event of the submit button
 	form.on('submit', function(event) {
 		// Prevent the form from submitting normally
 		event.preventDefault();
+
 		// Get the form data
 		const formData = jQuery(this).serialize();
+
+		// Show the modal with the "updating table" message
+		jQuery('#wrcpt-modal').fadeIn().find('.wrcpt-modal-content').html(`
+			<p>${wrcptajax.updating_table}</p>
+			<img src="${wrcptajax.loading_image}" alt="Loading" />
+		`);
 		// Submit the form via AJAX
 		jQuery.ajax({
 			type: 'POST',
 			url: jQuery(this).attr('action'),
 			data: formData,
 			success: function(response) {
-				// Make sure that the formMessages div has the 'success' class.
-				formMessages.addClass('success').css('display', 'block');
-				// Clear the form and retrieve it again.
-				form.hide().fadeIn(1000);
-				jQuery('html, body').animate({ scrollTop: 0 }, 0);
+                // Hold the "updating table" message for 3 seconds
+                setTimeout(function() {
+                    // Update the modal with the success message
+                    jQuery('#wrcpt-modal .wrcpt-modal-content').html(`
+                        <p>${wrcptajax.update_success}</p>
+                    `);
 
-				jQuery('body').on('click', '.wrcpt_close', function() {
-					formMessages.fadeOut('slow');
-				});
+                    // After 2 seconds, hide the modal and proceed
+                    setTimeout(function() {
+                        jQuery('#wrcpt-modal').fadeOut('slow', function() {
+							// Make sure that the formMessages div has the 'success' class.
+							formMessages.addClass('success').css('display', 'block');
+							// Clear the form and retrieve it again.
+							form.hide().fadeIn(1000);
+							jQuery('html, body').animate({ scrollTop: 0 }, 0);
 
-				if (submitted === 'no') {
-					window.location.reload();
-				}
+							jQuery('body').on('click', '.wrcpt_close', function() {
+								formMessages.fadeOut('slow');
+							});
+
+							if (submitted === 'no') {
+								window.location.reload();
+							}
+                        });
+                    }, 2000); // Hold the success message for 2 seconds
+                }, 3000); // Hold the "updating table" message for 3 seconds
 			},
 			error: function(jqXHR, textStatus, errorThrown) {
 				console.error('An error occurred:', textStatus, '-', errorThrown);
-				// Display an error message
-				alert('An error occurred, please try again later.');
+
+                // Update the modal with an error message
+                jQuery('#wrcpt-modal .wrcpt-modal-content').html(`
+                    <p>${wrcptajax.update_error}</p>
+                `);
+
+                // Hide the modal after 3 seconds
+                setTimeout(function() {
+                    jQuery('#wrcpt-modal').fadeOut();
+                }, 3000);
 			}
 		});
 	});
@@ -480,6 +509,11 @@ function wrcptresetshortcode(pcount, ptable) {
 function wrcpttemplate(ptable, temp) {
 	var answer = confirm ("Are you sure you want to setup this template?");
 	if (answer) {
+		// Show the modal with the "switching" message
+		jQuery('#wrcpt-modal').fadeIn().find('.wrcpt-modal-content').html(`
+			<p>${wrcptajax.switch_template}</p>
+			<img src="${wrcptajax.loading_image}" alt="Loading" />
+		`);
 		jQuery.ajax({
 			type: 'POST',
 			url: wrcptajax.ajaxurl,
@@ -489,25 +523,35 @@ function wrcpttemplate(ptable, temp) {
 				template: temp,
 				nonce: wrcptajax.nonce
 			},
-			beforeSend: function(){
-				// Show image container
-				jQuery("#wrcpt-loading-image").css("display","inline-block");
+			success: function(data, textStatus, XMLHttpRequest) {
+				// Hold the "switch_template" for 3 seconds
+				setTimeout(function() {
+					// After 5 seconds, update the modal with the success message
+					jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.success_switch}</p>`);
+					
+					// Reload the page after another 2 seconds (optional delay for success message visibility)
+					setTimeout(function() {
+						window.location.reload();
+					}, 2000); // 2 seconds delay
+				}, 3000); // Hold for 3 seconds
 			},
-			success:function(data, textStatus, XMLHttpRequest){
-				alert('The template has been successfully setup!');
-				window.location.reload();
-			},
-			complete:function(){
-				// Hide image container
-				jQuery("#wrcpt-loading-image").hide();
-			},
-			error: function(MLHttpRequest, textStatus, errorThrown){
-				alert(errorThrown);
+			error: function(MLHttpRequest, textStatus, errorThrown) {
+				// Update the modal with the error message
+				jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.error_message}</p>`);
+				setTimeout(function() {
+					jQuery('#wrcpt-modal').fadeOut();
+				}, 3000); // Hide the modal after 3 seconds
 			}
 		});
 	}
 }
 function wrcptactivatetemp(tcount) {
+    // Show the modal with the "creating" message
+    jQuery('#wrcpt-modal').fadeIn().find('.wrcpt-modal-content').html(`
+        <p>${wrcptajax.creating_message}</p>
+        <img src="${wrcptajax.loading_image}" alt="Loading" />
+    `);
+
 	jQuery.ajax({
 		type: 'POST',
 		url: wrcptajax.ajaxurl,
@@ -516,20 +560,24 @@ function wrcptactivatetemp(tcount) {
 			tempcount: tcount,
 			nonce: wrcptajax.nonce
 		},
-		beforeSend: function(){
-			// Show image container
-			jQuery("#wrcpt-loading-image").css("display","inline-block");
-		},
-		success:function(data, textStatus, XMLHttpRequest){
-			alert('Successfully Activated!');
-			window.location.reload();
-		},
-		complete:function(){
-			// Hide image container
-			jQuery("#wrcpt-loading-image").hide();
-		},
-		error: function(MLHttpRequest, textStatus, errorThrown){
-			alert(errorThrown);
-		}
+        success: function(data, textStatus, XMLHttpRequest) {
+            // Hold the "creating_message" for 3 seconds
+            setTimeout(function() {
+                // After 5 seconds, update the modal with the success message
+                jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.success_message}</p>`);
+                
+                // Reload the page after another 2 seconds (optional delay for success message visibility)
+                setTimeout(function() {
+                    window.location.reload();
+                }, 2000); // 2 seconds delay
+            }, 3000); // Hold for 3 seconds
+        },
+        error: function(MLHttpRequest, textStatus, errorThrown) {
+            // Update the modal with the error message
+            jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.error_message}</p>`);
+            setTimeout(function() {
+                jQuery('#wrcpt-modal').fadeOut();
+            }, 3000); // Hide the modal after 3 seconds
+        }
 	});
 }

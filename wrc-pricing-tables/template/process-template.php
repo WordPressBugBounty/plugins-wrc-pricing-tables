@@ -1,6 +1,6 @@
 <?php
 /*
- * WRC Pricing Tables 2.4.3 - 1-August-2024
+ * WRC Pricing Tables 2.4.4 - 20 November, 2024
  * @realwebcare - https://www.realwebcare.com/
  * Processing pricing table templates.
  */
@@ -25,6 +25,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 					</div>
 				</div><?php
 			} ?>
+		</div>
+	</div>
+	<div id="wrcpt-modal" class="wrcpt-modal" style="display:none;">
+		<div class="wrcpt-modal-content">
+			<p><?php esc_html_e('Table is being created. Please wait...', 'wrc-pricing-tables'); ?></p>
+			<img src="<?php echo esc_url(plugins_url('../images/ajax-loader.gif', __FILE__)); ?>" alt="Loading" />
 		</div>
 	</div>
 </div>

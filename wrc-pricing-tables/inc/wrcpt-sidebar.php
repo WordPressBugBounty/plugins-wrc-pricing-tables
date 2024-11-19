@@ -1,6 +1,6 @@
 <?php
 /*
- * WRC Pricing Tables 2.4.3 - 1-August-2024
+ * WRC Pricing Tables 2.4.4 - 20 November, 2024
  * @realwebcare - https://www.realwebcare.com/
  * Plugin info in sidebar
  */
@@ -76,8 +76,9 @@ function wrcpt_sidebar($class='') {
 		<div id="wrcptusage-info" class="wrcptusage-sidebar">
 			<h3><?php esc_html_e('Featured Plugins', 'wrc-pricing-tables'); ?></h3>
 			<ul class="wrcptusage-list">
-				<li><a href="https://www.realwebcare.com/item/clean-css3-wordpress-responsive-pricing-table/" target="_blank"><?php esc_html_e('WRC Pricing Tables - Standard', 'wrc-pricing-tables'); ?></a></li>
-				<li><a href="https://www.realwebcare.com/item/wordpress-responsive-pricing-table-plugin/" target="_blank"><?php esc_html_e('WRC Pricing Tables - Ultimate', 'wrc-pricing-tables'); ?></a></li><hr>
+				<li><a href="https://www.realwebcare.com/demo/?product_id=wrc-pricing-tables-standard" target="_blank"><?php esc_html_e('WRC Pricing Tables - Standard', 'wrc-pricing-tables'); ?></a></li>
+				<li><a href="https://www.realwebcare.com/demo/?product_id=t4b-news-ticker-pro" target="_blank"><?php esc_html_e('T4B News Ticker Pro', 'wrc-pricing-tables'); ?></a></li>
+				<li><a href="https://www.realwebcare.com/demo/?product_id=rwc-team-members-pro" target="_blank"><?php esc_html_e('RWC Team Members Pro', 'wrc-pricing-tables'); ?></a></li><hr>
 				<li><a href="https://wordpress.org/plugins/t4b-news-ticker/" target="_blank"><?php esc_html_e('T4B News Ticker', 'wrc-pricing-tables'); ?></a></li>
 				<li><a href="https://wordpress.org/plugins/rwc-team-members/" target="_blank"><?php esc_html_e('RWC Team Members', 'wrc-pricing-tables'); ?></a></li>
 				<li><a href="https://wordpress.org/plugins/responsive-portfolio-image-gallery/" target="_blank"><?php esc_html_e('Portfolio Gallery - Photo Gallery and Image Gallery', 'wrc-pricing-tables'); ?></a></li>
@@ -86,10 +87,10 @@ function wrcpt_sidebar($class='') {
 		<div id="wrcptusage-info" class="wrcptusage-sidebar">
 			<h3><?php esc_html_e('Plugin Info', 'wrc-pricing-tables'); ?></h3>
 			<ul class="wrcptusage-list">
-				<li><?php esc_html_e('Version: ', 'wrc-pricing-tables'); ?><a href="https://wordpress.org/plugins/wrc-pricing-tables/changelog/" target="_blank"><?php esc_html_e('2.4.3', 'wrc-pricing-tables'); ?></a></li>
+				<li><?php esc_html_e('Version: ', 'wrc-pricing-tables'); ?><a href="https://wordpress.org/plugins/wrc-pricing-tables/changelog/" target="_blank"><?php esc_html_e('2.4.4', 'wrc-pricing-tables'); ?></a></li>
 				<li><?php esc_html_e('Requires: Wordpress 5.2', 'wrc-pricing-tables'); ?></li>
 				<li><?php esc_html_e('First release: 6 May, 2015', 'wrc-pricing-tables'); ?></li>
-				<li><?php esc_html_e('Last Update: 1 August, 2024', 'wrc-pricing-tables'); ?></li>
+				<li><?php esc_html_e('Last Update: 20 November, 2024', 'wrc-pricing-tables'); ?></li>
 				<li><?php esc_html_e('Developed by: ', 'wrc-pricing-tables'); ?><a href="https://www.realwebcare.com" target="_blank"><?php esc_html_e('Realwebcare', 'wrc-pricing-tables'); ?></a></li>
 				<li><?php esc_html_e('Need Help? ', 'wrc-pricing-tables'); ?><a href="https://wordpress.org/support/plugin/wrc-pricing-tables/" target="_blank"><?php esc_html_e('Support', 'wrc-pricing-tables'); ?></a></li>
 				<li><?php esc_html_e('Benefited by WRC Pricing Tables? Please leave us a ', 'wrc-pricing-tables'); ?><a target="_blank" href="https://wordpress.org/support/plugin/wrc-pricing-tables/reviews/?filter=5/#new-post">&#9733;&#9733;&#9733;&#9733;&#9733;</a><?php esc_html_e(' rating. We highly appreciate your support!', 'wrc-pricing-tables'); ?></li>

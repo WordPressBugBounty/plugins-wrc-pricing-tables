@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WordPress Responsive CSS3 Pricing Tables\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-11-22 06:28+0000\n"
-"PO-Revision-Date: 2024-08-01 11:56+0000\n"
+"PO-Revision-Date: 2024-11-19 21:27+0000\n"
 "Last-Translator: Iftekhar Alam\n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.4.1\n"
 "X-Domain: wrc-pricing-tables"
 
-#: inc/process-table.php:150
+#: inc/process-table.php:153
 #, php-format
 msgid ""
 "\n"
@@ -31,12 +31,12 @@ msgid ""
 "thread. We're here to provide you with the support you need."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:95
+#: inc/wrcpt-sidebar.php:96
 msgid " rating. We highly appreciate your support!"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:89
-msgid "2.4.3"
+#: inc/wrcpt-sidebar.php:90
+msgid "2.4.4"
 msgstr ""
 
 #: inc/wrcpt-sidebar.php:62
@@ -47,11 +47,11 @@ msgstr ""
 msgid "60+ templates to create pricing table instantly."
 msgstr ""
 
-#: inc/process-table.php:101
+#: inc/process-table.php:104
 msgid "<span class=\"status active\">Active</span>"
 msgstr ""
 
-#: inc/process-table.php:101 inc/process-table.php:117
+#: inc/process-table.php:104 inc/process-table.php:120
 msgid "<span class=\"status inactive\">Inactive</span>"
 msgstr ""
 
@@ -61,7 +61,7 @@ msgid ""
 "Highlighted Color can be set here."
 msgstr ""
 
-#: inc/process-table.php:142
+#: inc/process-table.php:145
 msgid ""
 "<strong>Alert!</strong> %d unnecessary package options have been created "
 "unintentionally! Click on <strong>Optimize Pricing Tables</strong> button to "
@@ -164,7 +164,7 @@ msgid ""
 "width."
 msgstr ""
 
-#: inc/process-table.php:37
+#: inc/process-table.php:40
 msgid ""
 "<strong>Well done!</strong> You successfully Updated Your Pricing Table "
 "Settings."
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Add Feature"
 msgstr ""
 
-#: inc/process-table.php:112
+#: inc/process-table.php:115
 msgid "Add Features"
 msgstr ""
 
@@ -186,7 +186,7 @@ msgstr ""
 msgid "Add New"
 msgstr ""
 
-#: inc/process-table.php:16
+#: inc/process-table.php:19
 msgid "Add Template"
 msgstr ""
 
@@ -202,6 +202,10 @@ msgstr ""
 msgid "All Pricing Tables"
 msgstr ""
 
+#: wrc-pricing-tables.php:78
+msgid "An error occurred. Please try again."
+msgstr ""
+
 #: inc/wrcpt-guide.php:77
 msgid ""
 "At the bottom you will get <strong>Pricing Table Settings</strong>, where "
@@ -212,7 +216,7 @@ msgstr ""
 msgid "Background Colors"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:95
+#: inc/wrcpt-sidebar.php:96
 msgid "Benefited by WRC Pricing Tables? Please leave us a "
 msgstr ""
 
@@ -269,7 +273,7 @@ msgstr ""
 msgid "Center"
 msgstr ""
 
-#: inc/process-table.php:186
+#: inc/process-table.php:195
 msgid ""
 "Check out our YouTube video for a clear demonstration of how the Pricing "
 "Table plugin works. For more detailed information and additional "
@@ -290,11 +294,11 @@ msgstr ""
 msgid "Choose Tick Icon to Show"
 msgstr ""
 
-#: inc/process-table.php:77
+#: inc/process-table.php:80
 msgid "Click to Copy Shortcode!"
 msgstr ""
 
-#: inc/process-table.php:164
+#: inc/process-table.php:173
 msgid "Code Usage Instruction"
 msgstr ""
 
@@ -322,11 +326,11 @@ msgstr ""
 msgid "Default "
 msgstr ""
 
-#: inc/process-table.php:72 inc/process-table.php:113
+#: inc/process-table.php:75 inc/process-table.php:116
 msgid "Delete"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:43 inc/wrcpt-sidebar.php:93
+#: inc/wrcpt-sidebar.php:43 inc/wrcpt-sidebar.php:94
 msgid "Developed by: "
 msgstr ""
 
@@ -375,15 +379,15 @@ msgid ""
 "witness the magic! :)"
 msgstr ""
 
-#: inc/display-package.php:35 inc/process-table.php:69 inc/wrcpt-guide.php:47
+#: inc/display-package.php:35 inc/process-table.php:72 inc/wrcpt-guide.php:47
 msgid "Edit Columns"
 msgstr ""
 
-#: inc/process-table.php:70 inc/wrcpt-guide.php:37
+#: inc/process-table.php:73 inc/wrcpt-guide.php:37
 msgid "Edit Features"
 msgstr ""
 
-#: inc/process-table.php:169
+#: inc/process-table.php:178
 msgid "Either create a new post or page, or edit an existing one."
 msgstr ""
 
@@ -527,7 +531,7 @@ msgstr ""
 msgid "Features "
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:91
+#: inc/wrcpt-sidebar.php:92
 msgid "First release: 6 May, 2015"
 msgstr ""
 
@@ -552,11 +556,11 @@ msgstr ""
 msgid "General Settings"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:46 inc/wrcpt-sidebar.php:97
+#: inc/wrcpt-sidebar.php:46 inc/wrcpt-sidebar.php:98
 msgid "GNU General Public License"
 msgstr ""
 
-#: inc/process-table.php:168
+#: inc/process-table.php:177
 msgid ""
 "Go to Posts or Pages, depending on where you want to display the pricing "
 "table."
@@ -586,15 +590,15 @@ msgstr ""
 msgid "https://www.realwebcare.com/"
 msgstr ""
 
-#: inc/process-table.php:135
+#: inc/process-table.php:138
 msgid "Hurray! %d unnecessary package options have been cleared!"
 msgstr ""
 
-#: inc/process-table.php:137
+#: inc/process-table.php:140
 msgid "Hurray! You don't have anymore unnecessary package options to clear!"
 msgstr ""
 
-#: inc/process-table.php:41
+#: inc/process-table.php:44
 msgid "ID"
 msgstr ""
 
@@ -631,8 +635,8 @@ msgstr ""
 msgid "Import/Export (Backup) pricing tables."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:92
-msgid "Last Update: 1 August, 2024"
+#: inc/wrcpt-sidebar.php:93
+msgid "Last Update: 20 November, 2024"
 msgstr ""
 
 #: inc/modify-package.php:264 inc/modify-package.php:268
@@ -640,11 +644,11 @@ msgstr ""
 msgid "Left"
 msgstr ""
 
-#: inc/process-table.php:188
+#: inc/process-table.php:197
 msgid "Like it? Please leave us a rating."
 msgstr ""
 
-#: inc/process-table.php:171
+#: inc/process-table.php:180
 msgid ""
 "Locate the spot in the post or page where you want to display the pricing "
 "table."
@@ -665,7 +669,7 @@ msgid ""
 "you like. Each column has two sections:"
 msgstr ""
 
-#: inc/process-table.php:115
+#: inc/process-table.php:118
 msgid ""
 "Mouseover on the table name in the left and clicked on <strong>Add "
 "Feature</strong> link. To get started you have to add some pricing features "
@@ -673,7 +677,7 @@ msgid ""
 "pricing columns you will get the <strong>SHORTCODE</strong> here."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:44 inc/wrcpt-sidebar.php:94
+#: inc/wrcpt-sidebar.php:44 inc/wrcpt-sidebar.php:95
 msgid "Need Help? "
 msgstr ""
 
@@ -685,7 +689,7 @@ msgstr ""
 msgid "No Packages yet!"
 msgstr ""
 
-#: inc/process-table.php:116
+#: inc/process-table.php:119
 msgid "Not Ready!"
 msgstr ""
 
@@ -693,7 +697,7 @@ msgstr ""
 msgid "Number of Columns per Row"
 msgstr ""
 
-#: inc/process-table.php:179
+#: inc/process-table.php:188
 msgid ""
 "Once you've saved or published the post or page, the pricing table shortcode "
 "will be processed and the pricing table will be displayed on the front end "
@@ -704,11 +708,11 @@ msgstr ""
 msgid "Open Link in New Tab"
 msgstr ""
 
-#: inc/process-table.php:129 inc/process-table.php:184
+#: inc/process-table.php:132 inc/process-table.php:193
 msgid "Optimize Pricing Tables"
 msgstr ""
 
-#: inc/process-table.php:185
+#: inc/process-table.php:194
 msgid "Optimize Pricing Tables: "
 msgstr ""
 
@@ -736,7 +740,7 @@ msgstr ""
 msgid "Package Ribbon"
 msgstr ""
 
-#: inc/process-table.php:173
+#: inc/process-table.php:182
 msgid "Paste the following shortcode into the editor:"
 msgstr ""
 
@@ -750,11 +754,11 @@ msgid ""
 "columns!"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:87
+#: inc/wrcpt-sidebar.php:88
 msgid "Plugin Info"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:42 inc/wrcpt-sidebar.php:83
+#: inc/wrcpt-sidebar.php:42 inc/wrcpt-sidebar.php:84
 msgid "Portfolio Gallery - Photo Gallery and Image Gallery"
 msgstr ""
 
@@ -762,7 +766,7 @@ msgstr ""
 msgid "Premium Features"
 msgstr ""
 
-#: inc/process-table.php:71
+#: inc/process-table.php:74
 msgid "Preview"
 msgstr ""
 
@@ -838,7 +842,7 @@ msgstr ""
 msgid "Pricing Table Templates"
 msgstr ""
 
-#: inc/admin-menu.php:20 inc/process-table.php:16
+#: inc/admin-menu.php:20 inc/process-table.php:19
 msgid "Pricing Tables"
 msgstr ""
 
@@ -846,7 +850,7 @@ msgstr ""
 msgid "Pricing toggle support."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:45 inc/wrcpt-sidebar.php:96
+#: inc/wrcpt-sidebar.php:45 inc/wrcpt-sidebar.php:97
 msgid "Published under:"
 msgstr ""
 
@@ -855,11 +859,11 @@ msgid "Quick Start"
 msgstr ""
 
 #. Author of the plugin
-#: inc/wrcpt-sidebar.php:43 inc/wrcpt-sidebar.php:93
+#: inc/wrcpt-sidebar.php:43 inc/wrcpt-sidebar.php:94
 msgid "Realwebcare"
 msgstr ""
 
-#: inc/process-table.php:124
+#: inc/process-table.php:127
 msgid "Regenerate Shortcode"
 msgstr ""
 
@@ -867,13 +871,13 @@ msgstr ""
 msgid "Reorder features by dragging with the mouse"
 msgstr ""
 
-#: inc/process-table.php:175
+#: inc/process-table.php:184
 msgid ""
 "Replace \"SHORTCODE_ID\" with the actual id of the pricing table that you "
 "want to display."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:90
+#: inc/wrcpt-sidebar.php:91
 msgid "Requires: Wordpress 5.2"
 msgstr ""
 
@@ -904,11 +908,15 @@ msgstr ""
 msgid "Right"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:41 inc/wrcpt-sidebar.php:82
+#: inc/wrcpt-sidebar.php:41 inc/wrcpt-sidebar.php:83
 msgid "RWC Team Members"
 msgstr ""
 
-#: inc/process-table.php:177
+#: inc/wrcpt-sidebar.php:81
+msgid "RWC Team Members Pro"
+msgstr ""
+
+#: inc/process-table.php:186
 msgid "Save or publish the post or page."
 msgstr ""
 
@@ -928,7 +936,7 @@ msgstr ""
 msgid "Set up to 4 custom pricing toggles effortlessly."
 msgstr ""
 
-#: inc/process-table.php:43
+#: inc/process-table.php:46
 msgid "Shortcode"
 msgstr ""
 
@@ -944,28 +952,48 @@ msgstr ""
 msgid "Structural Settings"
 msgstr ""
 
-#: wrc-pricing-tables.php:49 inc/wrcpt-sidebar.php:44 inc/wrcpt-sidebar.php:94
+#: wrc-pricing-tables.php:73
+msgid "Successfully Created! Redirecting..."
+msgstr ""
+
+#: wrc-pricing-tables.php:49 inc/wrcpt-sidebar.php:44 inc/wrcpt-sidebar.php:95
 msgid "Support"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:40 inc/wrcpt-sidebar.php:81
+#: inc/wrcpt-sidebar.php:40 inc/wrcpt-sidebar.php:82
 msgid "T4B News Ticker"
+msgstr ""
+
+#: inc/wrcpt-sidebar.php:80
+msgid "T4B News Ticker Pro"
 msgstr ""
 
 #: inc/modify-package.php:110
 msgid "Table Background Color"
 msgstr ""
 
-#: inc/process-table.php:42
+#: wrc-pricing-tables.php:72 template/process-template.php:32
+msgid "Table is being created. Please wait..."
+msgstr ""
+
+#: inc/process-table.php:45
 msgid "Table Name"
 msgstr ""
 
-#: inc/process-table.php:44 template/process-template.php:22
+#: inc/process-table.php:47 template/process-template.php:22
 msgid "Template"
+msgstr ""
+
+#: wrc-pricing-tables.php:74
+msgid "Template is being switched. Please wait..."
 msgstr ""
 
 #: template/process-template.php:20
 msgid "Template Preview"
+msgstr ""
+
+#: wrc-pricing-tables.php:75
+msgid "Template Switched Successfully! Redirecting..."
 msgstr ""
 
 #: inc/admin-menu.php:39
@@ -991,6 +1019,10 @@ msgid ""
 "<a target=\"_blank\" href=\"https://wordpress.org/support/plugin/wrc-pricing-"
 "tables/reviews/?filter=5/#new-post\">&#9733;&#9733;&#9733;&#9733;&#9733;</a>."
 " Your support means the world to us!"
+msgstr ""
+
+#: inc/process-table.php:166
+msgid "The changes are being updated. Please wait..."
 msgstr ""
 
 #: inc/wrcpt-sidebar.php:60
@@ -1019,7 +1051,7 @@ msgstr ""
 msgid "Title Font Size"
 msgstr ""
 
-#: inc/process-table.php:166
+#: inc/process-table.php:175
 msgid ""
 "To display a pricing table shortcode in a WordPress post or page, you need "
 "to access the post or page editor in the WordPress dashboard. Here's how:"
@@ -1039,15 +1071,23 @@ msgid ""
 "proficiently. Some of the most notable features are:"
 msgstr ""
 
+#: wrc-pricing-tables.php:77
+msgid "Update completed successfully!"
+msgstr ""
+
 #: inc/process-feature.php:95
 msgid "Update Feature"
+msgstr ""
+
+#: wrc-pricing-tables.php:76
+msgid "Update is being processed. Please wait..."
 msgstr ""
 
 #: inc/modify-package.php:335
 msgid "Update Package"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:89
+#: inc/wrcpt-sidebar.php:90
 msgid "Version: "
 msgstr ""
 
@@ -1055,11 +1095,11 @@ msgstr ""
 msgid "View Demo"
 msgstr ""
 
-#: inc/process-table.php:45
+#: inc/process-table.php:48
 msgid "Visible"
 msgstr ""
 
-#: inc/process-table.php:188
+#: inc/process-table.php:197
 msgid "We highly appreciate your support!"
 msgstr ""
 
@@ -1073,7 +1113,7 @@ msgstr ""
 msgid "Welcome to WRC Pricing Tables"
 msgstr ""
 
-#: inc/process-table.php:185
+#: inc/process-table.php:194
 msgid ""
 "While customizing the pricing table, it's possible to unknowingly create "
 "unnecessary package options, which can increase the overall weight of the "
@@ -1089,7 +1129,7 @@ msgstr ""
 msgid "WRC Pricing Tables - Standard"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:39 inc/wrcpt-sidebar.php:80
+#: inc/wrcpt-sidebar.php:39
 msgid "WRC Pricing Tables - Ultimate"
 msgstr ""
 

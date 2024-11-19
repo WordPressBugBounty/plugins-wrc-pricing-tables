@@ -1,6 +1,6 @@
 <?php
 /*
- * WRC Pricing Tables 2.4.3 - 1-August-2024
+ * WRC Pricing Tables 2.4.4 - 20 November, 2024
  * @realwebcare - https://www.realwebcare.com/
  * Generating preview of the pricing table in WP admin panel
  * to get an idea about how the table will look at front-end

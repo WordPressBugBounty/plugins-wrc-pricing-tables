@@ -1,6 +1,6 @@
 <?php
 /*
- * WRC Pricing Tables 2.4.3 - 1-August-2024
+ * WRC Pricing Tables 2.4.4 - 20 November, 2024
  * @realwebcare - https://www.realwebcare.com/
  * Adding a new Pricing Table
  * Lists of all created pricing tables
@@ -9,10 +9,13 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 $package_table = get_option('packageTables');
+if($package_table) {
+	$no_pricing_class = '';
+} else { $no_pricing_class = ' no-price-table'; }
 $package_ids = get_option('packageIDs');
 $flag = 0; ?>
 <div class="wrap">
-	<div id="add_new_table" class="postbox-container">
+	<div id="add_new_table" class="postbox-container<?php echo $no_pricing_class; ?>">
 		<h2 class="main-header"><?php esc_html_e('Pricing Tables', 'wrc-pricing-tables'); ?> <a href="?page=wrcpt-template" id="new_table" class="add-new-h2"><?php esc_html_e('Add Template', 'wrc-pricing-tables'); ?></a><span id="wrcpt-loading-image"></span></h2><?php
 		/* Display Pricing Table Lists*/
 		if($package_table) {
@@ -158,6 +161,12 @@ $flag = 0; ?>
 			</div><?php
 		} ?>
 	</div><!-- End postbox-container -->
+	<div id="wrcpt-modal" class="wrcpt-modal" style="display:none;">
+		<div class="wrcpt-modal-content">
+			<p><?php esc_html_e('The changes are being updated. Please wait...', 'wrc-pricing-tables'); ?></p>
+			<img src="<?php echo esc_url(plugins_url('../images/ajax-loader.gif', __FILE__)); ?>" alt="Loading" />
+		</div>
+	</div>
 	<?php if($package_table && $flag == 1) { ?>
 	<div id="wrcpt-narration" class="postbox-container code">
 		<div id="wrcptusage-premium" class="wrcptusage-sidebar">

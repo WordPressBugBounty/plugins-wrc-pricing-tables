@@ -1,10 +1,11 @@
-﻿=== WRC Pricing Tables - WordPress Responsive CSS3 Pricing Tables ===
+﻿=== WRC Pricing Tables - Responsive CSS3 Pricing Tables ===
 Contributors: realwebcare
-Tags: responsive pricing table, pricing table, comparison table, price table, price plan
+Tags: responsive pricing table, pricing table, comparison table, pricing comparison, responsive pricing
 Requires at least: 5.2
-Tested up to: 6.6.1
-Stable Tag: 2.4.3
+Tested up to: 6.7
+Stable Tag: 2.4.4
 Requires PHP: 7.4
+Donate link: https://www.realwebcare.com/billing/store/support/donation
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -149,63 +150,69 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 10. Pricing Table 15 ready-made templates.
 
 == Changelog ==
-= 2.4.3 (1st August 2024) =
+= 2.4.4 (20 November, 2024) =
+* Improved user experience by adding modal confirmation for creating and updating pricing tables.
+* Enhanced AJAX handling to provide better feedback during table creation and updates.
+* Added support for a donation link in the plugin's metadata.
+* Minor code optimizations and performance improvements.
+
+= 2.4.3 (1st August, 2024) =
 * Fixed the single quotation issue.
 * Fixed few security related issues.
 * Make compatible with WP version 6.6.1
 
-= 2.4.2 (6th May 2024) =
+= 2.4.2 (6th May, 2024) =
 * Fixed few URL related bugs 
 * Make compatible with WP version 6.5.2
 
-= 2.4.1 (22nd November 2023) =
+= 2.4.1 (22nd November, 2023) =
 * Fixed the issue of Internationalization.
 * Modified the Text domain with the plugin's slug.
 * Improved the translation escaping process.
 
-= 2.4 (8th September 2023) =
+= 2.4 (8th September, 2023) =
 * Enhanced Security.
 
-= 2.3.7 (11th August 2023) =
+= 2.3.7 (11th August, 2023) =
 * Make compatible with WP version 6.3
 * Fixed a bug reported by a user.
 
-= 2.3.6 (4th August 2023) =
+= 2.3.6 (4th August, 2023) =
 * Make compatible with WP version 6.2.2+
 * Fixed some bugs.
 
-= 2.3.5 (27th July 2023) =
+= 2.3.5 (27th July, 2023) =
 * Fixed a security issue informed by WordPress.
 
-= 2.3.4 (16th May 2023) =
+= 2.3.4 (16th May, 2023) =
 * Fixed pricing feature sorting error made in version 2.3.3.
 
-= 2.3.3 (12th May 2023) =
+= 2.3.3 (12th May, 2023) =
 * AJAX form submission without page refresh for a smoother user experience.
 * Responsive admin panel design for access from any device.
 * Six more attractive templates have been added.
 
-= 2.3.2 (20th Jan 2023) =
+= 2.3.2 (20th Jan, 2023) =
 * Added 20 Check / Cross icons to choose.
 * Added feature backgrund & font color option.
 * Added option to disable Title Gradient.
 * Added option to show title and price description.
 
-= 2.3.1 (9th May 2022) =
+= 2.3.1 (9th May, 2022) =
 * Added 3 more ready-made pricing table templates
 * Improved the backend design
 * Fixed some css &amp; js issue
 
-= 2.3 (27th May 2021) =
+= 2.3 (27th May, 2021) =
 * Added 1 more ready-made pricing table templates
 * Fixed some css &amp; js issue
 
-= 2.2.9 (5th September 2020) =
+= 2.2.9 (5th September, 2020) =
 * Added 2 more ready-made pricing table templates
 * Improved default 8 color palettes to 18 palettes.
 * Fixed image loader jQuery issue
 
-= 2.2.8 (12th August 2020) =
+= 2.2.8 (12th August, 2020) =
 * Fixed a jQuery issue to make compatible with WP 5.5
 
 = 2.2.7 (18 October, 2019) =
@@ -285,6 +292,10 @@ You can report security bugs through the Patchstack Vulnerability Disclosure Pro
 
 = 1.0 (6th May, 2015) = 
 * 1st release.
+
+== Upgrade Notice ==
+= 2.4.4 =
+This update includes minor bug fixes and improved compatibility with WordPress 6.6.1. Please update to ensure the plugin works seamlessly.
 
 == Credits ==
 * Developed By: [Realwebcare](https://www.realwebcare.com/)

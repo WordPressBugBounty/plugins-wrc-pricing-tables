@@ -3,7 +3,7 @@
  * Plugin Name:       WordPress Responsive CSS3 Pricing Tables
  * Plugin URI:        http://wordpress.org/plugins/wrc-pricing-tables/
  * Description:       Responsive pricing table plugin developed to display pricing table in a lot more professional way on different posts or pages by SHORTCODE.
- * Version:           2.4.3
+ * Version:           2.4.4
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            Realwebcare
@@ -16,7 +16,7 @@
 
 /**
  * Main plugin file that initializes and manages the "WRC Pricing Tables" plugin.
- * @package WRC Pricing Tables 2.4.3 - 1-August-2024
+ * @package WRC Pricing Tables 2.4.4 - 20 November, 2024
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -60,7 +60,7 @@ if(is_admin()) { include ( WRCPT_PLUGIN_PATH . 'inc/admin-menu.php' ); }
  */
 if (!function_exists('wrcpt_enqueue_scripts_admin')) {
     function wrcpt_enqueue_scripts_admin() {
-        wp_register_script('wrcptjs', plugins_url( 'js/wrcpt-admin.js', __FILE__ ), array('jquery'), '2.4.3');
+        wp_register_script('wrcptjs', plugins_url( 'js/wrcpt-admin.js', __FILE__ ), array('jquery'), '2.4.4');
         wp_enqueue_script('wrcptjs');
         wp_enqueue_script('jquery-ui-sortable');
         wp_enqueue_script('jquery-ui-accordion');
@@ -69,10 +69,18 @@ if (!function_exists('wrcpt_enqueue_scripts_admin')) {
         wp_localize_script('wrcptjs', 'wrcptajax', array(
             'ajaxurl'   => admin_url( 'admin-ajax.php' ),
             'nonce'     => $nonce,
+            'creating_message' => __('Table is being created. Please wait...', 'wrc-pricing-tables'),
+            'success_message' => __('Successfully Created! Redirecting...', 'wrc-pricing-tables'),
+            'switch_template' => __('Template is being switched. Please wait...', 'wrc-pricing-tables'),
+            'success_switch' => __('Template Switched Successfully! Redirecting...', 'wrc-pricing-tables'),
+            'updating_table'  => __('Update is being processed. Please wait...', 'wrc-pricing-tables'),
+            'update_success'  => __('Update completed successfully!', 'wrc-pricing-tables'),
+            'error_message' => __('An error occurred. Please try again.', 'wrc-pricing-tables'),
+            'loading_image' => plugins_url('images/ajax-loader.gif', __FILE__),
         ));
         wp_enqueue_style('wp-color-picker');
-        wp_enqueue_style('wrcptfront', plugins_url( 'css/wrcpt-front.css', __FILE__ ), '', '2.4.3');
-        wp_enqueue_style('wrcptadmin', plugins_url( 'css/wrcpt-admin.css', __FILE__ ), '', '2.4.3');
+        wp_enqueue_style('wrcptfront', plugins_url( 'css/wrcpt-front.css', __FILE__ ), '', '2.4.4');
+        wp_enqueue_style('wrcptadmin', plugins_url( 'css/wrcpt-admin.css', __FILE__ ), '', '2.4.4');
         wp_enqueue_style('jquery-ui-style', plugins_url( 'css/jquery-accordion.css', __FILE__ ), '', '1.10.4');
     }
 }
@@ -83,7 +91,7 @@ add_action('admin_enqueue_scripts', 'wrcpt_enqueue_scripts_admin');
  */
 if (!function_exists('wrcpt_pricing_table_enqueue')) {
     function wrcpt_pricing_table_enqueue() {
-        wp_register_style('wrcptfront', plugins_url( 'css/wrcpt-front.css', __FILE__ ), array(), '2.4.3' );
+        wp_register_style('wrcptfront', plugins_url( 'css/wrcpt-front.css', __FILE__ ), array(), '2.4.4' );
         wp_register_style('googleFonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;700&display=swap', array(), null);
         wp_enqueue_style( 'wrcptfront');
         wp_enqueue_style( 'googleFonts');
