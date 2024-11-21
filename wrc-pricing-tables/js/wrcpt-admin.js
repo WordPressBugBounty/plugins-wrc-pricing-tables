@@ -487,7 +487,8 @@ function wrcptresetshortcode(pcount, ptable) {
 		type: 'POST',
 		url: wrcptajax.ajaxurl,
 		data: {
-			action: 'wrcpt_regenerate_shortcode'
+			action: 'wrcpt_regenerate_shortcode',
+			nonce: wrcptajax.nonce
 		},
 		beforeSend: function(){
 			// Show image container

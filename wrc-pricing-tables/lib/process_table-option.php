@@ -527,33 +527,39 @@ add_action( 'wp_ajax_wrcpt_update_pricing_package', 'wrcpt_update_pricing_packag
 
 if (!function_exists('wrcpt_regenerate_shortcode')) {
 	function wrcpt_regenerate_shortcode() {
-        // Check permissions and nonce
-        if(wrcpt_check_permissions_and_nonce()) {
-			$package_table = get_option('packageTables');
-			delete_option('packageIDs');
-			delete_option('IDsCount');
-
-			$table_lists = explode(', ', $package_table);
-			$pack_id = 1;
-			$temp = '';
-			$id_count = count($table_lists);
-			foreach($table_lists as $key => $list) {
-				if($id_count > 1) {
-					$pricing_table_ids = $temp . $pack_id;
-					$temp = $pricing_table_ids . ', ';
-					$pack_id++;
-				} else {
-					$pricing_table_ids = $pack_id;
-				}
-			}
-			add_option('packageIDs', $pricing_table_ids);
-			add_option('IDsCount', $id_count);
-		} else {
+		// Check if the current user has the necessary capability
+		if (!current_user_can('manage_options')) {
+			wp_die('You do not have sufficient permissions to access this page.');
+		}
+	
+		// Get the nonce from the AJAX request data
+		$nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+	
+		// Verify the nonce
+		if (!wp_verify_nonce($nonce, 'wrcpt_ajax_action_nonce')) {
+			wp_die('You do not have sufficient permissions to access this page.');
 			// Nonce verification failed, handle the error
-            wp_send_json_error(array('message' => 'Nonce verification failed'));
-            // Display an error message or handle the case where permissions and nonce check failed
-            wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
-        }
+			wp_send_json_error(array('message' => 'Nonce verification failed'));
+		}
+		$package_table = get_option('packageTables');
+		delete_option('packageIDs');
+		delete_option('IDsCount');
+	
+		$table_lists = explode(', ', $package_table);
+		$pack_id = 1;
+		$temp = '';
+		$id_count = count($table_lists);
+		foreach($table_lists as $key => $list) {
+			if($id_count > 1) {
+				$pricing_table_ids = $temp . $pack_id;
+				$temp = $pricing_table_ids . ', ';
+				$pack_id++;
+			} else {
+				$pricing_table_ids = $pack_id;
+			}
+		}
+		add_option('packageIDs', $pricing_table_ids);
+		add_option('IDsCount', $id_count);
 	}
 }
 add_action( 'wp_ajax_nopriv_wrcpt_regenerate_shortcode', 'wrcpt_regenerate_shortcode' );
