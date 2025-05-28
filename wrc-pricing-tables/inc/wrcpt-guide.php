@@ -1,8 +1,9 @@
 <?php
-/*
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * @realwebcare - https://www.realwebcare.com/
+/**
  * Plugin Guideline
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -12,7 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="postbox-container wrcpt-guide" style="width:65%;">
 	<h2 class="main-header"><?php esc_html_e('Pricing Table Guide', 'wrc-pricing-tables'); ?></h2>
 		<div class="wrcusage-maincontent">
-			<hr>
 			<div id="poststuff">
 				<div class="postbox">
 					<h3><?php esc_html_e('Welcome to WRC Pricing Tables', 'wrc-pricing-tables'); ?></h3>

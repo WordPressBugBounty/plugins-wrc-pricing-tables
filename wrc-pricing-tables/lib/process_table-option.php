@@ -1,8 +1,9 @@
 <?php
-/*
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * @realwebcare - https://www.realwebcare.com/
+/**
  * Pricing table functions to create and update tables
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
@@ -25,7 +26,7 @@ if (!function_exists('wrcpt_check_permissions_and_nonce')) {
 
         // Create or verify nonce
         $nonce_action = 'wrcpt_ajax_action_nonce';
-        $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+        $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
         if (empty($nonce) || !wp_verify_nonce($nonce, $nonce_action)) {
 			// If nonce is missing or verification fails, return false
@@ -42,13 +43,15 @@ if (!function_exists('wrcpt_add_package_features')) {
         if (wrcpt_check_permissions_and_nonce()) {
 			$fn = 1;
 
-			$package_feature = isset($_POST['package_feature']) ? sanitize_key($_POST['package_feature']) : '';
-			$feature_type = isset($_POST['feature_type']) ? array_map('sanitize_text_field', $_POST['feature_type']) : array();
+			$package_feature = isset($_POST['package_feature']) ? sanitize_key(wp_unslash($_POST['package_feature'])) : '';
+			$feature_type = isset($_POST['feature_type']) ? array_map('sanitize_text_field', wp_unslash($_POST['feature_type'])) : array();
 
 			if($package_feature) {
 				if (isset($_POST['feature_name']) && is_array($_POST['feature_name'])) {
+					$feature_name_input = wp_unslash($_POST['feature_name']); // Unslash before use
 					$feature_name = array();
-					foreach($_POST['feature_name'] as $key => $feature) {
+
+					foreach($feature_name_input as $key => $feature) {
 						if($feature) {
 							$feature_name['fitem' . $fn] = sanitize_text_field($feature);
 							$feature_name['ftype' . $fn] = isset($feature_type[$key]) ? $feature_type[$key] : '';
@@ -66,7 +69,7 @@ if (!function_exists('wrcpt_add_package_features')) {
 			// Nonce verification failed, handle the error
             wp_send_json_error(array('message' => 'Nonce verification failed'));
             // Display an error message or handle the case where permissions and nonce check failed
-            wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
         }
 		wp_die();
 	}
@@ -82,10 +85,10 @@ if (!function_exists('wrcpt_update_package_features')) {
 			$fn = 1; $count_item = 0;
 			$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-			$feature_type = isset($_POST['feature_type']) ? array_map('sanitize_text_field', $_POST['feature_type']) : array();
+			$feature_type = isset($_POST['feature_type']) ? array_map('sanitize_text_field', wp_unslash($_POST['feature_type'])) : array();
 			$package_feature = isset($_POST['package_feature']) ? sanitize_key($_POST['package_feature']) : '';
 
-			$pricing_table = isset($_POST['pricing_table']) ? sanitize_text_field($_POST['pricing_table']) : '';
+			$pricing_table = isset($_POST['pricing_table']) ? sanitize_text_field(wp_unslash($_POST['pricing_table'])) : '';
 
 			$feature_lists = get_option($package_feature, 'default_value');
 
@@ -101,8 +104,8 @@ if (!function_exists('wrcpt_update_package_features')) {
 			if(isset($_POST['feature_name'])) { $count_item = count($_POST['feature_name']); }
 
 			if($count_item > 0) {
-				$feature_value = isset($_POST['feature_value']) ? array_map('sanitize_text_field', $_POST['feature_value']) : array();
-				$tooltips = isset($_POST['tooltips']) ? array_map('sanitize_text_field', $_POST['tooltips']) : array();
+				$feature_value = isset($_POST['feature_value']) ? array_map('sanitize_text_field', wp_unslash($_POST['feature_value'])) : array();
+				$tooltips = isset($_POST['tooltips']) ? array_map('sanitize_text_field', wp_unslash($_POST['tooltips'])) : array();
 
 				$sn = 0; $fd = 1;
 				$feature_name = array();
@@ -150,7 +153,7 @@ if (!function_exists('wrcpt_update_package_features')) {
 			// Nonce verification failed, handle the error
             wp_send_json_error(array('message' => 'Nonce verification failed'));
             // Display an error message or handle the case where permissions and nonce check failed
-            wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
         }
 		wp_die();
 	}
@@ -163,7 +166,7 @@ if (!function_exists('wrcpt_edit_pricing_table')) {
         // Check if the user has the necessary capability (e.g., manage_options)
         if (!current_user_can('manage_options')) {
             // If the user does not have the required capability, terminate and display an error message.
-            wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
         } else {
 			if($pricing_table && $pricing_table != $edited_table) {
 				$package_table = get_option('packageTables');
@@ -216,7 +219,7 @@ if (!function_exists('wrcpt_delete_pricing_table')) {
         // Check permissions and nonce
         if(wrcpt_check_permissions_and_nonce()) {
 			// Validate and sanitize the input
-			$pricing_table = isset( $_POST['packtable'] ) ? sanitize_text_field( $_POST['packtable'] ) : '';
+			$pricing_table = isset( $_POST['packtable'] ) ? sanitize_text_field( wp_unslash($_POST['packtable']) ) : '';
 
 			// Check if the selected table is not empty
 			if ( ! empty( $pricing_table ) ) {
@@ -269,7 +272,7 @@ if (!function_exists('wrcpt_delete_pricing_table')) {
 			// Nonce verification failed, handle the error
             wp_send_json_error(array('message' => 'Nonce verification failed'));
             // Display an error message or handle the case where permissions and nonce check failed
-            wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
         }
 		wp_die();
 	}
@@ -282,7 +285,7 @@ if (!function_exists('wrcpt_update_pricing_table')) {
         // Check if the user has the necessary capability (e.g., manage_options)
         if (!current_user_can('manage_options')) {
             // If the user does not have the required capability, terminate and display an error message.
-            wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
         } else {
 			$package_count = get_option('packageCount');	//4
 
@@ -318,7 +321,7 @@ if (!function_exists('wrcpt_delete_pricing_packages')) {
         // Check if the user has the necessary capability (e.g., manage_options)
         if (!current_user_can('manage_options')) {
             // If the user does not have the required capability, terminate and display an error message.
-            wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
         } else {
 			$pricing_table = sanitize_text_field($pricing_table);
 
@@ -341,15 +344,15 @@ if (!function_exists('wrcpt_update_pricing_package')) {
         // Check permissions and nonce
         if(wrcpt_check_permissions_and_nonce()) {
 			// Ensure this is a POST request
-			if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+			if ( ! isset($_SERVER['REQUEST_METHOD']) || $_SERVER['REQUEST_METHOD'] !== 'POST' ) {
 				wp_die();
 			}
 
 			$fc = 0; $tc = 0; $temp_id = 0; $cf = 1;
 
 			// Sanitize and validate user inputs
-			$pricing_table = isset($_POST['pricing_table']) && $_POST['pricing_table'] ? sanitize_text_field($_POST['pricing_table']) : '';
-			$pricing_table_name = isset($_POST['pricing_table_name']) && $_POST['pricing_table_name'] ? trim(preg_replace('/[^A-Za-z0-9-\w_]+/', '_', sanitize_text_field( $_POST['pricing_table_name'] ))) : $pricing_table;
+			$pricing_table = isset($_POST['pricing_table']) && $_POST['pricing_table'] ? sanitize_text_field(wp_unslash($_POST['pricing_table'])) : '';
+			$pricing_table_name = isset($_POST['pricing_table_name']) && $_POST['pricing_table_name'] ? trim(preg_replace('/[^A-Za-z0-9-\w_]+/', '_', sanitize_text_field( wp_unslash($_POST['pricing_table_name']) ))) : $pricing_table;
 
 			$pricing_table = wrcpt_edit_pricing_table($pricing_table, $pricing_table_name);
 
@@ -359,7 +362,7 @@ if (!function_exists('wrcpt_update_pricing_package')) {
 
 			foreach($package_text_values as $key => $value) {
 				if( isset( $_POST[$value] ) ) {
-					$optionValue_text[$key] = sanitize_text_field( $_POST[$value] );
+					$optionValue_text[$key] = sanitize_text_field( wp_unslash($_POST[$value]) );
 				}
 			}
 
@@ -383,10 +386,10 @@ if (!function_exists('wrcpt_update_pricing_package')) {
 			$enable_ribbon = isset($_POST['enable_ribbon']) && $_POST['enable_ribbon'] === 'yes' ? 'yes' : 'no';
 			$new_tab = isset($_POST['new_tab']) && $_POST['new_tab'] === 'yes' ? 'yes' : 'no';
 
-			$tick_mark = isset($_POST['tick_mark']) && in_array($_POST['tick_mark'], $tick_icons) ? sanitize_text_field($_POST['tick_mark']) : 'tick-1';
-			$cross_mark = isset($_POST['cross_mark']) && in_array($_POST['cross_mark'], $cross_icons) ? sanitize_text_field($_POST['cross_mark']) : 'cross-1';
+			$tick_mark = isset($_POST['tick_mark']) && in_array($_POST['tick_mark'], $tick_icons) ? sanitize_text_field(wp_unslash($_POST['tick_mark'])) : 'tick-1';
+			$cross_mark = isset($_POST['cross_mark']) && in_array($_POST['cross_mark'], $cross_icons) ? sanitize_text_field(wp_unslash($_POST['cross_mark'])) : 'cross-1';
 
-			$submitted = (isset($_POST['submitted']) && $_POST['submitted'] == 'yes') ? sanitize_text_field($_POST['submitted']) : 'yes';
+			$submitted = (isset($_POST['submitted']) && $_POST['submitted'] == 'yes') ? sanitize_text_field(wp_unslash($_POST['submitted'])) : 'yes';
 
 			$table_option = $pricing_table.'_option';
 
@@ -399,24 +402,24 @@ if (!function_exists('wrcpt_update_pricing_package')) {
 			update_option($table_option, $optionValue);
 
 			if (isset($_POST['pricing_packages'])) {
-				$sanitized_pricing_packages = array_map('sanitize_text_field', $_POST['pricing_packages']);
+				$sanitized_pricing_packages = array_map('sanitize_text_field', wp_unslash($_POST['pricing_packages']));
 				wrcpt_delete_pricing_packages($pricing_table, $sanitized_pricing_packages);
 			} else {
 				wrcpt_delete_pricing_packages($pricing_table, ''); // Provide a default value if $_POST['pricing_packages'] is not set
 			}
 
-			$package_id = isset($_POST['package_id']) ? array_map('sanitize_text_field', $_POST['package_id']) : array();
-			$order_id = isset($_POST['order_id']) ? array_map('sanitize_text_field', $_POST['order_id']) : array();
-			$special_package = isset($_POST['special_package']) ? array_map('sanitize_text_field', $_POST['special_package']) : array();
-			$package_type = isset($_POST['package_type']) ? array_map('sanitize_text_field', $_POST['package_type']) : array();
+			$package_id = isset($_POST['package_id']) ? array_map('sanitize_text_field', wp_unslash($_POST['package_id'])) : array();
+			$order_id = isset($_POST['order_id']) ? array_map('sanitize_text_field', wp_unslash($_POST['order_id'])) : array();
+			$special_package = isset($_POST['special_package']) ? array_map('sanitize_text_field', wp_unslash($_POST['special_package'])) : array();
+			$package_type = isset($_POST['package_type']) ? array_map('sanitize_text_field', wp_unslash($_POST['package_type'])) : array();
 
 			$package_text_options = array(
 				'pdisp' => 'hide_show', 'type' => 'package_type', 'tdesc' => 'package_desc', 'tcolor' => 'title_color', 'tbcolor' => 'title_bg', 'fbrow1' => 'feat_row1_color', 'fbrow2' => 'feat_row2_color', 'ftcolor' => 'feature_text_color', 'price' => 'price_number', 'pcbig' => 'price_color_big', 'cent' => 'price_fraction', 'unit' => 'price_unit', 'plan' => 'package_plan', 'pdesc' => 'price_desc', 'btext' => 'button_text', 'blink' =>'button_link', 'bicon' =>'button_icon', 'btcolor' => 'button_text_color', 'bthover' => 'button_text_hover', 'bcolor' => 'button_color', 'bhover' => 'button_hover', 'rtext' => 'ribbon_text', 'rtcolor' => 'ribbon_text_color', 'rbcolor' => 'ribbon_bg'
 			);
 
-			$package_features = isset($_POST['feature_value']) ? array_map('sanitize_text_field', $_POST['feature_value']) : array();
-			$package_tooltips = isset($_POST['tooltips']) ? array_map('sanitize_text_field', $_POST['tooltips']) : array();
-			$checkbox_value = isset($_POST['checkbox_value']) ? sanitize_text_field($_POST['checkbox_value']) : '';
+			$package_features = isset($_POST['feature_value']) ? array_map('sanitize_text_field', wp_unslash($_POST['feature_value'])) : array();
+			$package_tooltips = isset($_POST['tooltips']) ? array_map('sanitize_text_field', wp_unslash($_POST['tooltips'])) : array();
+			$checkbox_value = isset($_POST['checkbox_value']) ? sanitize_text_field(wp_unslash($_POST['checkbox_value'])) : '';
 
 			$table_feature = $pricing_table.'_feature';
 
@@ -496,7 +499,7 @@ if (!function_exists('wrcpt_update_pricing_package')) {
 
 					foreach($package_text_options as $pkey => $value) {
 						if( isset( $_POST[$value] ) ) {
-							$packValue = isset($_POST[$value]) ? array_map('wp_unslash', $_POST[$value]) : array();
+							$packValue = isset($_POST[$value]) ? array_map('wp_unslash', wp_unslash($_POST[$value])) : array();
 							if($pkey == 'blink') {
 								$packageOptions_text[$pkey] = esc_url_raw( $packValue[$key] );
 							} else {
@@ -517,7 +520,7 @@ if (!function_exists('wrcpt_update_pricing_package')) {
 			// Nonce verification failed, handle the error
             wp_send_json_error(array('message' => 'Nonce verification failed'));
             // Display an error message or handle the case where permissions and nonce check failed
-            wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
+            wp_die(esc_html__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
         }
 		wp_die();
 	}
@@ -533,7 +536,7 @@ if (!function_exists('wrcpt_regenerate_shortcode')) {
 		}
 	
 		// Get the nonce from the AJAX request data
-		$nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+		$nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 	
 		// Verify the nonce
 		if (!wp_verify_nonce($nonce, 'wrcpt_ajax_action_nonce')) {
@@ -571,7 +574,7 @@ if (!function_exists('wrcpt_published_tables_count')) {
 		// Check if the user has the necessary capability (e.g., manage_options)
 		if (!current_user_can('manage_options')) {
 			// If the user does not have the required capability, terminate and display an error message.
-			wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
 		} else {
 			$count = 0;
 			foreach($table_lists as $key => $list) {
@@ -591,7 +594,7 @@ if (!function_exists('wrcpt_unuseful_package_options')) {
 		// Check if the user has the necessary capability (e.g., manage_options)
 		if (!current_user_can('manage_options')) {
 			// If the user does not have the required capability, terminate and display an error message.
-			wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
 		} else {
 			$package_table = get_option('packageTables');
 			$table_lists = explode(', ', $package_table);
@@ -622,7 +625,7 @@ if (!function_exists('wrcpt_count_unuseful_package_options')) {
 		// Check if the user has the necessary capability (e.g., manage_options)
 		if (!current_user_can('manage_options')) {
 			// If the user does not have the required capability, terminate and display an error message.
-			wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+			wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
 		} else {
 			$package_table = get_option('packageTables');
 			$table_lists = explode(', ', $package_table);

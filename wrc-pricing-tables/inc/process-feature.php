@@ -1,8 +1,9 @@
 <?php
-/*
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * @realwebcare - https://www.realwebcare.com/
+/**
  * Processing package features for Pricing Table
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -10,20 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 function wrcpt_process_package_features() {
     // Check if the user has the necessary capability (e.g., manage_options)
     if (!current_user_can('manage_options')) {
-        wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+        wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
     }
 	// Get the nonce from the AJAX request data
-    $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
     // Verify the nonce
     if (!wp_verify_nonce($nonce, 'wrcpt_ajax_action_nonce')) {
 		// Nonce verification failed, handle the error
 		wp_send_json_error(array('message' => 'Nonce verification failed'));
-		wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+		wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
     }
 
 	$i = 1; $fp = 1; $package_feature = array();
-	$pricing_table = isset($_POST['packtable']) ? sanitize_text_field($_POST['packtable']) : '';
+	$pricing_table = isset($_POST['packtable']) ? sanitize_text_field(wp_unslash($_POST['packtable'])) : '';
 
 	$package_feature = get_option($pricing_table.'_feature', 'default_value');
 	if ( $package_feature !== 'default_value' ) {
@@ -59,7 +60,7 @@ function wrcpt_process_package_features() {
 					<?php for($i = 1; $i <= $featureNum; $i++) { ?>
 						<tr class="featurebody">
 							<td>
-								<input type="text" name="feature_name[<?php echo 'fitem'.$i; ?>]" value="<?php echo esc_attr($package_feature['fitem'.$i]); ?>" placeholder="<?php esc_html_e('Enter Feature Name', 'wrc-pricing-tables'); ?>" size="20" required /><?php
+								<input type="text" name="feature_name[<?php echo esc_attr('fitem'.$i); ?>]" value="<?php echo esc_attr($package_feature['fitem'.$i]); ?>" placeholder="<?php esc_html_e('Enter Feature Name', 'wrc-pricing-tables'); ?>" size="20" required /><?php
 								foreach($packageOptions as $option => $value) {
 									$packageItem = get_option($value); ?>
 									<input type="hidden" name="feature_value[]" value="<?php echo esc_attr($packageItem['fitem'.$fp]); ?>" />
@@ -80,7 +81,7 @@ function wrcpt_process_package_features() {
 									<?php } ?>
 								</select>
 							</td>
-							<td><span id="<?php echo $rmv_id; ?>"></span></td>
+							<td><span id="<?php echo esc_attr($rmv_id); ?>"></span></td>
 						</tr>
 					<?php } ?>
 					</tbody>
@@ -131,4 +132,3 @@ function wrcpt_process_package_features() {
 }
 add_action( 'wp_ajax_nopriv_wrcpt_process_package_features', 'wrcpt_process_package_features' );
 add_action( 'wp_ajax_wrcpt_process_package_features', 'wrcpt_process_package_features' );
-?>

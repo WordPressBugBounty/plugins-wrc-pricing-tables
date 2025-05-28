@@ -1,8 +1,9 @@
 <?php
-/*
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * @realwebcare - https://www.realwebcare.com/
+/**
  * Adding menu for Pricing Table in WP admin
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -21,7 +22,8 @@ if(!class_exists('WRCPT_Admin_Menu')) {
                 'manage_options',
                 'wrcpt-menu',
                 array($this, 'plugin_menu'),
-                plugins_url('../images/icon.png', __FILE__)
+                WRCPT_PLUGIN_URL . 'assets/images/icon.png',
+                66
             );
 
             add_submenu_page(
@@ -54,21 +56,21 @@ if(!class_exists('WRCPT_Admin_Menu')) {
 
         public function plugin_menu() {
             if (!current_user_can('manage_options')) {
-                wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
-            }
+				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            }   
             require_once WRCPT_PLUGIN_PATH . 'inc/process-table.php';
         }
 
         public function template_page() {
             if (!current_user_can('manage_options')) {
-                wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
             }
             require_once WRCPT_PLUGIN_PATH . 'template/process-template.php';
         }
 
         public function guide_page() {
             if (!current_user_can('manage_options')) {
-                wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
             }
             require_once WRCPT_PLUGIN_PATH . 'inc/wrcpt-guide.php';
         }
@@ -91,4 +93,3 @@ if (isset($_POST['wrcpt_edit_process']) && $_POST['wrcpt_edit_process'] == "edit
         wrcpt_unuseful_package_options();
     }
 }
-?>

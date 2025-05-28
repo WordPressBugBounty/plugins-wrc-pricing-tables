@@ -1,8 +1,9 @@
 <?php
-/*
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * @realwebcare - https://www.realwebcare.com/
+/**
  * Editing Pricing Table Packages
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
@@ -10,22 +11,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 function wrcpt_edit_pricing_packages() {
     // Check if the user has the necessary capability (e.g., manage_options)
     if (!current_user_can('manage_options')) {
-        wp_die(__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+        wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
     }
 	// Get the nonce from the AJAX request data
-    $nonce = isset($_POST['nonce']) ? sanitize_text_field($_POST['nonce']) : '';
+    $nonce = isset($_POST['nonce']) ? sanitize_text_field(wp_unslash($_POST['nonce'])) : '';
 
 	// Verify the nonce
 	if (!wp_verify_nonce($nonce, 'wrcpt_ajax_action_nonce')) {
 		// Nonce verification failed, handle the error
 		wp_send_json_error(array('message' => 'Nonce verification failed'));
 		// Display an error message or handle the case where permissions and nonce check failed
-		wp_die(__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
+		wp_die(esc_html__('You do not have sufficient permissions to access this page, or the nonce verification failed.', 'wrc-pricing-tables'));
 	} else {
 		$fv = 1; $ac = 1; $cf = 1;
 		$f_value = '';
 		$f_tips = '';
-		$pricing_table = isset($_POST['packtable']) ? sanitize_text_field($_POST['packtable']) : '';
+		$pricing_table = isset($_POST['packtable']) ? sanitize_text_field(wp_unslash($_POST['packtable'])) : '';
 		$pricing_table_name = ucwords(str_replace('_', ' ', $pricing_table));
 		$package_feature = get_option($pricing_table.'_feature');
 		$packageCombine = get_option($pricing_table.'_option');
@@ -51,15 +52,15 @@ function wrcpt_edit_pricing_packages() {
 					$packageValue = get_option($value);
 					if(isset($packageValue['pdisp'])) { $showpack = $packageValue['pdisp']; }
 					else { $showpack = 'show'; } ?>
-					<div id="wrcpt-<?php echo $ac; ?>" class="package_details">
-						<h4 id="pcolumn<?php echo $ac; ?>"><?php esc_html_e('Pricing Column', 'wrc-pricing-tables'); ?> <?php echo $ac; ?></h4>
-						<?php if($packageValue['pdisp'] == 'show') { ?><span id="hidePack<?php echo $ac; ?>" class="column_hide"><span class="dashicons dashicons-fullscreen-alt"></span><?php } else { ?><span id="showPack<?php echo $ac; ?>" class="column_show"><span class="dashicons dashicons-fullscreen-exit-alt"></span><?php } ?><input type="hidden" name="hide_show[]" value="<?php echo esc_attr($packageValue['pdisp']); ?>" /></span>
+					<div id="wrcpt-<?php echo esc_attr($ac); ?>" class="package_details">
+						<h4 id="pcolumn<?php echo esc_attr($ac); ?>"><?php esc_html_e('Pricing Column', 'wrc-pricing-tables'); ?> <?php echo esc_attr($ac); ?></h4>
+						<?php if($packageValue['pdisp'] == 'show') { ?><span id="hidePack<?php echo esc_attr($ac); ?>" class="column_hide"><span class="dashicons dashicons-fullscreen-alt"></span><?php } else { ?><span id="showPack<?php echo esc_attr($ac); ?>" class="column_show"><span class="dashicons dashicons-fullscreen-exit-alt"></span><?php } ?><input type="hidden" name="hide_show[]" value="<?php echo esc_attr($packageValue['pdisp']); ?>" /></span>
 						<span id="delPackage"><span class="dashicons dashicons-trash"></span></span>
-						<div id="accordion<?php echo $ac; ?>" class="column_container">
+						<div id="accordion<?php echo esc_attr($ac); ?>" class="column_container">
 							<h3 class="ptitle"><?php esc_html_e('Pricing Column Details', 'wrc-pricing-tables'); ?></h3>
 							<div class="element-input">
 								<label class="input-check"><?php esc_html_e('Enlarge Column?', 'wrc-pricing-tables'); ?><a href="#" class="wrc_tooltip" rel="<?php esc_html_e('If you want to highlight the current column from some of the other columns, simply mark the checkbox.', 'wrc-pricing-tables'); ?>"></a></label>
-								<input type="checkbox" class="tickbox" name="special_package[<?php echo $ac-1; ?>]" id="special_package" value="yes"<?php if($packageValue['spack'] == 'yes') {?> checked="checked"<?php } ?> /><hr />
+								<input type="checkbox" class="tickbox" name="special_package[<?php echo esc_attr($ac-1); ?>]" id="special_package" value="yes"<?php if($packageValue['spack'] == 'yes') {?> checked="checked"<?php } ?> /><hr />
 								<h4><?php esc_html_e('Package Name', 'wrc-pricing-tables'); ?><a href="#" class="wrc_tooltip" rel="<?php esc_html_e('Enter your pricing package name here. You can also enter a short description of the package name. There are many users who choose a package based on the name, instead of features. So, a short description might help users to select the appropriate package.', 'wrc-pricing-tables'); ?>"></a></h4>
 								<label class="input-title"><?php esc_html_e('Package Name', 'wrc-pricing-tables'); ?></label>
 								<input type="text" name="package_type[]" class="medium" id="package_type" value="<?php echo esc_attr($packageValue['type']); ?>" />
@@ -80,13 +81,13 @@ function wrcpt_edit_pricing_packages() {
 											$f_tips = $packageValue['tip'.$fv];
 										}
 										if($package_feature['ftype'.$i] == 'text') { ?>
-											<label class="input-title"><?php echo $package_feature['fitem'.$i]; ?></label><input type="text" class="medium" name="feature_value[]" id="feature_value" value="<?php echo esc_attr($f_value); ?>" placeholder="<?php esc_html_e('Feature Value', 'wrc-pricing-tables'); ?>" /><textarea name="tooltips[]" id="tooltips" class="medium" cols="27" rows="2" placeholder="<?php esc_html_e('Enter Tooltip', 'wrc-pricing-tables'); ?>"><?php echo esc_attr($f_tips); ?></textarea><hr /><?php
+											<label class="input-title"><?php echo esc_html($package_feature['fitem'.$i]); ?></label><input type="text" class="medium" name="feature_value[]" id="feature_value" value="<?php echo esc_attr($f_value); ?>" placeholder="<?php esc_html_e('Feature Value', 'wrc-pricing-tables'); ?>" /><textarea name="tooltips[]" id="tooltips" class="medium" cols="27" rows="2" placeholder="<?php esc_html_e('Enter Tooltip', 'wrc-pricing-tables'); ?>"><?php echo esc_attr($f_tips); ?></textarea><hr /><?php
 										} else { ?>
-											<label class="input-check"><?php echo $package_feature['fitem'.$i]; ?></label><input type="checkbox" class="tickbox" name="feature_value[<?php echo esc_attr('ftype'.$cf); ?>]" id="feature_value" value="<?php echo $checkValue; ?>"<?php if($f_value == 'tick' || $f_value == 'yes') {?> checked="checked"<?php } ?> /><textarea name="tooltips[]" id="tooltips" class="medium" cols="27" rows="2" placeholder="<?php esc_html_e('Enter Tooltip', 'wrc-pricing-tables'); ?>"><?php echo esc_attr($f_tips); ?></textarea><hr /><?php
+											<label class="input-check"><?php echo esc_html($package_feature['fitem'.$i]); ?></label><input type="checkbox" class="tickbox" name="feature_value[<?php echo esc_attr('ftype'.$cf); ?>]" id="feature_value" value="<?php echo esc_attr($checkValue); ?>"<?php if($f_value == 'tick' || $f_value == 'yes') {?> checked="checked"<?php } ?> /><textarea name="tooltips[]" id="tooltips" class="medium" cols="27" rows="2" placeholder="<?php esc_html_e('Enter Tooltip', 'wrc-pricing-tables'); ?>"><?php echo esc_attr($f_tips); ?></textarea><hr /><?php
 											$cf++;
 										} $fv++;
 									}
-								} else { echo '<label class="input-title">' . __('There are no feature items!', 'wrc-pricing-tables') . '</label>'; } ?>
+								} else { echo '<label class="input-title">' . esc_html_e('There are no feature items!', 'wrc-pricing-tables') . '</label>'; } ?>
 								<h4><?php esc_html_e('Package Button', 'wrc-pricing-tables'); ?><a href="#" class="wrc_tooltip" rel="<?php esc_html_e('Enter your call to action text and call to action URL here. The URL is usually either a payment link or a page where users can create an account.', 'wrc-pricing-tables'); ?>"></a></h4>
 								<div id="normal_button">
 									<label class="input-title"><?php esc_html_e('Button Text', 'wrc-pricing-tables'); ?></label>
@@ -172,7 +173,7 @@ function wrcpt_edit_pricing_packages() {
 				<?php
 						$fv = 1; $ac++;
 					}
-				} else _e('No Packages yet!', 'wrc-pricing-tables'); ?>
+				} else esc_html_e('No Packages yet!', 'wrc-pricing-tables'); ?>
 				</div>	<!--sortable_column -->
 			</div>	<!--tablecolumnwrap -->
 		</div>	<!--tablecolumndiv -->

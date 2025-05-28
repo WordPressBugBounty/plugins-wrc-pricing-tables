@@ -1,13 +1,13 @@
 <?php
 /**
- * WRC Pricing Tables 2.4.4 - 20 November, 2024
- * by @realwebcare - https://www.realwebcare.com/
- *
  * Pricing Table Shortcode
  * Display pricing table responsively.
  * In the tablet view, the pricing table will be divided into two columns.
  * In the mobile view, each column of the price table will be displayed below each other.
-**/
+ * 
+ * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @link https://www.realwebcare.com/
+ */
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
@@ -111,47 +111,47 @@ div#<?php echo esc_attr($tableID); ?> div.package_details:hover {-moz-box-shadow
 div#<?php echo esc_attr($tableID); ?> div.package_caption li.feature_style_2, div#<?php echo esc_attr($tableID); ?> div.package_caption li.feature_style_3 {<?php if($p_combine['entips'] == 'yes') { ?>padding-right: 25px;<?php } ?>}
 <?php /* Tick Icon */ ?>
 <?php if($p_combine['tick'] == "tick-10") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -340px -41px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -340px -41px}
 <?php } elseif($p_combine['tick'] == "tick-9") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -305px -41px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -305px -41px}
 <?php } elseif($p_combine['tick'] == "tick-8") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -270px -41px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -270px -41px}
 <?php } elseif($p_combine['tick'] == "tick-7") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -235px -42px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -235px -42px}
 <?php } elseif($p_combine['tick'] == "tick-6") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -200px -40px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -200px -40px}
 <?php } elseif($p_combine['tick'] == "tick-5") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -129px -40px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -129px -40px}
 <?php } elseif($p_combine['tick'] == "tick-4") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -165px -42px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -165px -42px}
 <?php } elseif($p_combine['tick'] == "tick-3") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -95px -40px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -95px -40px}
 <?php } elseif($p_combine['tick'] == "tick-2") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -60px -41px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -60px -41px}
 <?php } else { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -24px -41px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_yes:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -24px -41px}
 <?php } ?>
 <?php /* Cross Icon */ ?>
 <?php if($p_combine['cross'] == "cross-10") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -340px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -340px -91px}
 <?php } elseif($p_combine['cross'] == "cross-9") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -305px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -305px -91px}
 <?php } elseif($p_combine['cross'] == "cross-8") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -270px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -270px -91px}
 <?php } elseif($p_combine['cross'] == "cross-7") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -234px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -234px -91px}
 <?php } elseif($p_combine['cross'] == "cross-6") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -200px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -200px -91px}
 <?php } elseif($p_combine['cross'] == "cross-5") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -165px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -165px -91px}
 <?php } elseif($p_combine['cross'] == "cross-4") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -129px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -129px -91px}
 <?php } elseif($p_combine['cross'] == "cross-3") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -95px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -95px -91px}
 <?php } elseif($p_combine['cross'] == "cross-2") { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -59px -90px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -59px -90px}
 <?php } else { ?>
-div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo plugins_url( '../images/wrcpt-buttons.png', __FILE__ ); ?>) no-repeat -24px -91px}
+div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -24px -91px}
 <?php } ?>
 </style><?php
 				foreach($p_options as $key => $value) {
@@ -165,7 +165,7 @@ div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before
 								<ul>
 									<li class="pricing_table_title"></li>
 									<li class="pricing_table_plan">
-										<h3 class="caption"><?php echo ucwords(str_replace('_', ' ', sanitize_text_field($p_table))); ?></h3>
+										<h3 class="caption"><?php echo esc_html(ucwords(str_replace('_', ' ', sanitize_text_field($p_table)))); ?></h3>
 									</li><?php
 									for($tf = 1; $tf <= $tot_feat; $tf++) {
 										if($i % 2 == 0) {
@@ -319,16 +319,22 @@ div#<?php echo esc_attr($tableID); ?> div.package_details li .ribbon_color-<?php
                                                     <span class="feat_value"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
                                                 }
                                             }
-                                            if($p_combine['entips'] == "yes" && $f_tips != '') { ?><span class="<?php echo $ttip; ?>_tooltip" rel="<?php echo esc_attr($f_tips); ?>"></span><?php } ?>
+                                            if($p_combine['entips'] == "yes" && $f_tips != '') { ?><span class="<?php echo esc_attr($ttip); ?>_tooltip" rel="<?php echo wp_kses_post($f_tips); ?>"></span><?php } ?>
                                         </div>
                                     </li><?php
                                     $i++;
 								} $j++;
 							} ?>
-							<li class="pricing_table_button bbcolor-<?php echo esc_attr($pid); ?> button-<?php echo esc_attr($pid); ?>">
+							<?php
+							if (isset($packageType['btext']) && $packageType['btext'] === '') {
+								$button_text = ' btn-empty';
+							} else { $button_text = ''; } ?>
+							<li class="pricing_table_button bbcolor-<?php echo esc_attr($pid); ?> button-<?php echo esc_attr($pid); ?><?php echo esc_attr($button_text); ?>">
+								<?php if (!empty($packageType['btext'])): ?>
 								<div class="button_code">
 									<a href="<?php echo esc_url($packageType['blink']); ?>" class="action_button"<?php if($p_combine['nltab'] == 'yes') { ?> target="_blank"<?php } ?>><?php echo esc_attr($packageType['btext']); ?></a>
 								</div>
+								<?php endif; ?>
 							</li>
 						</ul>
 					</div> <!-- End of package_details -->
@@ -342,12 +348,11 @@ div#<?php echo esc_attr($tableID); ?> div.package_details li .ribbon_color-<?php
 			p.wrcpt_notice {background-color: #FFF;padding: 15px 20px;font-size: 24px;line-height: 24px;border-left: 4px solid #7ad03a;-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);box-shadow: 2px 2px 5px 2px rgba(0,0,0,.1);display: inline-block}
 		</style><?php
 		if($p_table == '' || $flag == 0) { ?>
-			<p class="wrcpt_notice"><?php echo __('You didn\'t add any pricing tables yet!', 'wrc-pricing-tables') ?></p><?php
+			<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing tables yet!', 'wrc-pricing-tables') ?></p><?php
 		} elseif(empty($p_lists)) { ?>
-			<p class="wrcpt_notice"><?php echo __('You didn\'t add any pricing column yet!', 'wrc-pricing-tables') ?></p><?php
+			<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing column yet!', 'wrc-pricing-tables') ?></p><?php
 		} else { ?>
-			<p class="wrcpt_notice"><?php echo __('Please <strong>Enable</strong> pricing table to display pricing table columns!', 'wrc-pricing-tables') ?></p><?php
+			<p class="wrcpt_notice"><?php echo wp_kses_post(sprintf(__('Please <strong>Enable</strong> pricing table to display pricing table columns!', 'wrc-pricing-tables'))); ?></p><?php
 		}
 	}
 }
-?>
