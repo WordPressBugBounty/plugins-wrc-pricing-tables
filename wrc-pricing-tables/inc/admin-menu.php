@@ -1,20 +1,55 @@
 <?php
 /**
- * Adding menu for Pricing Table in WP admin
+ * Class WRCPT_Admin_Menu
  * 
- * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * Adding a top-level menu page and a submenu page for pricing table plugin.
+ *
+ * @uses  add_menu_page()	 - Adding a top-level menu page for pricing table plugin.
+ * These functions takes a capability which will be used to determine whether
+ * or not a page is included in the menu.
+ *
+ * @uses  add_submenu_page() - Adding a submenu page for pricing table plugin.
+ * The functions which is hooked in to handle the output of the page must check
+ * that the user has the required capability as well.
+ *
+ * Including other pages to make the plugin workable.
+ * 
+ * @package WRC Pricing Tables v2.6 - 9 December, 2025
  * @link https://www.realwebcare.com/
  */
+
 if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
+
 if(!class_exists('WRCPT_Admin_Menu')) {
     class WRCPT_Admin_Menu {
+        private static $instance;
 
         public function __construct() {
             add_action('admin_menu', array($this, 'register_menu'));
         }
 
+        /**
+         * Public static method to retrieve the singleton instance.
+         */
+        public static function get_instances()
+        {
+            if (self::$instance) {
+                return self::$instance;
+            }
+
+            self::$instance = new self();
+
+            return self::$instance;
+        }
+
+        /**
+         * Registers the main admin menu and submenu pages for the plugin,
+         * including Pricing Tables, Templates, and Help sections.
+         * 
+         * @return void
+         */
         public function register_menu() {
             add_menu_page(
                 'WRC Pricing Table',
@@ -54,13 +89,23 @@ if(!class_exists('WRCPT_Admin_Menu')) {
             );
         }
 
+        /**
+         * Loads the main Pricing Tables admin page after verifying user capabilities.
+         * 
+         * @return void
+         */
         public function plugin_menu() {
             if (!current_user_can('manage_options')) {
 				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
             }   
-            require_once WRCPT_PLUGIN_PATH . 'inc/process-table.php';
+            require_once WRCPT_PLUGIN_PATH . 'lib/process-table.php';
         }
 
+        /**
+         * Loads the Templates creation page after verifying user capabilities.
+         * 
+         * @return void
+         */
         public function template_page() {
             if (!current_user_can('manage_options')) {
 				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
@@ -68,6 +113,11 @@ if(!class_exists('WRCPT_Admin_Menu')) {
             require_once WRCPT_PLUGIN_PATH . 'template/process-template.php';
         }
 
+        /**
+         * Loads the Help/Guide page after verifying user capabilities.
+         * 
+         * @return void
+         */
         public function guide_page() {
             if (!current_user_can('manage_options')) {
 				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
@@ -77,19 +127,4 @@ if(!class_exists('WRCPT_Admin_Menu')) {
     }
 }
 
-new WRCPT_Admin_Menu();
-
-require_once WRCPT_PLUGIN_PATH . 'inc/modify-package.php';
-require_once WRCPT_PLUGIN_PATH . 'inc/process-feature.php';
-require_once WRCPT_PLUGIN_PATH . 'inc/display-package.php';
-require_once WRCPT_PLUGIN_PATH . 'inc/wrcpt-sidebar.php';
-require_once WRCPT_PLUGIN_PATH . 'lib/process_table-option.php';
-require_once WRCPT_PLUGIN_PATH . 'template/process-template-option.php';
-
-/* Calling a function to add a new pricing table details. */
-if (isset($_POST['wrcpt_edit_process']) && $_POST['wrcpt_edit_process'] == "editprocess") {
-    /* Optimizing the database by deleting unnecessary package options. */
-    if (isset($_POST['wrcpt_optimize'])) {
-        wrcpt_unuseful_package_options();
-    }
-}
+WRCPT_Admin_Menu::get_instances();

@@ -1,31 +1,26 @@
 /*!
- * WRC Pricing Tables v2.5 - 28 May, 2025
+ * WRC Pricing Tables v2.6 - 9 December, 2025
  * by @realwebcare - https://www.realwebcare.com
  */
 .wrap .wrcpt-clear {
     clear: both
 }
-
 #add_new_table h2 {
     font-size: 24px;
     font-weight: 700
 }
-
 #add_new_table {
     width: 100%
 }
-
 /* #add_new_table.no-price-table{width:60%} */
 #add_new_table h2 a.add-new-h2 {
     font-style: normal;
     font-size: 14px;
     font-weight: 700
 }
-
 #add_new_table #wrcpt_new {
     display: none
 }
-
 .wrap #add_new_table h2 span#wrcpt-loading-image {
     background: url(../images/ajax-loader.gif) no-repeat 0 0;
     margin: -3px 10px;
@@ -33,7 +28,6 @@
     height: 20px;
     display: none
 }
-
 #add_new_table #wrcpt_edit_form #form-messages {
     position: relative;
     color: #22313f;
@@ -49,7 +43,6 @@
     display: none;
     transition: all .5s cubic-bezier(0.68, -0.55, 0.265, 1.35)
 }
-
 #add_new_table .success:before {
     content: "";
     position: absolute;
@@ -64,7 +57,6 @@
     transform: translate(0, -50%);
     height: 36px
 }
-
 #add_new_table .success>.start-icon {
     margin: -5px 15px 0 0;
     min-width: 20px;
@@ -72,14 +64,12 @@
     color: #49D761;
     font-size: 30px
 }
-
 #add_new_table .success .blackcross {
     font-size: 24px;
     color: #22313f;
     width: 24px;
     height: 24px
 }
-
 #add_new_table .success .wrcpt_close {
     position: absolute;
     top: 50%;
@@ -94,15 +84,12 @@
     border: 0;
     transform: translateY(-50%)
 }
-
 #add_new_table .success .wrcpt_close:hover {
     opacity: 1
 }
-
 #add_new_table .success .wrcpt_close:not(:disabled):not(.disabled) {
     cursor: pointer
 }
-
 #add_new_table .notice-warning.notice {
     border-left-width: 5px;
     margin: 0;
@@ -116,7 +103,6 @@
     width: 100%;
     margin-top: 15px
 }
-
 #add_new_table .table_list .subsubsub {
     margin-bottom: 8px;
     padding: 0 10px;
@@ -126,21 +112,17 @@
     color: #1d2327;
     box-shadow: 1px 1px 2px 1px #cbc8c8
 }
-
 #add_new_table .table_list .subsubsub li {
     position: relative;
     box-shadow: 1px 0 0 0 #c9c9c9;
     padding: 8px 5px 8px 15px
 }
-
 #add_new_table .table_list .subsubsub li:first-child {
     padding-left: 5px
 }
-
 #add_new_table .table_list .subsubsub li:last-child {
     box-shadow: none
 }
-
 #add_new_table .table_list .subsubsub li span.count {
     width: 20px;
     height: 20px;
@@ -153,31 +135,25 @@
     display: inline-block;
     text-align: center
 }
-
 #add_new_table .table_list .subsubsub li.publish {
     color: #1fa750
 }
-
 #add_new_table .table_list .subsubsub li.publish span.count {
     background: #23bd5a;
     border-color: #5baf79;
     color: #fff
 }
-
 #add_new_table .table_list .subsubsub li.unpublish {
     color: #dca80c
 }
-
 #add_new_table .table_list .subsubsub li:last-child span.count {
     margin-right: 0
 }
-
 #add_new_table .table_list .subsubsub li.unpublish span.count {
     background: #f2be1d;
     border-color: #dbac1a;
     color: #fff
 }
-
 #add_new_table .table_list .check-all-hidden {
     position: absolute;
     top: 19px;
@@ -187,7 +163,6 @@
     background: #ffffff;
     display: none
 }
-
 #add_new_table .table_list .button.button-del,
 #add_new_table .table_list .button.update-all {
     position: relative;
@@ -201,22 +176,18 @@
     width: 74px;
     display: none
 }
-
 #add_new_table .table_list .button.update-all {
     background-color: #2271b1;
     border-color: #1a5889;
     margin-right: -5px;
     width: 80px
 }
-
 #add_new_table .table_list .button.button-del:hover {
     background-color: #d43f3a
 }
-
 #add_new_table .table_list .button.update-all:hover {
     background-color: #1a5889
 }
-
 #add_new_table .table_list .button.button-del:before,
 #add_new_table .table_list .button.update-all:before {
     content: "\f153";
@@ -226,11 +197,9 @@
     top: 0;
     color: #fff
 }
-
 #add_new_table .table_list .button.update-all:before {
     content: "\f463"
 }
-
 #add_new_table .table_list table#wrcpt_list {
     display: block;
     border-collapse: collapse;
@@ -241,18 +210,15 @@
     box-shadow: 0px 0px 4px 1px #c0c0d4;
     width: 100%
 }
-
 #add_new_table .table_list table thead tr {
-    background: #2271b1;
-    border-bottom: 4px solid #174d78
+    background: #2d3748;
+    border-bottom: 4px solid #191f28;
 }
-
 #add_new_table .table_list table td,
 #add_new_table .table_list table th {
     padding: 30px 15px 15px;
     vertical-align: top
 }
-
 #add_new_table .table_list table thead th {
     width: auto;
     font-size: 18px;
@@ -261,11 +227,9 @@
     font-weight: 500;
     color: #fff
 }
-
 #add_new_table .table_list table thead th:first-child {
     border: none
 }
-
 #add_new_table .table_list table td input.wrcpt_checkbox,
 #add_new_table .table_list table th input#checkall {
     border: none;
@@ -273,13 +237,11 @@
     width: 1.2rem;
     height: 1.2rem
 }
-
 #add_new_table .table_list table td input.wrcpt_checkbox:checked,
 #add_new_table .table_list table th input#checkall:checked {
     background: #084b81;
     color: rgba(0, 0, 0, .1)
 }
-
 #add_new_table .table_list table td input.wrcpt_checkbox:before,
 #add_new_table .table_list table th input#checkall:before {
     font-size: 24px;
@@ -288,11 +250,9 @@
     -o-transition: .3s;
     transition: .3s
 }
-
 #add_new_table .table_list table th input#checkall {
     background-color: #f9f9f9
 }
-
 #add_new_table .table_list table td input.wrcpt_checkbox:checked::before,
 #add_new_table .table_list table th input#checkall:checked::before {
     color: #fff;
@@ -300,17 +260,14 @@
     content: "\f147";
     margin: .6375rem 0 0 -.25rem
 }
-
 #add_new_table .table_list table tbody tr {
     background-color: #FFFFFF;
     margin-bottom: 10px;
     border-bottom: 4px solid #eceffa
 }
-
 #add_new_table .table_list table tbody:last-child tr {
     border-bottom-width: 1px
 }
-
 #add_new_table .table_list table tbody td {
     position: relative;
     color: #007193;
@@ -318,32 +275,26 @@
     font-weight: normal;
     height: 50px
 }
-
 #add_new_table .table_list table tbody .alt td {
     background: #F4F6FC
 }
-
 #add_new_table .table_list table tbody td:first-child {
     border-left: none
 }
-
 #add_new_table .table_list table tbody tr:last-child td {
     border-bottom: none
 }
-
 #add_new_table .table_list table tbody td.table_name div {
-    padding-bottom: 5px
+    padding-bottom: 5px;
+    font-weight: 600
 }
-
 #add_new_table .table_list table tbody td.table_name {
     width: 45%
 }
-
 #add_new_table .table_list table tbody td.table_name span:first-of-type {
     border: none;
     padding-left: 0
 }
-
 #add_new_table .table_list table tbody td.table_name span {
     font-size: 14px;
     cursor: pointer;
@@ -353,22 +304,18 @@
     transition: all .4s ease;
     -webkit-transition: all .4s ease
 }
-
 #add_new_table .table_list table tbody td.table_name span:hover {
     color: #2ea2cc
 }
-
 #add_new_table .table_list table tbody td.shortcode,
 #add_new_table .table_list table tbody td.wrc-status {
     text-align: center
 }
-
 #add_new_table .table_list table tbody td .tooltip {
     position: relative;
     display: inline-block;
     top: -7px
 }
-
 #add_new_table .table_list table tbody td .tooltip .tooltiptext {
     visibility: hidden;
     width: 190px;
@@ -386,7 +333,6 @@
     opacity: 0;
     transition: opacity .3s
 }
-
 #add_new_table .table_list table tbody td .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -397,12 +343,10 @@
     border-style: solid;
     border-color: #555 transparent transparent
 }
-
 #add_new_table .table_list table tbody td .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1
 }
-
 #add_new_table .table_list table tbody td input.wrc_shortcode {
     margin: 0;
     padding: 6px 10px;
@@ -416,7 +360,6 @@
     border-bottom: 3px solid #bbb;
     text-align: center
 }
-
 /* Reset Select */
 #add_new_table .table_list table tbody td .temp_choice select {
     -webkit-appearance: none;
@@ -430,12 +373,10 @@
     background: #f1f1f1;
     background-image: none
 }
-
 /* Remove IE arrow */
 #add_new_table .table_list table tbody td .temp_choice select::-ms-expand {
     display: none
 }
-
 #add_new_table .table_list table tbody td .temp_choice {
     position: relative;
     top: -3px;
@@ -448,7 +389,6 @@
     overflow: hidden;
     border-radius: .25em
 }
-
 #add_new_table .table_list table tbody td .temp_choice select {
     flex: 1;
     padding: 0 0 0 .7em;
@@ -456,7 +396,6 @@
     cursor: pointer;
     font-size: 16px
 }
-
 /* Arrow */
 #add_new_table .table_list table tbody td .temp_choice::after {
     content: '\f140';
@@ -475,18 +414,15 @@
     -o-transition: .25s all ease;
     transition: .25s all ease
 }
-
 /* Transition */
 #add_new_table .table_list table tbody td .temp_choice:hover::after {
     color: #0d2e48
 }
-
 #add_new_table .table_list table tbody td .temp_choice select option {
     background: #f1f1f1;
     font-size: 14px;
     color: #2271b1
 }
-
 #add_new_table .table_list table tbody td span.status {
     position: relative;
     border-radius: 30px;
@@ -497,22 +433,18 @@
     line-height: 24px;
     text-align: right
 }
-
 #add_new_table .table_list table tbody td span.status.active {
     width: 70px;
     padding-right: 10px
 }
-
 #add_new_table .table_list table tbody td span.status.inactive {
     padding: 0 10px 0 25px;
     background: #fdf5dd;
     color: #cfa00c
 }
-
 #add_new_table .table_list table tbody td span.inactive:after {
     background: #f2be1d
 }
-
 #add_new_table .table_list table tbody td span.status:after {
     position: absolute;
     top: 8px;
@@ -522,11 +454,9 @@
     content: '';
     border-radius: 50%
 }
-
 #add_new_table .table_list table tbody td span.active:after {
     background: #23bd5a
 }
-
 #add_new_table .table_list table tbody td .duplicate_table {
     background: url(../images/duplicate.png) no-repeat 0 0;
     position: absolute;
@@ -536,7 +466,6 @@
     height: 22px;
     cursor: pointer
 }
-
 #add_new_table .table_list table tbody td .no_duplicate {
     background: url(../images/wrcpt-buttons.png) no-repeat -518px -90px;
     position: absolute;
@@ -545,26 +474,21 @@
     width: 20px;
     height: 20px
 }
-
 #add_new_table .table_list table tbody td #copy_table.duplicate_table {
     left: unset;
     margin-left: 11px;
     margin-top: -2px
 }
-
 #add_new_table .table_list table tbody td.wrcpt_notice {
     width: 40%
 }
-
 #add_new_table .table_list table tbody td.wrcpt_notice span {
     font-size: 13px;
     color: #778899
 }
-
 #add_new_table .table_list table tbody td.wrcpt_notice span strong {
     font-weight: 700
 }
-
 #add_new_table .table_list .reset_shortcode {
     position: relative;
     display: inline-block;
@@ -572,14 +496,12 @@
     padding: 0;
     font-size: 18px
 }
-
 #add_new_table .table_list .reset_shortcode input {
     width: auto;
     height: 40px;
     line-height: 38px;
     padding: 0 10px 0 30px
 }
-
 #add_new_table .table_list .reset_shortcode::before {
     content: "\f150";
     font-family: dashicons;
@@ -588,13 +510,11 @@
     top: 11px;
     color: #fff
 }
-
 #add_new_table .table_list #wrcpt_optimize {
     position: absolute;
     right: 0;
     bottom: 0
 }
-
 #add_new_table #tablenamediv {
     /* background-color:#eee;border:1px solid #ccc; */
     border-radius: 5px;
@@ -609,21 +529,17 @@
 #add_new_table .settingcolumnwrap {
     margin: 10px
 }
-
 #add_new_table .pricingfeaturewrap h3 {
     padding: 30px 1px 15px
 }
-
 #add_new_table .tablecolumnwrap {
     position: relative
 }
-
 #tablecolumndiv .accordion-expand-holder {
     position: absolute;
     top: 0;
     right: 5px
 }
-
 #tablecolumndiv .accordion-expand-holder button.expand,
 #tablecolumndiv .accordion-expand-holder button.collapse {
     color: #444444;
@@ -631,12 +547,10 @@
     text-transform: uppercase;
     cursor: pointer
 }
-
 #add_new_table .tablenamewrap {
     border-bottom: 1px solid #CCC;
     margin-bottom: 30px
 }
-
 #add_new_table #title {
     width: 50%;
     display: block;
@@ -644,13 +558,11 @@
     line-height: 30px;
     font-size: 18px
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem {
     border: 1px solid #ddd;
     margin-bottom: 10px;
     width: 100%
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featheader th {
     background-color: #F3F3F3;
     padding: 15px 10px;
@@ -661,7 +573,6 @@
     line-height: 18px;
     color: #333333
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td {
     background-color: #fff;
     padding: 10px 15px 9px;
@@ -669,29 +580,24 @@
     border-bottom: 1px solid #ddd;
     line-height: 48px
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td input[type="text"] {
     width: 100%;
     height: 40px;
     border-color: #ddd;
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featheader th:first-child,
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td:first-child {
     border-left: none
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td select#feature_type {
     height: 40px;
     vertical-align: initial;
     width: 100%;
     border-color: #ddd;
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td:last-child {
     text-align: center;
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remFeature,
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remDisable {
     display: inline-block;
@@ -707,34 +613,28 @@
     vertical-align: middle;
     box-shadow: 2px 2px 4px 0 rgb(68 68 68 / 50%);
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remFeature:hover,
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remDisable:hover {
     box-shadow: inset 2px 2px 4px 0 rgb(68 68 68 / 50%);
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remDisable {
     background: url(../images/wrcpt-buttons.png) no-repeat -409px -86px;
     width: 30px;
     height: 30px;
     cursor: default
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td span#remFeature {
     cursor: pointer !important;
     background: #e9e9e9 url(../images/wrcpt-buttons.png) no-repeat -409px -36px;
     width: 30px;
     height: 30px;
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featheader th {
     text-align: center
 }
-
 #add_new_table #pricingfeaturediv table#feature_edititem tr.featurebody td {
     cursor: move
 }
-
 #add_new_table input#wrcpt_add_new,
 #add_new_table #wrcpt_upfeature,
 #add_new_table #wrcpt_addfeature {
@@ -742,7 +642,6 @@
     margin-top: 10px;
     margin-right: 10px
 }
-
 #add_new_table input#wrcpt_add,
 #add_new_table input#wrcpt_edit {
     margin: 10px 10px 20px
@@ -757,13 +656,11 @@
     line-height: 5px;
     position: relative
 }
-
 #add_new_table #tabledisplaydiv h3 {
     font-size: 24px;
     margin-top: 15px;
     padding: 10px
 }
-
 #add_new_table #tabledisplaydiv h3 span#editPackages {
     position: absolute;
     top: 30px;
@@ -773,7 +670,6 @@
     height: 32px;
     line-height: 30px
 }
-
 #add_new_table #tabledisplaydiv h3 span#editPackages:before {
     content: "";
     position: absolute;
@@ -792,13 +688,11 @@
     padding-bottom: 30px;
     line-height: 5px
 }
-
 #tablecolumndiv #addButtons {
     position: relative;
     clear: both;
     margin-bottom: 5px
 }
-
 #tablecolumndiv #addButtons a#addPackage {
     padding: 0 10px 0 26px;
     font-size: 14px;
@@ -806,7 +700,6 @@
     line-height: 28px;
     vertical-align: top
 }
-
 #tablecolumndiv #addButtons a#addPackage:before {
     content: "";
     position: absolute;
@@ -817,28 +710,23 @@
     margin: 6px 0 0 0;
     display: inline-block
 }
-
 #tablecolumndiv #sortable_column {
     margin-left: -5px
 }
-
 #tablecolumndiv #sortable_column .package_details h3.ptitle {
     margin: 1px
 }
-
 #tablecolumndiv .package_details {
     float: left;
     /* display:inline-block; */
     margin: 5px;
     position: relative
 }
-
 #tablecolumndiv .package_details h4 {
     margin: 0;
     padding: 10px 0px 13px 2px;
     font-size: 15px
 }
-
 #tablecolumndiv .package_details span.column_hide,
 #tablecolumndiv .package_details span.column_show {
     position: absolute;
@@ -851,14 +739,12 @@
     cursor: pointer;
     z-index: 9999
 }
-
 #tablecolumndiv .package_details span.column_hide .dashicons,
 #tablecolumndiv .package_details span.column_show .dashicons,
 #tablecolumndiv .package_details span#delDisable .dashicons,
 #tablecolumndiv .package_details span#delPackage .dashicons {
     font-size: 24px
 }
-
 #tablecolumndiv .package_details span.paypal_hide,
 #tablecolumndiv .package_details span.paypal_show,
 #tablecolumndiv .package_details span.hosted_hide,
@@ -869,34 +755,27 @@
     display: inline-block;
     cursor: pointer
 }
-
 #tablecolumndiv .package_details span.toggle_show,
 #tablecolumndiv .package_details span.toggle_hide {
     margin-bottom: 20px
 }
-
 #tablecolumndiv .package_details span.paypal_hide {
     color: #3B802F
 }
-
 #tablecolumndiv .package_details span.hosted_show {
     color: #fff
 }
-
 #tablecolumndiv .package_details span.hosted_hide {
     color: #ffff50
 }
-
 #tablecolumndiv .package_details span.hosted_hide,
 #tablecolumndiv .package_details span.hosted_show {
     display: block
 }
-
 #tablecolumndiv .package_details span.inactive {
     cursor: auto !important;
     opacity: 0.3
 }
-
 #tablecolumndiv .package_details span#delDisable,
 #tablecolumndiv .package_details span#delPackage {
     position: absolute;
@@ -907,26 +786,21 @@
     display: inline-block;
     z-index: 9999
 }
-
 #tablecolumndiv .package_details span#delDisable {
     opacity: 0.3
 }
-
 #tablecolumndiv .package_details span#delPackage {
     cursor: pointer
 }
-
 #tablecolumndiv .element-input h4 {
     margin: 0;
     padding: 5px 10px 15px;
     font-weight: 700;
     color: #555555
 }
-
 #tablecolumndiv .package_details input#upload_image {
     margin-left: 5px
 }
-
 #tablecolumndiv .package_details img.preview_image {
     background: #F1F1F1;
     width: 50%;
@@ -934,7 +808,6 @@
     padding: 24px 5px 5px 5px;
     border: 1px solid #CCC
 }
-
 #tablecolumndiv .package_details span#remove_image {
     background: url(../images/wrcpt-buttons.png) no-repeat -272px -89px;
     position: absolute;
@@ -943,23 +816,18 @@
     margin: 1px 0 0 -28px;
     cursor: pointer
 }
-
 #tablecolumndiv .element-input input.medium {
     width: 230px
 }
-
 #tablecolumndiv .element-input input.checktext {
     width: 204px
 }
-
 #tablecolumndiv .element-input input.col_price {
     width: 105px
 }
-
 #tablecolumndiv .element-input input.tickbox {
     border: 1px solid #aaa !important
 }
-
 #tablecolumndiv .element-input textarea[id=package_desc],
 #tablecolumndiv .element-input textarea[id=price_desc],
 #tablecolumndiv .element-input textarea[id=video_code],
@@ -972,12 +840,10 @@
     border: 1px solid #ccc;
     width: 341px
 }
-
 #tablecolumndiv .element-input #enable_toggle {
     margin: 0 0 10px;
     display: none
 }
-
 #tablecolumndiv .element-input #paypal_code,
 #tablecolumndiv .element-input #hosted-button,
 #tablecolumndiv .element-input #unencrypted-button {
@@ -989,43 +855,35 @@
     border-radius: 5px;
     float: left
 }
-
 #tablecolumndiv .element-input #paypal_code {
     background: rgb(21 156 222)
 }
-
 #tablecolumndiv .element-input #unencrypted-button {
     display: block
 }
-
 #tablecolumndiv .element-input #paypal_code label.input-title {
     width: 100%;
     color: rgb(255 255 255 / 70%)
 }
-
 #tablecolumndiv .element-input #paypal_code label.input-check {
     font-weight: 600;
     color: #fff
 }
-
 #tablecolumndiv .element-input #paypal_code h5,
 #tablecolumndiv .element-input #paypal_code .font-dir,
 #tablecolumndiv .element-input #paypal_code .medium {
     width: 96%;
     margin: 0 0 10px 10px
 }
-
 #tablecolumndiv .element-input #paypal_code h5 {
     font-size: 14px;
     color: #fff;
     padding: 0 0 5px;
     border-bottom: 2px solid #ddd
 }
-
 #tablecolumndiv .element-input #paypal_code label.input-title a {
     color: #fff
 }
-
 #tablecolumndiv .element-input hr {
     width: 490px;
     border-top: 1px solid #E6E6E6
@@ -1040,7 +898,6 @@
     border: 1px solid #ccc !important;
     border-radius: 3px
 }
-
 #tablecolumndiv .package_details .column_container {
     position: relative;
     -moz-transition: opacity 1s ease-in-out;
@@ -1051,7 +908,6 @@
     /* for Opera */
     transition: opacity 1s ease-in-out
 }
-
 #tablecolumndiv .package_details .column_container.column_inactive {
     opacity: 0.1;
     /* Make the container semi-transparent */
@@ -1068,7 +924,6 @@
     cursor: not-allowed;
     /* Change the cursor to indicate it is not clickable */
 }
-
 #tablecolumndiv .element-input,
 #add_new_table .advance-input {
     background: #fff;
@@ -1078,23 +933,19 @@
     border: 1px solid #ccc !important;
     cursor: auto
 }
-
 #add_new_table .package_details h3.ptitle,
 #add_new_table .package_advance h3.ptitle {
     background: #fbfbfb !important;
     border: 1px solid #ccc
 }
-
 #add_new_table .ui-accordion .ui-accordion-content {
     margin-top: -2px
 }
-
 #add_new_table .package_details h3.ptitle:hover,
 #add_new_table .package_advance h3.ptitle:hover {
     background: #EEEEEE;
     border: 1px solid #ccc
 }
-
 #tablecolumndiv .element-input label.input-title,
 #add_new_table .advance-input label.input-title,
 #add_new_table .element-input label.input-check,
@@ -1109,16 +960,13 @@
     font-size: 14px;
     width: 250px
 }
-
 #settingcolumndiv .advance-input #pricing_toggle label.input-title,
 #add_new_table .advance-input #tb_bground label.input-title {
     padding: 5px 4px
 }
-
 #add_new_table .advance-input label#modify-table {
     margin: 6px 0
 }
-
 #tablecolumndiv .element-input label.input-image {
     color: #555555;
     margin-top: 1px;
@@ -1127,11 +975,9 @@
     font-size: 14px;
     width: 120px
 }
-
 #tablecolumndiv .element-input #enable_sp_price {
     display: none
 }
-
 #add_new_table .element-input input.medium,
 #tablecolumndiv .element-input input.col_price,
 #add_new_table .element-input input.tickbox,
@@ -1141,25 +987,21 @@
     border-radius: 5px;
     border: 1px solid #ccc
 }
-
 #add_new_table .element-input input.medium,
 #tablecolumndiv .element-input input.col_price,
 #add_new_table .advance-input input.medium {
     margin: 0 2px 10px
 }
-
 #add_new_table .advance-input select.font-dir {
     margin: 2px 2px 10px;
     padding: 0 10px;
     border-radius: 5px;
     border: 1px solid #ccc
 }
-
 #add_new_table .element-input input.tickbox,
 #add_new_table .advance-input input.tickbox {
     margin: 7px 2px 10px
 }
-
 #add_new_table .element-input table tr.table-header,
 #add_new_table .element-input table tr.table-input,
 #add_new_table .advance-input table tr.table-header,
@@ -1168,18 +1010,15 @@
     display: block;
     border: none
 }
-
 #add_new_table .element-input table tr.table-input th,
 #add_new_table .advance-input table tr.table-input th {
     padding: 5px 0
 }
-
 #add_new_table .element-input table tr.table-input th label.input-title,
 #add_new_table .advance-input table tr.table-input th label.input-title {
     font-size: 12px;
     width: 200px
 }
-
 #add_new_table .element-input table tr.table-header td,
 #add_new_table .advance-input table tr.table-header td {
     color: #23282d;
@@ -1190,7 +1029,6 @@
     border-bottom: 1px solid #ddd;
     display: block
 }
-
 #add_new_table .element-input table tr td,
 #add_new_table .advance-input table tr td {
     height: auto;
@@ -1205,23 +1043,19 @@
     background: #fbfbfb;
     box-shadow: 0px 0px 4px 1px #c0c0d4
 }
-
 #settingcolumndiv .package_advance h3.ptitle {
     margin: 1px
 }
-
 #settingcolumndiv .advance-input h4 {
     margin: 10px 0;
     padding: 5px 10px;
     font-size: 14px;
     border-bottom: 1px solid #ddd
 }
-
 #add_new_table .advance-input label.input-title.txarea {
     width: 95.8%;
     margin-top: 15px
 }
-
 #settingcolumndiv .advance-input textarea[id=shortcode_page_url] {
     resize: vertical;
     display: block;
@@ -1230,41 +1064,33 @@
     border: 1px solid #ccc;
     width: 95.8%
 }
-
 #settingcolumndiv .advance-input label.input-check {
     width: 280px;
     line-height: 28px
 }
-
 #settingcolumndiv .advance-input input.medium,
 #settingcolumndiv .advance-input select.font-dir {
     width: 230px
 }
-
 #settingcolumndiv .advance-input #pricing_toggle input.medium,
 #settingcolumndiv .advance-input #tb_bground input.medium {
     margin: 0 6px 10px 0
 }
-
 #settingcolumndiv .advance-input input#pricing_table_name {
     margin: 6px 0
 }
-
 #settingcolumndiv .advance-input input.tickbox {
     margin: 7px 2px 2px;
     float: right;
     border: 1px solid #aaa
 }
-
 #settingcolumndiv .advance-input input[type=radio] {
     display: none !important
 }
-
 #settingcolumndiv .advance-input .table-body-options {
     float: left;
     padding: 10px 0 10px 10px
 }
-
 #settingcolumndiv .advance-input label.hide_table,
 .wrcpt_global label.wrcpt_global_check {
     float: left;
@@ -1292,17 +1118,14 @@
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
 }
-
 #settingcolumndiv .advance-input label.hide_table span {
     padding-right: 2em;
     line-height: 24px;
     display: inline-block
 }
-
 #settingcolumndiv .advance-input label.hide_table input[type=checkbox] {
     margin: 4px 7px 4px 10px
 }
-
 #settingcolumndiv .advance-input label.hide_table input[type=checkbox]:after,
 .wrcpt_global label.wrcpt_global_check input[type=checkbox]:after {
     content: "On";
@@ -1322,7 +1145,6 @@
     font-size: 11px;
     text-align: left
 }
-
 #settingcolumndiv .advance-input label.hide_table input[type=checkbox]:checked:after {
     content: "Off";
     text-align: right;
@@ -1330,7 +1152,6 @@
     background: #CCCCCC;
     color: #EEEEEE
 }
-
 #settingcolumndiv .advance-input label.hide_table input[type=checkbox]:before,
 .wrcpt_global label.wrcpt_global_check input[type=checkbox]:before {
     content: "";
@@ -1347,15 +1168,12 @@
     box-shadow: 0 1px 1px #999, inset 0 3px 4px #fff;
     transition: right 0.05s linear
 }
-
 #settingcolumndiv .advance-input label.hide_table input[type=checkbox]:checked:before {
     right: 34px
 }
-
 #settingcolumndiv .advance-input input[type=radio]+label {
     display: none
 }
-
 #settingcolumndiv .advance-input input[type=radio]+label {
     float: left;
     margin: 0 5px 0 0;
@@ -1385,7 +1203,6 @@
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05)
 }
-
 #settingcolumndiv .advance-input input[type=radio]:checked+label {
     background-image: none;
     outline: 0;
@@ -1394,29 +1211,24 @@
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
     background-color: #e0e0e0
 }
-
 #add_new_table #wrcpt_edit {
     margin: 15px 25px 23px
 }
-
 #settingcolumndiv .advance-input label.input-radio {
     display: block;
     width: 95%;
     line-height: 26px
 }
-
 #settingcolumndiv .advance-input .tickicon_choice {
     background: #F1F1F1;
     float: left;
     margin: 0 0 20px 10px;
     padding: 10px
 }
-
 #settingcolumndiv .advance-input input.hide_tick,
 #settingcolumndiv .advance-input input.hide_cross {
     display: inline-block !important
 }
-
 #settingcolumndiv .advance-input span.tick-icons,
 #settingcolumndiv .advance-input span.cross-icons {
     display: inline-block;
@@ -1424,87 +1236,66 @@
     height: 24px;
     margin: 0 20px -5px 0
 }
-
 #settingcolumndiv .advance-input span#tickicon1 {
     background: url(../images/wrcpt-buttons.png) no-repeat -27px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon2 {
     background: url(../images/wrcpt-buttons.png) no-repeat -62px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon3 {
     background: url(../images/wrcpt-buttons.png) no-repeat -97px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon4 {
     background: url(../images/wrcpt-buttons.png) no-repeat -168px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon5 {
     background: url(../images/wrcpt-buttons.png) no-repeat -132px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon6 {
     background: url(../images/wrcpt-buttons.png) no-repeat -203px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon7 {
     background: url(../images/wrcpt-buttons.png) no-repeat -238px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon8 {
     background: url(../images/wrcpt-buttons.png) no-repeat -272px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon9 {
     background: url(../images/wrcpt-buttons.png) no-repeat -307px -39px
 }
-
 #settingcolumndiv .advance-input span#tickicon10 {
     background: url(../images/wrcpt-buttons.png) no-repeat -342px -39px
 }
-
 #settingcolumndiv .advance-input span#crossicon1 {
     background: url(../images/wrcpt-buttons.png) no-repeat -26px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon2 {
     background: url(../images/wrcpt-buttons.png) no-repeat -62px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon3 {
     background: url(../images/wrcpt-buttons.png) no-repeat -97px -89px
 }
-
 #settingcolumndiv .advance-input span#crossicon4 {
     background: url(../images/wrcpt-buttons.png) no-repeat -132px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon5 {
     background: url(../images/wrcpt-buttons.png) no-repeat -168px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon6 {
     background: url(../images/wrcpt-buttons.png) no-repeat -202px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon7 {
     background: url(../images/wrcpt-buttons.png) no-repeat -238px -89px
 }
-
 #settingcolumndiv .advance-input span#crossicon8 {
     background: url(../images/wrcpt-buttons.png) no-repeat -272px -89px
 }
-
 #settingcolumndiv .advance-input span#crossicon9 {
     background: url(../images/wrcpt-buttons.png) no-repeat -307px -88px
 }
-
 #settingcolumndiv .advance-input span#crossicon10 {
     background: url(../images/wrcpt-buttons.png) no-repeat -342px -89px
 }
-
 #settingcolumndiv .advance-input .ribbon-all,
 #settingcolumndiv .advance-input .img-options,
 #settingcolumndiv .advance-input .vid-options {
@@ -1512,7 +1303,6 @@
     margin: 0 0 20px 0;
     padding: 10px 5px 10px 10px
 }
-
 #settingcolumndiv .advance-input #pricing_toggle,
 #settingcolumndiv .advance-input #tb_bground {
     float: left;
@@ -1521,12 +1311,10 @@
     background: #f1f1f1;
     border: 1px solid #ddd
 }
-
 #settingcolumndiv .advance-input #pricing_toggle {
     float: left;
     padding: 15px 0
 }
-
 #settingcolumndiv .advance-input label#col_width,
 #settingcolumndiv .advance-input input#column_width,
 #settingcolumndiv .advance-input label#cap_col_width,
@@ -1538,11 +1326,9 @@
 #settingcolumndiv .advance-input label#video-option {
     display: none
 }
-
 #settingcolumndiv .advance-input .break-line {
     clear: both
 }
-
 #settingcolumndiv .advance-input #tickcross-items,
 #settingcolumndiv .advance-input #awesome-icon {
     float: left
@@ -1562,7 +1348,6 @@
     font-weight: 400;
     color: #364D55
 }
-
 #add_new_table .featheader a.wrc_tooltip:hover:after,
 #add_new_table #tablecolumndiv a.wrc_tooltip:hover:after,
 #add_new_table #settingcolumndiv a.wrc_tooltip:hover:after,
@@ -1588,7 +1373,6 @@
     text-align: left;
     line-height: 18px
 }
-
 #add_new_table .featheader a.wrc_tooltip:hover:before,
 #add_new_table #tablecolumndiv a.wrc_tooltip:hover:before,
 #add_new_table #settingcolumndiv a.wrc_tooltip:hover:before,
@@ -1603,7 +1387,6 @@
     position: absolute;
     z-index: 99
 }
-
 #add_new_table #tablecolumndiv a.wrc_tooltip:hover:after,
 #add_new_table #settingcolumndiv a.wrc_tooltip:hover:after,
 #add_new_table .table_list table tbody td #copy_table.duplicate_table:hover:after {
@@ -1615,7 +1398,6 @@
     right: unset;
     padding: 10px 20px
 }
-
 #add_new_table #tablecolumndiv a.wrc_tooltip:hover:before,
 #add_new_table #settingcolumndiv a.wrc_tooltip:hover:before,
 #add_new_table .table_list table tbody td #copy_table.duplicate_table:hover:before {
@@ -1624,11 +1406,9 @@
     bottom: -4px;
     left: 16px
 }
-
 #add_new_table .table_list table tbody td #copy_table.duplicate_table:hover:before {
     bottom: 1px
 }
-
 #add_new_table .table_list table tbody td #copy_table.duplicate_table:hover:after {
     top: -4px;
     padding: 5px 10px;
@@ -1645,7 +1425,6 @@
     flex-wrap: wrap;
     gap: 20px 0;
 }
-
 .template-container .template-items {
     cursor: pointer;
     display: flex;
@@ -1658,16 +1437,13 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 .template-container .template-items:focus,
 .template-container .template-items:hover {
     cursor: pointer
 }
-
 .template-container .template-items:nth-child(3n) {
     margin-right: 0
 }
-
 .template-container .template-items .template-img {
     background: #fff;
     display: block;
@@ -1676,18 +1452,15 @@
     -webkit-transition: opacity .2s ease-in-out;
     transition: opacity .2s ease-in-out
 }
-
 .template-container .template-items .template-img:after {
     content: "";
     display: block;
     padding-top: 66.66666%
 }
-
 .template-container .template-items:focus .template-img,
 .template-container .template-items:hover .template-img {
     background: #fff
 }
-
 .template-container .template-items .template-img img {
     height: auto;
     position: absolute;
@@ -1697,12 +1470,10 @@
     -webkit-transition: opacity .2s ease-in-out;
     transition: opacity .2s ease-in-out
 }
-
 .template-container .template-items:focus .template-img img,
 .template-container .template-items:hover .template-img img {
     opacity: .4
 }
-
 .template-container .template-items .template-name {
     font-size: 15px;
     font-weight: 600;
@@ -1717,7 +1488,6 @@
     background: #fff;
     background: rgba(255, 255, 255, .65)
 }
-
 .template-container .template-items.focus .template-actions,
 .template-container .template-items:focus .template-actions,
 .template-container .template-items:hover .template-actions {
@@ -1725,7 +1495,6 @@
     filter: opacity(1);
     opacity: 1
 }
-
 .template-container .template-items .template-actions {
     -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     filter: opacity(0);
@@ -1740,12 +1509,10 @@
     background: rgba(244, 244, 244, .7);
     border-left: 1px solid rgba(0, 0, 0, .05)
 }
-
 .template-container .template-items .template-actions .button-secondary {
     float: none;
     margin-left: 3px
 }
-
 .template-container .template-items .template-actions .button-primary {
     margin-right: 3px
 }
@@ -1763,7 +1530,6 @@
     /* Start hidden - jQuery will handle showing */
     /* Flex properties moved to a separate rule below */
 }
-
 /* This ensures flex centering works when jQuery makes it visible */
 .wrcpt-modal[style*='display: block'] {
     display: flex !important;
@@ -1771,7 +1537,6 @@
     justify-content: center;
     align-items: center;
 }
-
 .wrcpt-modal-content {
     background: #ffffff;
     padding: 30px 40px;
@@ -1785,7 +1550,6 @@
     overflow: hidden;
     animation: fadeIn 0.3s ease forwards;
 }
-
 /* Rest of your styles remain the same */
 .wrcpt-modal-content:before {
     content: '';
@@ -1796,7 +1560,6 @@
     height: 4px;
     background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
 }
-
 .wrcpt-modal-content p {
     color: #2d3748;
     font-size: 16px;
@@ -1804,15 +1567,37 @@
     margin-bottom: 20px;
     line-height: 1.5;
 }
-
 .wrcpt-modal-content img {
     width: 90px;
     height: 20px;
     display: block;
     margin: 0 auto;
-    /* filter: brightness(0) saturate(100%) invert(26%) sepia(89%) saturate(2590%) hue-rotate(230deg) brightness(97%) contrast(91%); */
 }
-
+.wrcpt-modal.shrink-out {
+    transform: scale(1);
+    opacity: 1;
+    transition: all .3s ease-in-out
+}
+.wrcpt-modal.shrink-out.hide {
+    transform: scale(0.5);
+    opacity: 0
+}
+.wrcpt-btn-confirm, .wrcpt-btn-cancel {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px
+}
+.wrcpt-btn-confirm {
+    background: #4CAF50;
+    color: #fff
+}
+.wrcpt-btn-cancel {
+    background: #F44336;
+    color: #fff
+}
 /* Animation */
 @keyframes fadeIn {
     from {
@@ -1834,7 +1619,6 @@
     padding-right: 30px;
     box-sizing: border-box;
 }
-
 .wrcpt-guide .main-header {
     font-size: 28px;
     font-weight: 700;
@@ -1843,20 +1627,17 @@
     padding-bottom: 15px;
     border-bottom: 3px solid #6a11cb;
 }
-
 .wrcpt-guide hr {
     border: none;
     height: 1px;
     background: linear-gradient(to right, transparent, rgba(106, 17, 203, 0.3), transparent);
     margin: 30px 0;
 }
-
 .wrcpt-guide .wrcusage-maincontent #poststuff {
     margin: 0;
     padding: 0;
     min-width: 100%;
 }
-
 /* Post Box Styling */
 .wrcpt-guide .postbox {
     background: #ffffff;
@@ -1867,12 +1648,10 @@
     transition: all 0.3s ease;
     overflow: hidden;
 }
-
 .wrcpt-guide .postbox:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
-
 .wrcpt-guide .postbox h3 {
     font-size: 20px;
     font-weight: 700;
@@ -1883,7 +1662,6 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     position: relative;
 }
-
 .wrcpt-guide .postbox h3:after {
     content: '';
     position: absolute;
@@ -1893,9 +1671,42 @@
     height: 3px;
     background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
 }
-
 .wrcpt-guide .postbox .inside {
     padding: 20px;
+}
+.wrcpt-guide .postbox .inside .wrcpt_docs {
+    display: inline-block;
+    padding: 10px 14px;
+    border-radius: 6px;
+    background: #0b79ff;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(11, 121, 255, 0.18);
+}
+
+/* Code Block Styling */
+.wrcpt-guide .postbox .inside pre {
+    background: #2d3748;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    overflow-x: auto;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+.wrcpt-guide .postbox .inside code {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 14px;
+    color: #f8f8f2;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.wrcpt-guide .postbox .inside .wrcpt-built_in {
+    color: #ff79c6 !important;
+}
+.wrcpt-guide .postbox .inside .wrcpt-string {
+    color: #50fa7b !important;
 }
 
 .wrcpt-guide .postbox p {
@@ -1903,7 +1714,6 @@
     font-size: 15px;
     color: #4a5568;
 }
-
 .wrcpt-guide .postbox strong {
     color: #2a2a72;
     font-weight: 600;
@@ -1916,7 +1726,6 @@
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
-
 .getting-started_video iframe {
     display: block;
     width: 100%;
@@ -1929,7 +1738,6 @@
     margin: 15px 0 20px 25px;
     padding: 0;
 }
-
 .wrcpt-guide ol li,
 .wrcpt-guide ul li {
     margin-bottom: 12px;
@@ -1937,16 +1745,13 @@
     padding-left: 5px;
     font-size: 16px;
 }
-
 .wrcpt-guide ol {
     list-style-type: none;
     counter-reset: item;
 }
-
 .wrcpt-guide ol>li {
     counter-increment: item;
 }
-
 .wrcpt-guide ol>li:before {
     content: counter(item) ".";
     color: #6a11cb;
@@ -1954,11 +1759,9 @@
     position: absolute;
     left: -25px;
 }
-
 .wrcpt-guide ul {
     list-style-type: none;
 }
-
 .wrcpt-guide ul li:before {
     content: '';
     display: inline-block;
@@ -1976,7 +1779,6 @@
     margin-left: 20px;
     margin-top: 8px;
 }
-
 .wrcpt-guide ul ul li:before {
     background: #2575fc;
     width: 5px;
@@ -1988,7 +1790,6 @@
     padding: 0;
     margin-top: 30px;
 }
-
 .last p {
     font-size: 15px;
     color: #4a5568;
@@ -1998,14 +1799,12 @@
     border-radius: 8px;
     border-left: 4px solid #6a11cb;
 }
-
 .last a {
     color: #2575fc;
     font-weight: 500;
     text-decoration: none;
     transition: all 0.2s ease;
 }
-
 .last a:hover {
     color: #6a11cb;
     text-decoration: underline;
@@ -2017,7 +1816,6 @@
     font-weight: 700;
     text-decoration: none;
 }
-
 .last a[target="_blank"]:last-child:hover {
     color: #ff8a3d;
     text-decoration: none;
@@ -2081,7 +1879,7 @@
 
 .wrcptusage-feature-header img {
     width: 100%;
-    height: 180px;
+    height: 210px;
     object-fit: cover;
     object-position: center;
     display: block;
@@ -2262,6 +2060,7 @@
 #wrcptusage-info.wrcptusage-sidebar {
     background: #ffffff;
     border-radius: 16px;
+    margin-bottom: 30px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
     border: 1px solid rgba(0, 0, 0, 0.05);
@@ -2416,33 +2215,6 @@
     border-radius: 50%;
 }
 
-/* Code Block Styling */
-#wrcpt-narration .wrcpt pre {
-    background: #2d3748;
-    border-radius: 8px;
-    padding: 15px;
-    margin: 15px 0;
-    overflow-x: auto;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-#wrcpt-narration .wrcpt code {
-    font-family: 'Fira Code', 'Courier New', monospace;
-    font-size: 14px;
-    color: #f8f8f2;
-    background: transparent;
-    border: none;
-    padding: 0;
-}
-
-.wrcpt-built_in {
-    color: #ff79c6 !important;
-}
-
-.wrcpt-string {
-    color: #50fa7b !important;
-}
-
 /* Like/Review Section */
 #wrcpt-narration .likeit {
     background: #f8f9ff;
@@ -2520,7 +2292,6 @@
     box-shadow: 0 0 3px 1px rgb(0 0 0 / 20%);
     width: 90%
 }
-
 #add_new_table .table_list p.feature_notice {
     font-size: 14px;
     text-align: center;
@@ -2538,50 +2309,40 @@
 #add_new_table .wp-picker-container.wp-picker-active {
     width: 100%
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .wp-picker-open+.wp-picker-input-wrap label {
     float: left;
     width: 67px !important
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .wp-picker-open+.wp-picker-input-wrap .wp-color-picker {
     width: 67px;
     float: left
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .wp-picker-holder {
     width: 100% !important
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .wp-picker-holder .iris-picker {
     max-width: 240px !important
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .iris-picker-inner .iris-square {
     margin-right: 6px !important;
     max-height: 147px !important
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .iris-palette-container .iris-palette {
     width: 17px !important;
     height: 17px !important;
     margin-bottom: 4px !important
 }
-
 #add_new_table .wp-picker-container.wp-picker-active .iris-palette-container .iris-palette:nth-child(9)+a.iris-palette {
     float: left;
     clear: left;
     margin-left: 0 !important
 }
-
 #add_new_table .wp-picker-container .wp-color-result.button {
     font-size: 12px
 }
-
 #add_new_table a.wp-color-result {
     margin: 2px 2px 0 0
 }
-
 #add_new_table .wp-picker-container input[type=text].wp-color-picker,
 #add_new_table .button.button-small {
     margin: 0 0 0 -2px;
@@ -2589,7 +2350,6 @@
     height: 32px;
     line-height: 32px
 }
-
 #add_new_table .button.button-small {
     margin-left: 2px
 }

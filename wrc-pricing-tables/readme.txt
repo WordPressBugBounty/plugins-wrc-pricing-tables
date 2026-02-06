@@ -2,8 +2,8 @@
 Contributors: realwebcare
 Tags: responsive pricing table, pricing table, comparison table, price table, pricing
 Requires at least: 5.2
-Tested up to: 6.8
-Stable Tag: 2.5
+Tested up to: 6.9
+Stable Tag: 2.6
 Requires PHP: 7.4
 Donate link: https://www.realwebcare.com/billing/store/support/donation
 License: GPLv2 or later
@@ -16,39 +16,33 @@ Responsive CSS3 pricing tables design to present features and prices of differen
 
 **Create Stunning Pricing Tables in Minutes - No Coding Required!**
 
-WRC Pricing Tables is the ultimate WordPress plugin for crafting beautiful, responsive pricing tables that convert. With **22 professionally designed templates available instantly**, you can launch eye-catching pricing displays with just one click - perfect for SaaS products, memberships, service packages, and more!
+WRC Pricing Tables is the ultimate WordPress plugin for effortlessly crafting beautiful, responsive pricing tables that drive conversions. With **22 professionally designed, ready-to-use templates** available instantly, you can launch eye-catching pricing displays with just one click. This plugin is perfect for SaaS products, memberships, service packages, and more!
 
 ##Key Features That Set Your Pricing Apart:
 
-- ✅ **22 Ready-to-Use Templates:**
-Choose from a diverse collection of modern designs that automatically adapt to all devices – no CSS knowledge needed!
+✅ **22 Ready-to-Use Templates:** Choose from a diverse collection of modern designs that automatically adapt to all devices – no CSS knowledge needed!
 
-- ✅ **Flexible Display Options:**
-Showcase products individually or create powerful comparison tables to help customers make informed decisions.
+✅ **Flexible Display Options:** Showcase products individually or create powerful comparison tables to help customers make informed decisions.
 
-- ✅ **Unlimited Customization:**
-Add as many features and pricing tiers as you need with our intuitive drag-and-drop interface.
+✅ **Unlimited Customization:** Add as many features and pricing tiers as you need with our intuitive drag-and-drop interface.
 
-- ✅ **Visual Enhancements:**
-Make tables pop with interactive elements:
+✅ **Visual Enhancements:** Make tables pop with interactive elements:
  - Highlight special offers with ribbons
  - Add explanatory tooltips
  - Use clear ✔️/✖️ icons
  - Custom buttons with hover effects
 
-- ✅ **Smart Color Control**
-Extended WordPress color picker with 18 vibrant presets lets you match any brand identity perfectly.
+✅ **Smart Color Control** Extended WordPress color picker with 18 vibrant presets lets you match any brand identity perfectly.
 
-- ✅ **Performance Optimized**
-Lightweight code ensures your pricing tables load fast without slowing down your site.
+✅ **Performance Optimized** Lightweight code ensures your pricing tables load fast without slowing down your site.
 
 ##Why Professionals Choose WRC Pricing Tables:
 
-✨ **Mobile-Ready Designs** – Flawless display on all devices
-✨ **No Data Limits** – Unlimited rows and columns
-✨ **Live Previews** – See changes instantly
-✨ **Beginner Friendly** – Intuitive point-and-click setup
-✨ **Professional Results** – Enterprise-quality tables without the complexity
+✨ **Mobile-Ready Designs** – Flawless display and responsiveness on all devices.
+✨ **No Data Limits** – Enjoy unlimited rows and columns for detailed pricing presentation.
+✨ **Live Previews** – See your changes reflected instantly.
+✨ **Beginner Friendly** – The intuitive point-and-click setup makes table creation effortless.
+✨ **Professional Results** – Create enterprise-quality tables without the complexity.
 
 ###Perfect For:
 ✔ Digital product sellers
@@ -57,7 +51,7 @@ Lightweight code ensures your pricing tables load fast without slowing down your
 ✔ SaaS companies
 ✔ Agencies and freelancers
 
-`Install in seconds and create your first pricing table faster than you can make coffee!`
+**Install in seconds and create your first pricing table faster than you can make coffee!**
 
 **Pro Tip:**
 Make your `Recommended` package stand out automatically with our special column highlighting feature.
@@ -129,11 +123,13 @@ Try our plugin today and see how our modern data-handling approach can improve y
 **WRC Pricing Tables** plugin can be installed in two convenient ways: manually or directly from the WordPress plugin directory.
 
 = Manual Installation: =
-1. Log in to your WordPress admin dashboard.
-2. Navigate to **Plugins** in the left menu and click **Add New**.
-3. Click **Upload Plugin** and choose the **wrc-pricing-tables.zip** file. Click **Install Now**.
-4. Once installed, activate the plugin.
-5. Create a new pricing table under **Pricing Tables » Templates**.
+1. At first, donload the latest versionof the plugin from here.
+2. Then, log in to your WordPress admin dashboard.
+3. Navigate to **Plugins** in the left menu and click **Add New**.
+4. Click **Upload Plugin** and choose the downloaded ZIP (e.g. **wrc-pricing-tables.2.6.zip**) file.
+5. Click **Install Now**.
+6. Once installed, activate the plugin.
+7. Create a new pricing table under **Pricing Tables » Templates**.
 
 = Installation from WordPress Plugin Directory: =
 1. Log in to your WordPress admin dashboard.
@@ -177,25 +173,21 @@ Please note that you can only determine the gap between the columns manually, an
 
 You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/wrc-pricing-tables)
 
-== Screenshots ==
-1. Highlighted column with black background.
-2. Prominent column with blue background.
-3. Distinctive column with orange background.
-4. Expanded special column.
-5. Standout blue column, retaining feature section.
-6. Pricing Comparison Table Example 1 (Orange)
-7. Sleek dark interface with vibrant neon accents
-8. Teal green theme with deep accent rows and refreshing aqua highlights.
-9. Elegant purple theme with soft lavender backgrounds.
-10. Pricing Comparison Table Example 2 (Black)
-11. List of Pricing Tables
-12. Pricing Table column details & column colors
-
 == Upgrade Notice ==
+= 2.6 =
+This major update brings a full OOP refactor for better stability, performance, security, and future development. All existing pricing tables remain fully intact and functional. New features include proper activation/deactivation handling, a built-in help guide, improved user flow after table creation, and smoother AJAX modals. Safe to update — no data loss. Highly recommended for all users!
+
 = 2.5 =
 The latest version of WRC Pricing Tables introduces exciting new features and improvements like, 7 New Ready-Made Templates, Enhanced Security, Smoother Admin Experience and Performance Boost. Ensure compatibility with the latest WordPress versions. This is a recommended update for all users. Simply update through your WordPress dashboard to unlock these improvements!
 
 == Changelog ==
+= 2.6 (9 December, 2025) =
+- `Improved:` Full OOP refactor for better performance and maintainability
+- `Added:` Plugin activation/deactivation handling
+- `Added:` In-plugin Help & Guide documentation
+- `Updated:` Auto-redirect to table list after creation
+- `Enhanced:` Improved modal feedback and UX
+
 = 2.5 (28 May, 2025) =
 * `Added:` 7 more stunning ready-made templates (now 22 total designs)
 * `Improved:` admin interface with enhanced UI/UX
@@ -355,3 +347,17 @@ For support and assistance, please visit the [plugin support forum](https://word
 
 == License ==
 WRC Pricing Tables is licensed under the GPLv2 or later. For more details, see the [License](https://www.gnu.org/licenses/gpl-2.0.html) file.
+
+== Screenshots ==
+1. Highlighted column with black background.
+2. Prominent column with blue background.
+3. Distinctive column with orange background.
+4. Expanded special column.
+5. Standout blue column, retaining feature section.
+6. Pricing Comparison Table Example 1 (Orange)
+7. Sleek dark interface with vibrant neon accents
+8. Teal green theme with deep accent rows and refreshing aqua highlights.
+9. Elegant purple theme with soft lavender backgrounds.
+10. Pricing Comparison Table Example 2 (Black)
+11. List of Pricing Tables
+12. Pricing Table column details & column colors

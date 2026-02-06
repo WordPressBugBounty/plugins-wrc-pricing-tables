@@ -1,80 +1,131 @@
 <?php
 /**
- * Pricing Table Shortcode
- * Display pricing table responsively.
+ * Class WRCPT_Process_Shortcode
+ * 
+ * Handles rendering of the [wrc-pricing-table] shortcode output.
+ * Generates the complete HTML markup, inline CSS, and responsive layout
+ * for a pricing table based on stored options and settings.
+ * 
  * In the tablet view, the pricing table will be divided into two columns.
  * In the mobile view, each column of the price table will be displayed below each other.
  * 
- * @package WRC Pricing Tables v2.5 - 28 May, 2025
+ * @package WRC Pricing Tables v2.6 - 9 December, 2025
  * @link https://www.realwebcare.com/
  */
-if ( ! defined( 'ABSPATH' ) ) {
-    exit; // Exit if accessed directly.
+if (!defined('ABSPATH')) {
+    exit; // Exit if accessed directly
 }
-function wrcpt_shortcode( $p_table, $tableID, $p_feature, $p_combine, $tot_feat, $p_lists, $p_options, $p_count, $flag ) {
-	$i = 1; $j = 0;
-	/* Preparing structural settings of the different parts of the table. */
-	if(isset($p_combine['cwidth']) && $p_combine['cwidth']) {
-		$container_width = (int)$p_combine['cwidth'];
-	} else { $container_width = 100; }
-	if(isset($p_combine['maxcol']) && $p_combine['maxcol']) {
-		$maximum_column = (int)$p_combine['maxcol'];
-	} else { $maximum_column = 4; }
-	if(isset($p_combine['tbody']) && $p_combine['tbody']) {
-		$title_box_height = (int)$p_combine['tbody'];
-	} else { $title_box_height = 62; }
-	if(isset($p_combine['pbody']) && $p_combine['pbody']) {
-		$price_box_height = (int)$p_combine['pbody'];
-	} else { $price_box_height = 120; }
-	if(isset($p_combine['btbody']) && $p_combine['btbody']) {
-		$button_box_height = (int)$p_combine['btbody'];
-	} else { $button_box_height = 60; }
-	if(isset($p_combine['btbody']) && ($p_combine['bwidth'] && (int)$p_combine['bwidth'] < 120)) {
-		$button_padding = (int)$p_combine['bwidth'] * 0.0833;
-	} else { $button_padding = 10; }
-	if(isset($p_combine['capwidth']) && $p_combine['capwidth']) {
-		$caption_width = (int)$p_combine['capwidth'];
-	} else { $caption_width = 18.73; }
-	if(isset($p_combine['colgap']) && $p_combine['colgap']) {
-		$margin = (int)$p_combine['colgap'];
-	} else { $margin = 0; }
-	if(isset($p_combine['colshad'])) {
-		$column_shadow = sanitize_text_field($p_combine['colshad']);
-		$shadow_color = sanitize_text_field($p_combine['cscolor']);
-	} else {
-		$column_shadow = 'yes';
-		$shadow_color = '#cccccc';
-	}
 
-	/* Calculating responsive width of the pricing table for both tablet and mobile view.
-	 * Here, we are calculating responsive width both for caption column and package column.
-	 */
-	if($p_combine) {
-		if($p_combine['autocol'] == 'no') {
-			if($p_count > $maximum_column) {
-				$width = ($container_width)/$maximum_column . '%';
-				$cap_width = ($container_width)/($maximum_column+1) . '%';
-			} else {
-				$width = ($container_width)/$p_count . '%';
-				$cap_width = ($container_width)/($p_count+1) . '%';
-			}
-		} else {
-			if($p_combine['ftcap'] == "yes") {
-				$single_column_width = ((100 - $caption_width) - ($margin * (12-1)))/12;
-			} else {
-				$single_column_width = (100 - ($margin * (12-1)))/12;
-			}
-			$width = ($single_column_width * (12 / $maximum_column)) + ($margin * ((12 / $maximum_column) - 1)) . '%';
-			$cap_width = $caption_width . '%';
-		}
-		$tab_width = (((100 - ($margin * (12-1)))/12) * (12 / 2)) + ($margin * ((12 / 2) - 1)) . '%';
-		$mob_width = ((100/12 * (12 / 1))) . '%';
-	}
+if (!class_exists('WRCPT_Process_Shortcode')) {
+    class WRCPT_Process_Shortcode
+    {
+        private static $instance;
+		private $get_functions;
 
-	/* Start making the shortcode */
-	if(!empty($p_lists) && $p_combine['enable'] == 'yes' && $flag == 1) { ?>
-		<div id="<?php echo esc_attr($tableID); ?>" class="wrcpt_content wrcpt_container">
-			<div class="wrc_pricing_table wrcpt_row">
+        public function __construct()
+        {
+			// Access the Functions
+			$this->get_functions = WRCPT_Init_Functions::get_instances();
+        }
+
+        /**
+         * Public static method to retrieve the singleton instance.
+         */
+        public static function get_instances()
+        {
+            if (self::$instance) {
+                return self::$instance;
+            }
+
+            self::$instance = new self();
+
+            return self::$instance;
+        }
+
+		/**
+		 * Renders the complete pricing table shortcode output.
+		 * 
+		 * @param mixed $p_table	Table slug/name.
+		 * @param mixed $tableID	Unique table ID used in CSS selectors.
+		 * @param mixed $p_feature	Feature list (name => type).
+		 * @param mixed $p_combine	Table-wide settings (width, columns, shadows, etc.).
+		 * @param mixed $tot_feat	Total number of features.
+		 * @param mixed $p_lists	List of active column option keys.
+		 * @param mixed $p_options	Column option values.
+		 * @param mixed $p_count	Number of columns.
+		 * @param mixed $flag		Flag indicating whether any column is active.
+		 * 
+		 * @return void
+		 */
+		public function wrcpt_process_shortcode( $p_table, $tableID, $p_feature, $p_combine, $tot_feat, $p_lists, $p_options, $p_count, $flag ) {
+			$i = 1; $j = 0;
+
+			/**
+			 * Preparing structural settings of the different parts of the table.
+			 */
+			// Define default configuration
+			$defaults = [
+				'cwidth'   => 100,      // Container width (%)
+				'maxcol'   => 4,        // Maximum columns
+				'tbody'    => 62,       // Title box height (px)
+				'pbody'    => 120,      // Price box height (px)
+				'btbody'   => 60,       // Button box height (px)
+				'bwidth'   => 120,      // Button width (for padding calculation)
+				'capwidth' => 18.73,    // Caption column width (%)
+				'colgap'   => 0,        // Column gap (px)
+				'colshad'  => 'yes',    // Column shadow: yes/no
+				'cscolor'  => '#cccccc' // Shadow color
+			];
+
+			// Merge saved options with defaults (saved values override defaults)
+			$config = array_merge($defaults, array_filter((array)$p_combine, fn($value) => $value !== '' && $value !== null));
+
+			// Extract values with type casting and sanitization
+			$container_width     = (int)    $config['cwidth'];
+			$maximum_column      = (int)    $config['maxcol'];
+			$title_box_height    = (int)    $config['tbody'];
+			$price_box_height    = (int)    $config['pbody'];
+			$button_box_height   = (int)    $config['btbody'];
+			$caption_width       = (float)  $config['capwidth'];
+			$margin              = (int)    $config['colgap'];
+			$column_shadow       = sanitize_text_field($config['colshad']);
+			$shadow_color        = sanitize_hex_color($config['cscolor'] ?? '#cccccc');
+
+			// Special case: Button padding based on button width
+			$button_min_width    = 120;
+			$button_padding      = ((int)$config['bwidth'] >= $button_min_width)
+				? (int)$config['bwidth'] * 0.0833
+				: 10;
+		
+			/* Calculating responsive width of the pricing table for both tablet and mobile view.
+			 * Here, we are calculating responsive width both for caption column and package column.
+			 */
+			if($p_combine) {
+				if($p_combine['autocol'] == 'no') {
+					if($p_count > $maximum_column) {
+						$width = ($container_width)/$maximum_column . '%';
+						$cap_width = ($container_width)/($maximum_column+1) . '%';
+					} else {
+						$width = ($container_width)/$p_count . '%';
+						$cap_width = ($container_width)/($p_count+1) . '%';
+					}
+				} else {
+					if($p_combine['ftcap'] == "yes") {
+						$single_column_width = ((100 - $caption_width) - ($margin * (12-1)))/12;
+					} else {
+						$single_column_width = (100 - ($margin * (12-1)))/12;
+					}
+					$width = ($single_column_width * (12 / $maximum_column)) + ($margin * ((12 / $maximum_column) - 1)) . '%';
+					$cap_width = $caption_width . '%';
+				}
+				$tab_width = (((100 - ($margin * (12-1)))/12) * (12 / 2)) + ($margin * ((12 / 2) - 1)) . '%';
+				$mob_width = ((100/12 * (12 / 1))) . '%';
+			}
+		
+			/* Start making the shortcode */
+			if(!empty($p_lists) && $p_combine['enable'] == 'yes' && $flag == 1) { ?>
+				<div id="<?php echo esc_attr($tableID); ?>" class="wrcpt_content wrcpt_container">
+					<div class="wrc_pricing_table wrcpt_row">
 <style type="text/css">
 /* Responsive View */
 @media only screen and (max-width: 480px) {div#<?php echo esc_attr($tableID); ?> div.package_details {width: <?php echo esc_attr($mob_width); ?>;margin-top: 40px !important}}
@@ -154,52 +205,52 @@ div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before
 div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before {background: url(<?php echo esc_url(WRCPT_PLUGIN_URL . 'assets/images/wrcpt-buttons.png'); ?>) no-repeat -24px -91px}
 <?php } ?>
 </style><?php
-				foreach($p_options as $key => $value) {
-					$packageType = get_option($value);
-					if(isset($packageType['pdisp'])) { $prdisp = sanitize_text_field($packageType['pdisp']); }
-					else { $prdisp = 'show'; }
-					if(($j < 1 || $j % $maximum_column == 0) && $j <= $p_count) {
-						$i = 1;
-						if($p_combine['ftcap'] == "yes" && $prdisp == "show") { ?>
-							<div class="package_caption">
-								<ul>
-									<li class="pricing_table_title"></li>
-									<li class="pricing_table_plan">
-										<h3 class="caption"><?php echo esc_html(ucwords(str_replace('_', ' ', sanitize_text_field($p_table)))); ?></h3>
-									</li><?php
-									for($tf = 1; $tf <= $tot_feat; $tf++) {
-										if($i % 2 == 0) {
-											if($i == $tot_feat) { ?>
-												<li class="feature_style_2 bottom_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
-											} else { ?>
-												<li class="feature_style_2"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
-											}
-										} else {
-											if($i == 1) { ?>
-												<li class="feature_style_3 top_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
-											} elseif($i == $tot_feat) { ?>
-												<li class="feature_style_3 bottom_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
-											} else { ?>
-												<li class="feature_style_3"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
-											}
-										} $i++;
-									} ?>
-								</ul>
-							</div><?php
-						}
-					}
-					if($p_combine['ttgrd'] == 'yes') {
-					$tlight = wrcpt_adjustBrightness($packageType['tbcolor'], 0); }
-					else {
-					$tlight = wrcpt_adjustBrightness($packageType['tbcolor'], 50); }
-					$p_color = $packageType['tbcolor'];
-					$pdark = wrcpt_adjustBrightness($packageType['tbcolor'], 20);
-					$blight = wrcpt_adjustBrightness($packageType['bcolor'], 50);
-					$bdark = wrcpt_adjustBrightness($packageType['bhover'], 20);
-					$bhlight = wrcpt_adjustBrightness($packageType['bhover'], 50);
-					$rlight = wrcpt_adjustBrightness($packageType['rbcolor'], 80);
-					$i = 1;
-					$pid = absint( $packageType['pid'] ); ?>
+						foreach($p_options as $key => $value) {
+							$packageType = get_option($value);
+							if(isset($packageType['pdisp'])) { $prdisp = sanitize_text_field($packageType['pdisp']); }
+							else { $prdisp = 'show'; }
+							if(($j < 1 || $j % $maximum_column == 0) && $j <= $p_count) {
+								$i = 1;
+								if($p_combine['ftcap'] == "yes" && $prdisp == "show") { ?>
+									<div class="package_caption">
+										<ul>
+											<li class="pricing_table_title"></li>
+											<li class="pricing_table_plan">
+												<h3 class="caption"><?php echo esc_html(ucwords(str_replace('_', ' ', sanitize_text_field($p_table)))); ?></h3>
+											</li><?php
+											for($tf = 1; $tf <= $tot_feat; $tf++) {
+												if($i % 2 == 0) {
+													if($i == $tot_feat) { ?>
+														<li class="feature_style_2 bottom_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
+													} else { ?>
+														<li class="feature_style_2"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
+													}
+												} else {
+													if($i == 1) { ?>
+														<li class="feature_style_3 top_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
+													} elseif($i == $tot_feat) { ?>
+														<li class="feature_style_3 bottom_left"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
+													} else { ?>
+														<li class="feature_style_3"><div class="caption_lists"><span class="caption"><?php echo esc_attr($p_feature['fitem'.$tf]); ?></span></div></li><?php
+													}
+												} $i++;
+											} ?>
+										</ul>
+									</div><?php
+								}
+							}
+							if($p_combine['ttgrd'] == 'yes') {
+							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 0); }
+							else {
+							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 50); }
+							$p_color = $packageType['tbcolor'];
+							$pdark = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 20);
+							$blight = $this->get_functions->wrcpt_adjustBrightness($packageType['bcolor'], 50);
+							// $bdark = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'], 20);
+							$bhlight = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'], 50);
+							$rlight = $this->get_functions->wrcpt_adjustBrightness($packageType['rbcolor'], 80);
+							$i = 1;
+							$pid = absint( $packageType['pid'] ); ?>
 <style type="text/css">
 <?php if($p_combine['tsize'] || $packageType['tcolor']) { ?>
 div#<?php echo esc_attr($tableID); ?> div.package_details h3.txcolor-<?php echo esc_attr($pid); ?> {<?php if($p_combine['tsize']) { ?>font-size: <?php echo esc_attr($p_combine['tsize']); ?>;<?php } ?><?php if($packageType['tcolor']) { ?>color: <?php echo esc_attr($packageType['tcolor']); ?>;<?php } ?>}
@@ -258,101 +309,103 @@ div#<?php echo esc_attr($tableID); ?> div.package_details li .ribbon_color-<?php
 	<?php } ?>
 <?php } ?>
 </style>
-					<?php if($prdisp == 'show') { ?>
-					<div class="package_details<?php echo ' package-'.esc_attr($pid); ?><?php if(isset($packageType['spack']) && $packageType['spack'] == 'yes') { echo ' special-package'; } ?>">
-						<ul>
-							<?php if($p_combine['enribs'] == "yes" && esc_attr($packageType['rtext']) != '') { ?><li><div class="wrc-ribbon ribbon_color-<?php echo esc_attr($pid); ?>"><a href="#" id="wrc-ribbon"><?php echo esc_attr($packageType['rtext']); ?></a></div></li><?php } ?>
-                            <li class="pricing_table_title color-<?php echo esc_attr($pid); ?> title_top_radius">
-                            	<h3 class="package_type txcolor-<?php echo esc_attr($pid); ?>"><?php echo esc_html($packageType['type']); ?><span class="package_desc"><?php echo esc_html($packageType['tdesc']); ?></span></h3>
-                            </li>
-                            <li class="pricing_table_plan plan-<?php echo esc_attr($pid); ?> top_price">
-                                <h2 class="package_plan txcolor-<?php echo esc_attr($pid); ?>">
-                                    <span class="unit"><?php echo esc_attr($packageType['unit']); ?></span><span class="price"><?php echo esc_attr($packageType['price']); ?></span><span class="cent"><?php if(esc_attr($packageType['cent'])) echo '.'.esc_attr($packageType['cent']); ?></span><span class="plan"><?php echo esc_attr($packageType['plan']); ?></span>
-									<span class="price_desc"><?php echo esc_attr($packageType['pdesc']); ?></span>
-                                </h2>
-                            </li><?php
-							if($p_feature) {
-								for($tf = 1; $tf <= $tot_feat; $tf++) {
-									if(isset($packageType['fitem'.$tf])) {
-										if($p_feature['ftype'.$tf] != 'textcheck') {
-											$f_value = sanitize_text_field($packageType['fitem'.$tf]);
-										} else {
-											$f_value = sanitize_text_field($packageType['fitem'.$tf]);
-											$tc_value = sanitize_text_field($packageType['fitem'.$tf.'c']);
-										}
-										$f_tips = sanitize_text_field($packageType['tip'.$tf]);
-									}
-									if($packageType['fbrow1'] || $packageType['fbrow2']) {
-										if ($i % 2 == 0) { $row_color = 'rowcolor-'.esc_attr($pid); } else { $row_color = 'altrowcolor-'.esc_attr($pid); }
-									} else {
-										if ($i % 2 == 0) { $row_color = 'rowcolor'; } else { $row_color = 'altrowcolor'; }
+							<?php if($prdisp == 'show') { ?>
+							<div class="package_details<?php echo ' package-'.esc_attr($pid); ?><?php if(isset($packageType['spack']) && $packageType['spack'] == 'yes') { echo ' special-package'; } ?>">
+								<ul>
+									<?php if($p_combine['enribs'] == "yes" && esc_attr($packageType['rtext']) != '') { ?><li><div class="wrc-ribbon ribbon_color-<?php echo esc_attr($pid); ?>"><a href="#" id="wrc-ribbon"><?php echo esc_attr($packageType['rtext']); ?></a></div></li><?php } ?>
+									<li class="pricing_table_title color-<?php echo esc_attr($pid); ?> title_top_radius">
+										<h3 class="package_type txcolor-<?php echo esc_attr($pid); ?>"><?php echo esc_html($packageType['type']); ?><span class="package_desc"><?php echo esc_html($packageType['tdesc']); ?></span></h3>
+									</li>
+									<li class="pricing_table_plan plan-<?php echo esc_attr($pid); ?> top_price">
+										<h2 class="package_plan txcolor-<?php echo esc_attr($pid); ?>">
+											<span class="unit"><?php echo esc_attr($packageType['unit']); ?></span><span class="price"><?php echo esc_attr($packageType['price']); ?></span><span class="cent"><?php if(esc_attr($packageType['cent'])) echo '.'.esc_attr($packageType['cent']); ?></span><span class="plan"><?php echo esc_attr($packageType['plan']); ?></span>
+											<span class="price_desc"><?php echo esc_attr($packageType['pdesc']); ?></span>
+										</h2>
+									</li><?php
+									if($p_feature) {
+										for($tf = 1; $tf <= $tot_feat; $tf++) {
+											if(isset($packageType['fitem'.$tf])) {
+												if($p_feature['ftype'.$tf] != 'textcheck') {
+													$f_value = sanitize_text_field($packageType['fitem'.$tf]);
+												} else {
+													$f_value = sanitize_text_field($packageType['fitem'.$tf]);
+													$tc_value = sanitize_text_field($packageType['fitem'.$tf.'c']);
+												}
+												$f_tips = sanitize_text_field($packageType['tip'.$tf]);
+											}
+											if($packageType['fbrow1'] || $packageType['fbrow2']) {
+												if ($i % 2 == 0) { $row_color = 'rowcolor-'.esc_attr($pid); } else { $row_color = 'altrowcolor-'.esc_attr($pid); }
+											} else {
+												if ($i % 2 == 0) { $row_color = 'rowcolor'; } else { $row_color = 'altrowcolor'; }
+											} ?>
+											<li class="feature_style_1 ftcolor-<?php echo esc_attr($pid); ?> <?php echo esc_attr($row_color); ?><?php if($tf == 1) { echo ' top-feature'; } ?><?php if($tf == $tot_feat) { echo ' last-feature'; } ?>">
+												<div class="feature_lists"><?php
+													if($f_value == 'tick' || $f_value == 'cross') {
+														if($p_combine['ftcap'] == "yes") {
+															$ttip = 'icon';
+															if($f_value == 'tick') { ?><span class="feature_yes"></span><?php
+															} else { ?><span class="feature_no"></span><?php } ?>
+															<span class="media_screen"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														} else {
+															$ttip = 'text';
+															if($f_value == 'tick') { ?><span class="feature_yes"></span><?php
+															} else { ?><span class="feature_no"></span><?php } ?>
+															<span class="feat_value"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														}
+													} elseif($f_value == '') {
+														if($p_combine['ftcap'] == "yes") {
+															$ttip = 'icon'; ?>
+															<span class="media_screen<?php if($f_value == '' && $tc_value != 'tick') { ?> not-available<?php } ?>"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														} else {
+															$ttip = 'text'; //echo $fa_icon; ?>
+															<span class="feat_value<?php if($f_value == '' && $tc_value != 'tick') { ?> not-available<?php } ?>"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														}
+													} else {
+														$ttip = 'text';
+														if($p_combine['ftcap'] == "yes") { ?>
+															<div class="feat_cap"><?php echo esc_attr($f_value); ?></div>
+															<span class="media_screen"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														} else { ?>
+															<div class="feat_cap"><?php echo esc_attr($f_value); ?></div>
+															<span class="feat_value"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
+														}
+													}
+													if($p_combine['entips'] == "yes" && $f_tips != '') { ?><span class="<?php echo esc_attr($ttip); ?>_tooltip" rel="<?php echo wp_kses_post($f_tips); ?>"></span><?php } ?>
+												</div>
+											</li><?php
+											$i++;
+										} $j++;
 									} ?>
-                                    <li class="feature_style_1 ftcolor-<?php echo esc_attr($pid); ?> <?php echo esc_attr($row_color); ?><?php if($tf == 1) { echo ' top-feature'; } ?><?php if($tf == $tot_feat) { echo ' last-feature'; } ?>">
-                                        <div class="feature_lists"><?php
-                                            if($f_value == 'tick' || $f_value == 'cross') {
-                                                if($p_combine['ftcap'] == "yes") {
-                                                    $ttip = 'icon';
-                                                    if($f_value == 'tick') { ?><span class="feature_yes"></span><?php
-                                                    } else { ?><span class="feature_no"></span><?php } ?>
-                                                    <span class="media_screen"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                } else {
-                                                    $ttip = 'text';
-                                                    if($f_value == 'tick') { ?><span class="feature_yes"></span><?php
-                                                    } else { ?><span class="feature_no"></span><?php } ?>
-                                                    <span class="feat_value"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                }
-                                            } elseif($f_value == '') {
-                                                if($p_combine['ftcap'] == "yes") {
-                                                    $ttip = 'icon'; ?>
-                                                    <span class="media_screen<?php if($f_value == '' && $tc_value != 'tick') { ?> not-available<?php } ?>"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                } else {
-                                                    $ttip = 'text'; //echo $fa_icon; ?>
-                                                    <span class="feat_value<?php if($f_value == '' && $tc_value != 'tick') { ?> not-available<?php } ?>"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                }
-                                            } else {
-                                                $ttip = 'text';
-                                                if($p_combine['ftcap'] == "yes") { ?>
-                                                    <div class="feat_cap"><?php echo esc_attr($f_value); ?></div>
-                                                    <span class="media_screen"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                } else { ?>
-                                                    <div class="feat_cap"><?php echo esc_attr($f_value); ?></div>
-                                                    <span class="feat_value"><?php echo esc_attr($p_feature['fitem'.$i]); ?></span><?php
-                                                }
-                                            }
-                                            if($p_combine['entips'] == "yes" && $f_tips != '') { ?><span class="<?php echo esc_attr($ttip); ?>_tooltip" rel="<?php echo wp_kses_post($f_tips); ?>"></span><?php } ?>
-                                        </div>
-                                    </li><?php
-                                    $i++;
-								} $j++;
-							} ?>
-							<?php
-							if (isset($packageType['btext']) && $packageType['btext'] === '') {
-								$button_text = ' btn-empty';
-							} else { $button_text = ''; } ?>
-							<li class="pricing_table_button bbcolor-<?php echo esc_attr($pid); ?> button-<?php echo esc_attr($pid); ?><?php echo esc_attr($button_text); ?>">
-								<?php if (!empty($packageType['btext'])): ?>
-								<div class="button_code">
-									<a href="<?php echo esc_url($packageType['blink']); ?>" class="action_button"<?php if($p_combine['nltab'] == 'yes') { ?> target="_blank"<?php } ?>><?php echo esc_attr($packageType['btext']); ?></a>
-								</div>
-								<?php endif; ?>
-							</li>
-						</ul>
-					</div> <!-- End of package_details -->
-					<?php } ?>
-				<?php } ?> <!-- End of ForEach -->
-			</div>
-		</div>
-		<div class="wrc_clear"></div>
-	<?php } else { ?>
-		<style type="text/css">
-			p.wrcpt_notice {background-color: #FFF;padding: 15px 20px;font-size: 24px;line-height: 24px;border-left: 4px solid #7ad03a;-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);box-shadow: 2px 2px 5px 2px rgba(0,0,0,.1);display: inline-block}
-		</style><?php
-		if($p_table == '' || $flag == 0) { ?>
-			<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing tables yet!', 'wrc-pricing-tables') ?></p><?php
-		} elseif(empty($p_lists)) { ?>
-			<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing column yet!', 'wrc-pricing-tables') ?></p><?php
-		} else { ?>
-			<p class="wrcpt_notice"><?php echo wp_kses_post(sprintf(__('Please <strong>Enable</strong> pricing table to display pricing table columns!', 'wrc-pricing-tables'))); ?></p><?php
+									<?php
+									if (isset($packageType['btext']) && $packageType['btext'] === '') {
+										$button_text = ' btn-empty';
+									} else { $button_text = ''; } ?>
+									<li class="pricing_table_button bbcolor-<?php echo esc_attr($pid); ?> button-<?php echo esc_attr($pid); ?><?php echo esc_attr($button_text); ?>">
+										<?php if (!empty($packageType['btext'])): ?>
+										<div class="button_code">
+											<a href="<?php echo esc_url($packageType['blink']); ?>" class="action_button"<?php if($p_combine['nltab'] == 'yes') { ?> target="_blank"<?php } ?>><?php echo esc_attr($packageType['btext']); ?></a>
+										</div>
+										<?php endif; ?>
+									</li>
+								</ul>
+							</div> <!-- End of package_details -->
+							<?php } ?>
+						<?php } ?> <!-- End of ForEach -->
+					</div>
+				</div>
+				<div class="wrc_clear"></div>
+			<?php } else { ?>
+				<style type="text/css">
+					p.wrcpt_notice {background-color: #FFF;padding: 15px 20px;font-size: 24px;line-height: 24px;border-left: 4px solid #7ad03a;-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);box-shadow: 2px 2px 5px 2px rgba(0,0,0,.1);display: inline-block}
+				</style><?php
+				if($p_table == '' || $flag == 0) { ?>
+					<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing tables yet!', 'wrc-pricing-tables') ?></p><?php
+				} elseif(empty($p_lists)) { ?>
+					<p class="wrcpt_notice"><?php echo esc_html__('You didn\'t add any pricing column yet!', 'wrc-pricing-tables') ?></p><?php
+				} else { ?>
+					<p class="wrcpt_notice"><?php echo wp_kses_post(sprintf(__('Please <strong>Enable</strong> pricing table to display pricing table columns!', 'wrc-pricing-tables'))); ?></p><?php
+				}
+			}
 		}
 	}
 }
