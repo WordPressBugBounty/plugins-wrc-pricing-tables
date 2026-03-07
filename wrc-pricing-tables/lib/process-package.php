@@ -6,7 +6,7 @@
  * Also coloring the table using ColorPicker and
  * configuring the table from pricing table settings.
  * 
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 

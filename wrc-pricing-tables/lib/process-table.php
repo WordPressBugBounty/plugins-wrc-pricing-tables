@@ -6,7 +6,7 @@
  * It is responsible for displaying the list of tables, managing their settings, and providing
  * additional functionality such as announcements, instructions, and modal dialogs for user interactions.
  * 
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 

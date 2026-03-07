@@ -2,7 +2,7 @@
 /**
  * WRC Pricing Tables – Admin Sidebar
  *
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 
@@ -157,12 +157,12 @@ if ( ! class_exists( 'WRCPT_Admin_Sidebar' ) ) {
                     <li>
                         <?php esc_html_e( 'Version: ', 'wrc-pricing-tables' ); ?>
                         <a href="https://wordpress.org/plugins/wrc-pricing-tables/changelog/" target="_blank" rel="noopener">
-                            <?php echo esc_html( '2.6' ); ?>
+                            <?php echo esc_html( '2.7' ); ?>
                         </a>
                     </li>
                     <li><?php esc_html_e( 'Requires: WordPress 5.2', 'wrc-pricing-tables' ); ?></li>
                     <li><?php esc_html_e( 'First release: 6 May, 2015', 'wrc-pricing-tables' ); ?></li>
-                    <li><?php esc_html_e( 'Last Update: 9 December, 2025', 'wrc-pricing-tables' ); ?></li>
+                    <li><?php esc_html_e( 'Last Update: 7 March, 2026', 'wrc-pricing-tables' ); ?></li>
                     <li>
                         <?php esc_html_e( 'Developed by: ', 'wrc-pricing-tables' ); ?>
                         <a href="https://www.realwebcare.com" target="_blank" rel="noopener">

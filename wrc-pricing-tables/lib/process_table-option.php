@@ -13,7 +13,7 @@
  * All AJAX-driven option updates from the admin settings page interact through
  * the methods provided in this class.
  * 
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 
@@ -169,27 +169,35 @@ if (!class_exists('WRCPT_Process_Options')) {
 					$tooltips = isset($_POST['tooltips']) ? array_map('sanitize_text_field', wp_unslash($_POST['tooltips'])) : array();
 		
 					$sn = 0; $fd = 1;
+
+					// Re-index array manually to avoid empty/deleted indexes causing undefined offsets
 					$feature_name = array();
-		
+					$valid_features = array();
+					
 					foreach($_POST['feature_name'] as $key => $feature) {
-						if($feature) {
-							$feature_name['fitem' . $fn] = sanitize_text_field($feature);
-							$feature_name['ftype' . $fn] = sanitize_text_field($feature_type[$fn - 1]);
-							$fn++;
+						if(!empty($feature)) {
+							$valid_features[$key] = $feature;
 						}
+					}
+
+					foreach($valid_features as $key => $feature) {
+						$feature_name['fitem' . $fn] = sanitize_text_field($feature);
+						$feature_name['ftype' . $fn] = isset($feature_type[$key]) ? sanitize_text_field($feature_type[$key]) : 'text';
+						$fn++;
+
 						foreach($packageOptions as $item => $option) {
 							$packageItem = get_option($option);
-							if(array_key_exists($key, $feature_lists)) {
+							if(is_array($feature_lists) && array_key_exists($key, $feature_lists)) {
 								$packageItem['fitem'.$fd] = isset($feature_value[$sn]) ? sanitize_text_field($feature_value[$sn]) : '';
 								$packageItem['tip'.$fd] = isset($tooltips[$sn]) ? sanitize_text_field($tooltips[$sn]) : '';
 								update_option($option, $packageItem);
-								$sn++;
 							} else {
 								$packageItem['fitem' . $fd] = '';
 								$packageItem['tip' . $fd] = '';
 								update_option($option, $packageItem);
 							}
 						}
+						$sn++; // Increment outside packageOptions loop, inside valid_features loop
 						$fd++;
 					}
 					update_option($package_feature, $feature_name);

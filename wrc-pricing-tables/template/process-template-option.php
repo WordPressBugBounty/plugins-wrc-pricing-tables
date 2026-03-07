@@ -4,7 +4,7 @@
  * 
  * Handles AJAX actions for activating and setting up pricing table templates with default options.
  * 
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {

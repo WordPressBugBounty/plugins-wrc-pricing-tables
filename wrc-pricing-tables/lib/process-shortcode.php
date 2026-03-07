@@ -9,7 +9,7 @@
  * In the tablet view, the pricing table will be divided into two columns.
  * In the mobile view, each column of the price table will be displayed below each other.
  * 
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {
@@ -100,8 +100,13 @@ if (!class_exists('WRCPT_Process_Shortcode')) {
 			/* Calculating responsive width of the pricing table for both tablet and mobile view.
 			 * Here, we are calculating responsive width both for caption column and package column.
 			 */
-			if($p_combine) {
-				if($p_combine['autocol'] == 'no') {
+			$width = '100%';
+			$cap_width = '100%';
+			$tab_width = '100%';
+			$mob_width = '100%';
+
+			if(!empty($p_combine)) {
+				if(isset($p_combine['autocol']) && $p_combine['autocol'] == 'no') {
 					if($p_count > $maximum_column) {
 						$width = ($container_width)/$maximum_column . '%';
 						$cap_width = ($container_width)/($maximum_column+1) . '%';
@@ -110,7 +115,7 @@ if (!class_exists('WRCPT_Process_Shortcode')) {
 						$cap_width = ($container_width)/($p_count+1) . '%';
 					}
 				} else {
-					if($p_combine['ftcap'] == "yes") {
+					if(isset($p_combine['ftcap']) && $p_combine['ftcap'] == "yes") {
 						$single_column_width = ((100 - $caption_width) - ($margin * (12-1)))/12;
 					} else {
 						$single_column_width = (100 - ($margin * (12-1)))/12;
@@ -239,16 +244,16 @@ div#<?php echo esc_attr($tableID); ?> div.package_details span.feature_no:before
 									</div><?php
 								}
 							}
-							if($p_combine['ttgrd'] == 'yes') {
-							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 0); }
+							if(isset($p_combine['ttgrd']) && $p_combine['ttgrd'] == 'yes') {
+							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'] ?? '#000000', 0); }
 							else {
-							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 50); }
-							$p_color = $packageType['tbcolor'];
-							$pdark = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'], 20);
-							$blight = $this->get_functions->wrcpt_adjustBrightness($packageType['bcolor'], 50);
-							// $bdark = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'], 20);
-							$bhlight = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'], 50);
-							$rlight = $this->get_functions->wrcpt_adjustBrightness($packageType['rbcolor'], 80);
+							$tlight = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'] ?? '#000000', 50); }
+							$p_color = $packageType['tbcolor'] ?? '#000000';
+							$pdark = $this->get_functions->wrcpt_adjustBrightness($packageType['tbcolor'] ?? '#000000', 20);
+							$blight = $this->get_functions->wrcpt_adjustBrightness($packageType['bcolor'] ?? '#000000', 50);
+							// $bdark = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'] ?? '#000000', 20);
+							$bhlight = $this->get_functions->wrcpt_adjustBrightness($packageType['bhover'] ?? '#000000', 50);
+							$rlight = $this->get_functions->wrcpt_adjustBrightness($packageType['rbcolor'] ?? '#000000', 80);
 							$i = 1;
 							$pid = absint( $packageType['pid'] ); ?>
 <style type="text/css">
@@ -324,16 +329,18 @@ div#<?php echo esc_attr($tableID); ?> div.package_details li .ribbon_color-<?php
 									</li><?php
 									if($p_feature) {
 										for($tf = 1; $tf <= $tot_feat; $tf++) {
+											$f_value = '';
+											$tc_value = '';
+											$f_tips  = '';
+
 											if(isset($packageType['fitem'.$tf])) {
-												if($p_feature['ftype'.$tf] != 'textcheck') {
-													$f_value = sanitize_text_field($packageType['fitem'.$tf]);
-												} else {
-													$f_value = sanitize_text_field($packageType['fitem'.$tf]);
-													$tc_value = sanitize_text_field($packageType['fitem'.$tf.'c']);
+												$f_value = sanitize_text_field($packageType['fitem'.$tf]);
+												if(isset($p_feature['ftype'.$tf]) && $p_feature['ftype'.$tf] == 'textcheck') {
+													$tc_value = isset($packageType['fitem'.$tf.'c']) ? sanitize_text_field($packageType['fitem'.$tf.'c']) : '';
 												}
-												$f_tips = sanitize_text_field($packageType['tip'.$tf]);
+												$f_tips = isset($packageType['tip'.$tf]) ? sanitize_text_field($packageType['tip'.$tf]) : '';
 											}
-											if($packageType['fbrow1'] || $packageType['fbrow2']) {
+											if(!empty($packageType['fbrow1']) || !empty($packageType['fbrow2'])) {
 												if ($i % 2 == 0) { $row_color = 'rowcolor-'.esc_attr($pid); } else { $row_color = 'altrowcolor-'.esc_attr($pid); }
 											} else {
 												if ($i % 2 == 0) { $row_color = 'rowcolor'; } else { $row_color = 'altrowcolor'; }

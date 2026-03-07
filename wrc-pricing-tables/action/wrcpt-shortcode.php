@@ -7,7 +7,7 @@
  * The shortcode allows users to customize how the pricing tables are displayed
  * and provides a seamless way to integrate the pricing table's information into posts or pages.
  *
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {
@@ -95,18 +95,16 @@ if (!class_exists('WRCPT_Shortcode')) {
 
             ob_start();
 
-            echo wp_kses_post(
-                WRCPT_Process_Shortcode::get_instances()->wrcpt_process_shortcode(
-                    $pricing_table,
-                    $tableID,
-                    $package_feature,
-                    $packageCombine,
-                    $total_feature,
-                    $package_lists,
-                    $packageOptions,
-                    $package_count,
-                    $flag
-                )
+            WRCPT_Process_Shortcode::get_instances()->wrcpt_process_shortcode(
+                $pricing_table,
+                $tableID,
+                $package_feature,
+                $packageCombine,
+                $total_feature,
+                $package_lists,
+                $packageOptions,
+                $package_count,
+                $flag
             );
 
             return ob_get_clean();

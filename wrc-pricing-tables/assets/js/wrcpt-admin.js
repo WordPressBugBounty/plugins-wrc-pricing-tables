@@ -1,5 +1,5 @@
 /*!
- * WRC Pricing Tables v2.6 - 9 December, 2025
+ * WRC Pricing Tables v2.7 - 7 March, 2026
  * by @realwebcare - https://www.realwebcare.com
  */
 jQuery(document).ready(function ($) {
@@ -62,12 +62,12 @@ function wrcpteditpackages(pcount, ptable) {
 		},
 		success: function (data) {
 			// Keep the "preview_message" visible for at least 1 second
-			setTimeout(function() {
+			setTimeout(function () {
 				// Update the modal with the success message
 				jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.columns_success}</p>`);
 
 				// Hold the success message for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					var linkid = '#wrcpt_list';
 
 					jQuery(linkid).html('');
@@ -218,7 +218,7 @@ function wrcpteditpackages(pcount, ptable) {
 									jQuery('#delPackage').attr('id', 'delDisable');
 									jQuery('.column_hide').attr('class', 'column_hide inactive');
 									jQuery(".package_details").css("cursor", "auto");
-									jQuery("#sortable_column").sortable({ disabled: true });
+									jQuery("#sortable_column").sortable({disabled: true});
 								}
 								jQuery('#addPackage').attr('disabled', false).prop('value', "New Column");
 								var j = 1;
@@ -258,7 +258,7 @@ function wrcpteditpackages(pcount, ptable) {
 					});
 
 					// Fade out the modal after a brief delay
-					setTimeout(function() {
+					setTimeout(function () {
 						jQuery('#wrcpt-modal').fadeOut();
 					}, 1000); // 1 second delay after reload
 				}, 1000); // Hold the success message for 1 second
@@ -319,7 +319,7 @@ function wrcptsettableoptions() {
 							formMessages.addClass('success').css('display', 'block');
 							// Clear the form and retrieve it again.
 							form.hide().fadeIn(1000);
-							jQuery('html, body').animate({ scrollTop: 0 }, 0);
+							jQuery('html, body').animate({scrollTop: 0}, 0);
 
 							jQuery('body').on('click', '.wrcpt_close', function () {
 								formMessages.fadeOut('slow');
@@ -365,12 +365,12 @@ function wrcpteditfeature(ptable) {
 		},
 		success: function (data) {
 			// Keep the "features_message" visible for at least 1 second
-			setTimeout(function() {
+			setTimeout(function () {
 				// Update the modal with the success message
 				jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.features_success}</p>`);
 
 				// Hold the success message for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					var linkid = '#wrcpt_list';
 					jQuery(linkid).html('');
 					jQuery(".table_list .subsubsub").hide();
@@ -436,7 +436,7 @@ function wrcpteditfeature(ptable) {
 					});
 
 					// Fade out the modal after a brief delay
-					setTimeout(function() {
+					setTimeout(function () {
 						jQuery('#wrcpt-modal').fadeOut();
 					}, 1000); // 1 second delay after reload
 				}, 1000); // 1 second delay for success message visibility
@@ -465,15 +465,15 @@ function wrcptviewpack(tabid, ptable) {
 		},
 		success: function (data) {
 			// Keep the "preview_message" visible for at least 1 second
-			setTimeout(function() {
+			setTimeout(function () {
 				// Update the modal with the success message
 				jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.preview_success}</p>`);
 
 				// Hold the success message for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					var linkid = '#wrcpt_list';
 					var replace_name = ptable.replace("_", " ");
-					var pricing_table_name = replace_name.replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, function (m) { return m.toUpperCase() });
+					var pricing_table_name = replace_name.replace(/^([a-z\u00E0-\u00FC])|\s+([a-z\u00E0-\u00FC])/g, function (m) {return m.toUpperCase()});
 					jQuery(linkid).html('');
 					jQuery(".table_list .subsubsub").hide();
 					jQuery("#new_table").hide();
@@ -486,7 +486,7 @@ function wrcptviewpack(tabid, ptable) {
 					jQuery(".postbox-container").css("width", "100%");
 
 					// Fade out the modal after a brief delay
-					setTimeout(function() {
+					setTimeout(function () {
 						jQuery('#wrcpt-modal').fadeOut();
 					}, 1000); // 1 second delay after reload
 				}, 1000); // 1 second delay for success message visibility
@@ -527,18 +527,18 @@ function wrcptdeletetable(ptable) {
 			},
 			success: function (data) {
 				// Hold the "creating_message" for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					// After 1 second, update the modal with the success message
 					jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.deleting_success}</p>`);
-					
+
 					// Reload the page after another 1 second (optional delay for success message visibility)
-					setTimeout(function() {
+					setTimeout(function () {
 						var linkid = '#wrcpt_' + ptable;
 						jQuery(linkid).remove();
 						jQuery(linkid).append(data);
 
 						// Fade out the modal after a brief delay
-						setTimeout(function() {
+						setTimeout(function () {
 							window.location.reload();
 						}, 3000); // 3 seconds delay after reload
 					}, 1000); // 1 second delay
@@ -585,12 +585,12 @@ function wrcptresetshortcode() {
 			},
 			success: function () {
 				// Hold the "creating_message" for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					// After 1 second, update the modal with the success message
 					jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${wrcptajax.regen_success}</p>`);
-					
+
 					// Reload the page after another 1 second (optional delay for success message visibility)
-					setTimeout(function() {
+					setTimeout(function () {
 						window.location.reload();
 					}, 3000); // 3 seconds delay
 				}, 1000); // Hold for 1 second
@@ -622,7 +622,7 @@ function wrcptoptimizetables() {
 		jQuery('#wrcpt-confirm-modal').addClass('hide').delay(500).fadeOut(0);
 
 		// Submit the form
-    	document.getElementById("wrcpt_optimize_form").submit();
+		document.getElementById("wrcpt_optimize_form").submit();
 
 		// Show the modal with the "regenerating shortcode" message
 		jQuery('#wrcpt-modal').fadeIn().find('.wrcpt-modal-content').html(`
@@ -639,12 +639,12 @@ function wrcptoptimizetables() {
 			},
 			success: function (response) {
 				// Hold the "creating_message" for 1 second
-				setTimeout(function() {
+				setTimeout(function () {
 					// After 1 second, update the modal with the success message
 					jQuery('#wrcpt-modal .wrcpt-modal-content').html(`<p>${response.data.message}</p>`);
 
 					// Reload the page after another 1 second (optional delay for success message visibility)
-					setTimeout(function() {
+					setTimeout(function () {
 						window.location.reload();
 					}, 3000); // 3 seconds delay
 				}, 1000); // Hold for 1 second

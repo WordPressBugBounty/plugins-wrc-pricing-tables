@@ -9,7 +9,7 @@
  * It's important to understand the role of each function before making any modifications,
  * as they collectively ensure a smooth and error-free activation process.
  *
- * @package WRC Pricing Tables v2.6 - 9 December, 2025
+ * @package WRC Pricing Tables v2.7 - 7 March, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {
