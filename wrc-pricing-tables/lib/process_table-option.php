@@ -13,7 +13,7 @@
  * All AJAX-driven option updates from the admin settings page interact through
  * the methods provided in this class.
  * 
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 

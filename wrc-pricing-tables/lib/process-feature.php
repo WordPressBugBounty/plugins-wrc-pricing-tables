@@ -14,7 +14,7 @@
  * only — saving and updating feature data is handled by the
  * WRCPT_Process_Options class.
  * 
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 

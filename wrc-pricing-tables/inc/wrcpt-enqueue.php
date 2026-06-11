@@ -7,7 +7,7 @@
  *
  * @param string $plugin The execution key for the WRC Pricing Tables plugin.
  *
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {
@@ -48,12 +48,17 @@ if (!class_exists('WRCPT_Enqueue')) {
          * 
          * @return void
          */
-        public function wrcpt_enqueue_scripts_admin()
+        public function wrcpt_enqueue_scripts_admin($hook)
         {
-            wp_enqueue_script('wrcptjs', WRCPT_PLUGIN_URL . 'assets/js/wrcpt-admin.js', array('jquery'), '2.7', ['in_footer' => true]);
+            if (strpos($hook, 'wrcpt-') === false) {
+                return;
+            }
+
+            wp_enqueue_script('wrcptjs', WRCPT_PLUGIN_URL . 'assets/js/wrcpt-admin.js', array('jquery'), WRCPT_PLUGIN_VERSION, ['in_footer' => true]);
             wp_enqueue_script('jquery-ui-sortable');
             wp_enqueue_script('jquery-ui-accordion');
             wp_enqueue_script('wp-color-picker');
+            wp_enqueue_script('thickbox');
 
             $nonce = wp_create_nonce('wrcpt_ajax_action_nonce');
 
@@ -84,8 +89,9 @@ if (!class_exists('WRCPT_Enqueue')) {
             ));
 
             wp_enqueue_style('wp-color-picker');
-            wp_enqueue_style('wrcptfront', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-front.css', [], '2.7');
-            wp_enqueue_style('wrcptadmin', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-admin.css', [], '2.7');
+            wp_enqueue_style('thickbox');
+            wp_enqueue_style('wrcptfront', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-front.css', [], WRCPT_PLUGIN_VERSION);
+            wp_enqueue_style('wrcptadmin', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-admin.css', [], WRCPT_PLUGIN_VERSION);
             wp_enqueue_style('jquery-ui-style', WRCPT_PLUGIN_URL . 'assets/css/jquery-accordion.css', [], '1.10.4');
         }
 
@@ -96,8 +102,8 @@ if (!class_exists('WRCPT_Enqueue')) {
          */
         public function wrcpt_pricing_table_enqueue()
         {
-            wp_enqueue_style('wrcptfront', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-front.css', array(), '2.7');
-            wp_enqueue_style('wrcptFonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;700&display=swap', array(), '2.7');
+            wp_enqueue_style('wrcptfront', WRCPT_PLUGIN_URL . 'assets/css/wrcpt-front.css', array(), WRCPT_PLUGIN_VERSION);
+            wp_enqueue_style('wrcptFonts', '//fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Roboto:wght@400;700&display=swap', array(), WRCPT_PLUGIN_VERSION);
         }
     }
 }

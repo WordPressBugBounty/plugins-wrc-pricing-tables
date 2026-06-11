@@ -2,7 +2,7 @@
 /**
  * Plugin Guideline - Admin Guide Page
  * 
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 if ( ! defined( 'ABSPATH' ) ) {

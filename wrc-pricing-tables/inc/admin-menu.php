@@ -14,19 +14,21 @@
  *
  * Including other pages to make the plugin workable.
  * 
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (!defined('ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-if(!class_exists('WRCPT_Admin_Menu')) {
-    class WRCPT_Admin_Menu {
+if (!class_exists('WRCPT_Admin_Menu')) {
+    class WRCPT_Admin_Menu
+    {
         private static $instance;
 
-        public function __construct() {
+        public function __construct()
+        {
             add_action('admin_menu', array($this, 'register_menu'));
         }
 
@@ -50,7 +52,8 @@ if(!class_exists('WRCPT_Admin_Menu')) {
          * 
          * @return void
          */
-        public function register_menu() {
+        public function register_menu()
+        {
             add_menu_page(
                 'WRC Pricing Table',
                 __('Pricing Tables', 'wrc-pricing-tables'),
@@ -87,6 +90,16 @@ if(!class_exists('WRCPT_Admin_Menu')) {
                 'wrcpt-help',
                 array($this, 'guide_page')
             );
+
+            // Plugin Page
+            add_submenu_page(
+                'wrcpt-menu',
+                esc_html__('Plugins', 'wrc-pricing-tables'),
+                '<span style="color:#e47607">' . esc_html__('Plugins', 'wrc-pricing-tables') . '</span>',
+                'manage_options',
+                'wrcpt-plugins',
+                array($this, 'wrcpt_plugins_page')
+            );
         }
 
         /**
@@ -94,10 +107,11 @@ if(!class_exists('WRCPT_Admin_Menu')) {
          * 
          * @return void
          */
-        public function plugin_menu() {
+        public function plugin_menu()
+        {
             if (!current_user_can('manage_options')) {
-				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
-            }   
+                wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            }
             require_once WRCPT_PLUGIN_PATH . 'lib/process-table.php';
         }
 
@@ -106,9 +120,10 @@ if(!class_exists('WRCPT_Admin_Menu')) {
          * 
          * @return void
          */
-        public function template_page() {
+        public function template_page()
+        {
             if (!current_user_can('manage_options')) {
-				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+                wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
             }
             require_once WRCPT_PLUGIN_PATH . 'template/process-template.php';
         }
@@ -118,11 +133,21 @@ if(!class_exists('WRCPT_Admin_Menu')) {
          * 
          * @return void
          */
-        public function guide_page() {
+        public function guide_page()
+        {
             if (!current_user_can('manage_options')) {
-				wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+                wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
             }
             require_once WRCPT_PLUGIN_PATH . 'inc/wrcpt-guide.php';
+        }
+
+        /* Including Plugins File */
+        public function wrcpt_plugins_page()
+        {
+            if (!current_user_can('manage_options')) {
+                wp_die(esc_html__('You do not have sufficient permissions to access this page.', 'wrc-pricing-tables'));
+            }
+            require_once WRCPT_PLUGIN_PATH . 'inc/wrcpt-plugins.php';
         }
     }
 }

@@ -1,5 +1,5 @@
 /*!
- * WRC Pricing Tables v2.7 - 7 March, 2026
+ * WRC Pricing Tables v2.7.1 - 11 June, 2026
  * by @realwebcare - https://www.realwebcare.com
  */
 jQuery(document).ready(function ($) {
@@ -78,9 +78,14 @@ function wrcpteditpackages(pcount, ptable) {
 					jQuery('#wrcpt-sidebar').hide();
 					jQuery('#wrcpt_optimize').hide();
 					jQuery(linkid).append(data);
-					jQuery(".expand").hide();
+					jQuery(".collapse").hide();
+					// Collapse all package details
 					jQuery(".collapse").click(function () {
 						jQuery(".column_container").accordion({
+							collapsible: true,
+							active: false
+						});
+						jQuery(".package_advance").accordion({
 							collapsible: true,
 							active: false
 						});
@@ -88,8 +93,13 @@ function wrcpteditpackages(pcount, ptable) {
 						jQuery(".expand").show();
 					});
 
+					// Expand all package details
 					jQuery(".expand").click(function () {
 						jQuery(".column_container").accordion({
+							collapsible: false,
+							active: true
+						});
+						jQuery(".package_advance").accordion({
 							collapsible: false,
 							active: true
 						});
@@ -151,11 +161,13 @@ function wrcpteditpackages(pcount, ptable) {
 					jQuery(".package_details").css("cursor", "move");
 					jQuery('#accordion_advance').accordion({
 						collapsible: true,
+						active: false,
 						heightStyle: "content"
 					});
 					for (i = 1; i <= pcount; i++) {
 						jQuery('#accordion' + i).accordion({
 							collapsible: true,
+							active: false,
 							heightStyle: "content"
 						});
 						if (jQuery('#showPack' + i + ' input').val() == 'hide') {
@@ -188,6 +200,7 @@ function wrcpteditpackages(pcount, ptable) {
 						jQuery('.ptitle').focus();
 						jQuery('#accordion' + newNum).accordion({
 							collapsible: true,
+							active: false,
 							heightStyle: "content"
 						});
 						jQuery('#pcolumn' + newNum).text('Pricing Column ' + newNum);

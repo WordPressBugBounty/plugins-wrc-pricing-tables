@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: WordPress Responsive CSS3 Pricing Tables\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-08 20:38+0000\n"
+"POT-Creation-Date: 2026-06-10 23:48+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -36,13 +36,21 @@ msgid ""
 "thread. We're here to provide you with the support you need."
 msgstr ""
 
+#: lib/process-package.php:114
+msgid " Collapse"
+msgstr ""
+
+#: lib/process-package.php:113
+msgid " Expand"
+msgstr ""
+
 #: action/init-functions.php:153
 msgid ""
 " plugin valuable, could you please take a moment to share your thoughts by "
 "leaving a quick review?"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:183
+#: inc/wrcpt-sidebar.php:184
 msgid " rating. We highly appreciate your support!"
 msgstr ""
 
@@ -54,7 +62,7 @@ msgstr ""
 msgid ". We highly appreciate your support!"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:94
+#: inc/wrcpt-sidebar.php:97
 msgid "60+ templates to create pricing table instantly."
 msgstr ""
 
@@ -78,11 +86,21 @@ msgid ""
 "Settings."
 msgstr ""
 
+#: inc/wrcpt-plugins.php:113
+msgid ""
+"A jQuery lightbox plugin for responsive, touch-enabled photo galleries with "
+"smooth fullscreen CSS3 transitions with dynamic Gallery ID functionality."
+msgstr ""
+
 #: lib/process-feature.php:114 lib/process-feature.php:163
 msgid "Actions"
 msgstr ""
 
-#: lib/process-table.php:179
+#: lib/plugin-data-checker.php:222 lib/plugin-data-checker.php:225
+msgid "Activate"
+msgstr ""
+
+#: lib/plugin-data-checker.php:218 lib/process-table.php:179
 msgid "Active"
 msgstr ""
 
@@ -102,19 +120,19 @@ msgstr ""
 msgid "Add Template"
 msgstr ""
 
-#: lib/process-package.php:366
+#: lib/process-package.php:413
 msgid "Advanced Color Settings"
 msgstr ""
 
-#: lib/process-package.php:255
+#: lib/process-package.php:294
 msgid "Align Price Unit at Right"
 msgstr ""
 
-#: inc/admin-menu.php:67
+#: inc/admin-menu.php:70
 msgid "All Pricing Tables"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:80
+#: inc/wrcpt-enqueue.php:85
 msgid "All pricing tables optimized successfully! Reloading..."
 msgstr ""
 
@@ -122,7 +140,7 @@ msgstr ""
 msgid "Already Left a Review"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:81
+#: inc/wrcpt-enqueue.php:86
 msgid "An error occurred. Please try again."
 msgstr ""
 
@@ -130,64 +148,74 @@ msgstr ""
 msgid "Are you sure you want this?"
 msgstr ""
 
-#: lib/process-package.php:165
+#: lib/process-package.php:192
 msgid "Background Colors"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:179
+#: inc/wrcpt-sidebar.php:180
 msgid "Benefited by WRC Pricing Tables? Please leave us a "
 msgstr ""
 
-#: lib/process-package.php:311
+#: inc/wrcpt-plugins.php:112
+msgid ""
+"Build powerful, lightweight, filterable, responsive portfolio gallery or "
+"image gallery on different posts or pages by SHORTCODE."
+msgstr ""
+
+#: lib/process-package.php:357
 msgid "Button Body Height"
 msgstr ""
 
-#: lib/process-package.php:216
+#: lib/process-package.php:243
 msgid "Button Color"
 msgstr ""
 
-#: lib/process-package.php:205
+#: lib/process-package.php:232
 msgid "Button Colors"
 msgstr ""
 
-#: lib/process-package.php:208
+#: lib/process-package.php:235
 msgid "Button Font Color"
 msgstr ""
 
-#: lib/process-package.php:212
+#: lib/process-package.php:239
 msgid "Button Font Hover Color"
 msgstr ""
 
-#: lib/process-package.php:315
+#: lib/process-package.php:361
 msgid "Button Height"
 msgstr ""
 
-#: lib/process-package.php:220
+#: lib/process-package.php:247
 msgid "Button Hover Color"
 msgstr ""
 
-#: lib/process-package.php:152
+#: lib/process-package.php:179
 msgid "Button Link"
 msgstr ""
 
-#: lib/process-package.php:150
+#: lib/process-package.php:177
 msgid "Button Text"
 msgstr ""
 
-#: lib/process-package.php:361
+#: lib/process-package.php:408
 msgid "Button Text Font Size"
 msgstr ""
 
-#: lib/process-package.php:313
+#: lib/process-package.php:359
 msgid "Button Width"
 msgstr ""
 
-#: lib/process-package.php:342
+#: inc/wrcpt-plugins.php:214
+msgid "By"
+msgstr ""
+
+#: lib/process-package.php:389
 msgid "Caption Column Width"
 msgstr ""
 
-#: lib/process-package.php:324 lib/process-package.php:328
-#: lib/process-package.php:332
+#: lib/process-package.php:371 lib/process-package.php:375
+#: lib/process-package.php:379
 msgid "Center"
 msgstr ""
 
@@ -204,11 +232,11 @@ msgstr ""
 msgid "Checkbox"
 msgstr ""
 
-#: lib/process-package.php:282
+#: lib/process-package.php:328
 msgid "Choose Cross Icon to Show"
 msgstr ""
 
-#: lib/process-package.php:267
+#: lib/process-package.php:313
 msgid "Choose Tick Icon to Show"
 msgstr ""
 
@@ -220,28 +248,36 @@ msgstr ""
 msgid "Code Usage Instruction"
 msgstr ""
 
-#: lib/process-package.php:103
-msgid "Collapse all"
-msgstr ""
-
-#: lib/process-package.php:374
+#: lib/process-package.php:421
 msgid "Column Shadow Color"
 msgstr ""
 
-#: lib/process-package.php:371
+#: lib/process-package.php:418
 msgid "Column Shadow Colors"
 msgstr ""
 
-#: lib/process-package.php:378
+#: lib/process-package.php:425
 msgid "Column Shadow Highlight Color"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:67
+#: inc/wrcpt-enqueue.php:72
 msgid "Columns are being loaded. Please wait..."
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:68
+#: inc/wrcpt-enqueue.php:73
 msgid "Columns loaded successfully! Redirecting..."
+msgstr ""
+
+#: lib/plugin-data-checker.php:206
+msgid "Coming Soon"
+msgstr ""
+
+#: lib/plugin-data-checker.php:175
+msgid "Compatibility information not available"
+msgstr ""
+
+#: lib/plugin-data-checker.php:173
+msgid "Compatible with your version of WordPress"
 msgstr ""
 
 #: action/init-functions.php:81 template/process-template.php:62
@@ -256,27 +292,27 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:75
+#: inc/wrcpt-enqueue.php:80
 msgid "Deleting the table. Please wait..."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:167
+#: inc/wrcpt-sidebar.php:168
 msgid "Developed by: "
 msgstr ""
 
-#: lib/process-package.php:336
+#: lib/process-package.php:383
 msgid "Disable Auto Column Width"
 msgstr ""
 
-#: lib/process-package.php:251
+#: lib/process-package.php:286
 msgid "Disable Shadow on Highlight"
 msgstr ""
 
-#: lib/process-package.php:253
+#: lib/process-package.php:290
 msgid "Disable Title Gradient"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:99
+#: inc/wrcpt-sidebar.php:102
 msgid "Display prices in a circle."
 msgstr ""
 
@@ -284,15 +320,15 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: lib/process-package.php:158
+#: lib/process-package.php:185
 msgid "e.g. Best"
 msgstr ""
 
-#: lib/process-package.php:151
+#: lib/process-package.php:178
 msgid "e.g. Buy Now!"
 msgstr ""
 
-#: lib/process-package.php:153
+#: lib/process-package.php:180
 msgid "e.g. http://example.com"
 msgstr ""
 
@@ -308,35 +344,35 @@ msgstr ""
 msgid "Either create a new post or page, or edit an existing one."
 msgstr ""
 
-#: lib/process-package.php:340
+#: lib/process-package.php:387
 msgid "Enable Caption Column"
 msgstr ""
 
-#: lib/process-package.php:249
+#: lib/process-package.php:282
 msgid "Enable Column Shadow"
 msgstr ""
 
-#: lib/process-package.php:259
+#: lib/process-package.php:302
 msgid "Enable Feature Tooltips"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:101
+#: inc/wrcpt-sidebar.php:104
 msgid "Enable HTML code in feature area."
 msgstr ""
 
-#: lib/process-package.php:262
+#: lib/process-package.php:307
 msgid "Enable Package Ribbons"
 msgstr ""
 
-#: lib/process-package.php:244
+#: lib/process-package.php:275
 msgid "Enable Pricing Table"
 msgstr ""
 
-#: lib/process-package.php:344
+#: lib/process-package.php:391
 msgid "Enlarge Column on Hover"
 msgstr ""
 
-#: lib/process-package.php:119
+#: lib/process-package.php:136
 msgid "Enlarge Column?"
 msgstr ""
 
@@ -344,44 +380,44 @@ msgstr ""
 msgid "Enter Feature Name"
 msgstr ""
 
-#: lib/process-package.php:133
+#: lib/process-package.php:153
 msgid ""
 "Enter feature values and feature ToolTips here. To show the tick icon mark "
 "the checkbox and to show cross icon unmark the checkbox. To display ToolTips,"
 " you should enable ToolTips in General settings under Pricing Table Settings."
 msgstr ""
 
-#: lib/process-package.php:156
+#: lib/process-package.php:183
 msgid ""
 "Enter ribbon text to make current package more attractive to users, like "
 "'best', 'new', 'hot' etc."
 msgstr ""
 
-#: lib/process-package.php:124 lib/process-package.php:132
+#: lib/process-package.php:142 lib/process-package.php:151
 msgid "Enter Short Description"
 msgstr ""
 
-#: lib/process-package.php:125
+#: lib/process-package.php:144
 msgid ""
 "Enter the price of the package, price currency, price plan (monthly or "
 "yearly) and a short description about pricing."
 msgstr ""
 
-#: lib/process-package.php:301
+#: lib/process-package.php:347
 msgid "Enter the total width of your pricing table here."
 msgstr ""
 
-#: lib/process-package.php:141 lib/process-package.php:143
+#: lib/process-package.php:162 lib/process-package.php:166
 msgid "Enter Tooltip"
 msgstr ""
 
-#: lib/process-package.php:148
+#: lib/process-package.php:175
 msgid ""
 "Enter your call to action text and call to action URL here. The URL is "
 "usually either a payment link or a page where users can create an account."
 msgstr ""
 
-#: lib/process-package.php:121
+#: lib/process-package.php:139
 msgid ""
 "Enter your pricing package name here. You can also enter a short description "
 "of the package name. There are many users who choose a package based on the "
@@ -396,43 +432,43 @@ msgid ""
 "similar items. Means of providing benefits to customers."
 msgstr ""
 
-#: lib/process-package.php:102
-msgid "Expand all"
+#: lib/plugin-data-checker.php:145
+msgid "Failed to fetch plugin data."
 msgstr ""
 
-#: lib/process-package.php:172
+#: lib/process-package.php:199
 msgid "Feature Background Color 1"
 msgstr ""
 
-#: lib/process-package.php:176
+#: lib/process-package.php:203
 msgid "Feature Background Color 2"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:95
+#: inc/wrcpt-sidebar.php:98
 msgid "Feature Categorization."
 msgstr ""
 
-#: lib/process-package.php:196
+#: lib/process-package.php:223
 msgid "Feature Font Color"
 msgstr ""
 
-#: lib/process-package.php:309
+#: lib/process-package.php:355
 msgid "Feature Label Body Height"
 msgstr ""
 
-#: lib/process-package.php:319
+#: lib/process-package.php:366
 msgid "Feature Label Font Direction"
 msgstr ""
 
-#: lib/process-package.php:357
+#: lib/process-package.php:404
 msgid "Feature Name Font Size"
 msgstr ""
 
-#: lib/process-package.php:141
+#: lib/process-package.php:162
 msgid "Feature Value"
 msgstr ""
 
-#: lib/process-package.php:359
+#: lib/process-package.php:406
 msgid "Feature Values Font Size"
 msgstr ""
 
@@ -444,31 +480,31 @@ msgstr ""
 msgid "Features "
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:69
+#: inc/wrcpt-enqueue.php:74
 msgid "Features are being loaded. Please wait..."
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:70
+#: inc/wrcpt-enqueue.php:75
 msgid "Features loaded successfully! Redirecting..."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:164
+#: inc/wrcpt-sidebar.php:165
 msgid "First release: 6 May, 2015"
 msgstr ""
 
-#: lib/process-package.php:185
+#: lib/process-package.php:212
 msgid "Font Colors"
 msgstr ""
 
-#: lib/process-package.php:347
+#: lib/process-package.php:394
 msgid "Font Settings"
 msgstr ""
 
-#: lib/process-package.php:242
+#: lib/process-package.php:272
 msgid "General Settings"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:188
+#: inc/wrcpt-sidebar.php:189
 msgid "GNU General Public License"
 msgstr ""
 
@@ -478,7 +514,7 @@ msgid ""
 "table."
 msgstr ""
 
-#: action/init-functions.php:82 inc/admin-menu.php:85
+#: action/init-functions.php:82 inc/admin-menu.php:88
 msgid "Help"
 msgstr ""
 
@@ -494,26 +530,26 @@ msgstr ""
 msgid "ID"
 msgstr ""
 
-#: lib/process-package.php:119
+#: lib/process-package.php:136
 msgid ""
 "If you want to highlight the current column from some of the other columns, "
 "simply mark the checkbox."
 msgstr ""
 
-#: lib/process-package.php:336
+#: lib/process-package.php:383
 msgid ""
 "If you want to setup caption column width manually simply mark the check box."
 " It will allow you to enter the caption column width and the space between "
 "the columns."
 msgstr ""
 
-#: lib/process-package.php:340
+#: lib/process-package.php:387
 msgid ""
 "If you would like to display features name column separately on the left of "
 "the pricing table simply mark this checkbox."
 msgstr ""
 
-#: lib/process-package.php:303
+#: lib/process-package.php:349
 msgid ""
 "If your pricing table has a lot of columns, then you can split the columns "
 "according to the rows by entering the number of columns in the right TextBox."
@@ -523,22 +559,26 @@ msgstr ""
 msgid "Inactive"
 msgstr ""
 
+#: lib/plugin-data-checker.php:228
+msgid "Install Now"
+msgstr ""
+
 #: action/init-functions.php:152
 msgid ""
 "It's been 7 days since your last update or installation of the latest "
 "version of "
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:165
-msgid "Last Update: 9 December, 2025"
+#: inc/wrcpt-plugins.php:223
+msgid "Last Updated:"
 msgstr ""
 
 #: action/init-functions.php:155
 msgid "Leave a Review"
 msgstr ""
 
-#: lib/process-package.php:322 lib/process-package.php:326
-#: lib/process-package.php:330
+#: lib/process-package.php:369 lib/process-package.php:373
+#: lib/process-package.php:377
 msgid "Left"
 msgstr ""
 
@@ -552,8 +592,12 @@ msgid ""
 "table."
 msgstr ""
 
-#: lib/process-package.php:246
+#: lib/process-package.php:278
 msgid "Modify Pricing Table Name"
+msgstr ""
+
+#: inc/wrcpt-plugins.php:242
+msgid "More Details"
 msgstr ""
 
 #: lib/process-table.php:203
@@ -568,11 +612,11 @@ msgstr ""
 msgid "Need help setting up your pricing table?"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:173
+#: inc/wrcpt-sidebar.php:174
 msgid "Need Help? "
 msgstr ""
 
-#: lib/process-package.php:100
+#: lib/process-package.php:105
 msgid "New Column"
 msgstr ""
 
@@ -580,7 +624,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: lib/process-package.php:233
+#: lib/process-package.php:262
 msgid "No Packages yet!"
 msgstr ""
 
@@ -592,7 +636,7 @@ msgstr ""
 msgid "Not Ready!"
 msgstr ""
 
-#: lib/process-package.php:303
+#: lib/process-package.php:349
 msgid "Number of Columns per Row"
 msgstr ""
 
@@ -603,7 +647,7 @@ msgid ""
 "of your site."
 msgstr ""
 
-#: lib/process-package.php:257
+#: lib/process-package.php:298
 msgid "Open Link in New Tab"
 msgstr ""
 
@@ -615,35 +659,39 @@ msgstr ""
 msgid "Optimize Pricing Tables: "
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:79
+#: inc/wrcpt-enqueue.php:84
 msgid "Optimizing your pricing tables. Please wait..."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:121
+#: inc/wrcpt-sidebar.php:124
 msgid "Our Featured Plugins"
 msgstr ""
 
-#: lib/process-package.php:148
+#: inc/wrcpt-plugins.php:149
+msgid "Our Featured Plugins for Your WordPress Site"
+msgstr ""
+
+#: lib/process-package.php:175
 msgid "Package Button"
 msgstr ""
 
-#: lib/process-package.php:133
+#: lib/process-package.php:153
 msgid "Package Features"
 msgstr ""
 
-#: lib/process-package.php:121 lib/process-package.php:122
+#: lib/process-package.php:139 lib/process-package.php:140
 msgid "Package Name"
 msgstr ""
 
-#: lib/process-package.php:126
+#: lib/process-package.php:145
 msgid "Package Price"
 msgstr ""
 
-#: lib/process-package.php:125
+#: lib/process-package.php:144
 msgid "Package Pricing"
 msgstr ""
 
-#: lib/process-package.php:156
+#: lib/process-package.php:183
 msgid "Package Ribbon"
 msgstr ""
 
@@ -651,61 +699,65 @@ msgstr ""
 msgid "Paste the following shortcode into the editor:"
 msgstr ""
 
-#: lib/process-shortcode.php:406
+#: lib/process-shortcode.php:413
 msgid ""
 "Please <strong>Enable</strong> pricing table to display pricing table "
 "columns!"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:155
+#: inc/wrcpt-sidebar.php:156
 msgid "Plugin Info"
+msgstr ""
+
+#: inc/admin-menu.php:97 inc/admin-menu.php:98
+msgid "Plugins"
 msgstr ""
 
 #: lib/process-table.php:154
 msgid "Preview"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:71
+#: inc/wrcpt-enqueue.php:76
 msgid "Preview are being loaded. Please wait..."
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:72
+#: inc/wrcpt-enqueue.php:77
 msgid "Preview loaded successfully! Redirecting..."
 msgstr ""
 
-#: lib/process-package.php:307
+#: lib/process-package.php:353
 msgid "Price Body Height"
 msgstr ""
 
-#: lib/process-package.php:192
+#: lib/process-package.php:219
 msgid "Price Font Color"
 msgstr ""
 
-#: lib/process-package.php:353
+#: lib/process-package.php:400
 msgid "Price Font Size (Big)"
 msgstr ""
 
-#: lib/process-package.php:355
+#: lib/process-package.php:402
 msgid "Price Font Size (Small)"
 msgstr ""
 
-#: lib/process-package.php:128
+#: lib/process-package.php:147
 msgid "Price Plan"
 msgstr ""
 
-#: lib/process-package.php:130
+#: lib/process-package.php:149
 msgid "Price Unit"
 msgstr ""
 
-#: lib/process-package.php:113
+#: lib/process-package.php:128
 msgid "Pricing Column"
 msgstr ""
 
-#: lib/process-package.php:160
+#: lib/process-package.php:187
 msgid "Pricing Column Colors"
 msgstr ""
 
-#: lib/process-package.php:117
+#: lib/process-package.php:134
 msgid "Pricing Column Details"
 msgstr ""
 
@@ -713,11 +765,11 @@ msgstr ""
 msgid "Pricing Package Features"
 msgstr ""
 
-#: lib/process-package.php:99
+#: lib/process-package.php:102
 msgid "Pricing Table Columns"
 msgstr ""
 
-#: lib/process-package.php:301
+#: lib/process-package.php:347
 msgid "Pricing Table Container Width"
 msgstr ""
 
@@ -725,11 +777,11 @@ msgstr ""
 msgid "Pricing Table Guide"
 msgstr ""
 
-#: lib/process-package.php:349
+#: lib/process-package.php:396
 msgid "Pricing Table Name Font Size"
 msgstr ""
 
-#: lib/process-package.php:240
+#: lib/process-package.php:270
 msgid "Pricing Table Settings"
 msgstr ""
 
@@ -737,11 +789,19 @@ msgstr ""
 msgid "Pricing Table Templates"
 msgstr ""
 
-#: inc/admin-menu.php:56 lib/process-table.php:91
+#: inc/admin-menu.php:59 lib/process-table.php:91
 msgid "Pricing Tables"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:186
+#: inc/wrcpt-plugins.php:246
+msgid "Pro Demo"
+msgstr ""
+
+#: inc/wrcpt-plugins.php:244
+msgid "Pro Details"
+msgstr ""
+
+#: inc/wrcpt-sidebar.php:187
 msgid "Published under:"
 msgstr ""
 
@@ -752,7 +812,7 @@ msgid ""
 msgstr ""
 
 #. Author of the plugin
-#: inc/wrcpt-sidebar.php:169
+#: inc/wrcpt-plugins.php:169 inc/wrcpt-sidebar.php:170
 msgid "Realwebcare"
 msgstr ""
 
@@ -760,7 +820,7 @@ msgstr ""
 msgid "Regenerate Shortcode"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:77
+#: inc/wrcpt-enqueue.php:82
 msgid "Regenerating all the shortcodes. Please wait..."
 msgstr ""
 
@@ -774,8 +834,14 @@ msgid ""
 "table that you want to display."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:163
+#: inc/wrcpt-sidebar.php:164
 msgid "Requires: WordPress 5.2"
+msgstr ""
+
+#: inc/wrcpt-plugins.php:110
+msgid ""
+"Responsive CSS3 pricing tables design to present features and prices of "
+"different products. Display pricing tables or comparison table by shortcode."
 msgstr ""
 
 #. Description of the plugin
@@ -784,24 +850,24 @@ msgid ""
 "more professional way on different posts or pages by SHORTCODE."
 msgstr ""
 
-#: lib/process-package.php:180
+#: lib/process-package.php:207
 msgid "Ribbon Background Color"
 msgstr ""
 
-#: lib/process-package.php:200
+#: lib/process-package.php:227
 msgid "Ribbon Font Color"
 msgstr ""
 
-#: lib/process-package.php:157
+#: lib/process-package.php:184
 msgid "Ribbon Text"
 msgstr ""
 
-#: lib/process-package.php:363
+#: lib/process-package.php:410
 msgid "Ribbon Text Font Size"
 msgstr ""
 
-#: lib/process-package.php:323 lib/process-package.php:327
-#: lib/process-package.php:331
+#: lib/process-package.php:370 lib/process-package.php:374
+#: lib/process-package.php:378
 msgid "Right"
 msgstr ""
 
@@ -813,19 +879,26 @@ msgstr ""
 msgid "Save or publish the post or page."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:98
+#: inc/wrcpt-plugins.php:108
+msgid ""
+"Seamlessly connect Lemon Squeezy with Easy Digital Downloads (EDD). Accept "
+"secure global payments, manage subscriptions, and automate tax compliance "
+"with this premium integration."
+msgstr ""
+
+#: inc/wrcpt-sidebar.php:101
 msgid "Set button at the top."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:96
+#: inc/wrcpt-sidebar.php:99
 msgid "Set image as background image."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:97
+#: inc/wrcpt-sidebar.php:100
 msgid "Set price section at the bottom."
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:100
+#: inc/wrcpt-sidebar.php:103
 msgid "Set up to 4 custom pricing toggles effortlessly."
 msgstr ""
 
@@ -833,39 +906,52 @@ msgstr ""
 msgid "Shortcode"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:78
+#: inc/wrcpt-enqueue.php:83
 msgid "Shortcodes regenerated successfully! Reloading..."
 msgstr ""
 
-#: lib/process-package.php:338
+#: inc/wrcpt-plugins.php:111
+msgid ""
+"Showcase your team's talent and expertise with ease. Grids, slider, pop-up "
+"and filters - all in one shortcode. Get started today!"
+msgstr ""
+
+#: lib/process-package.php:385
 msgid "Space Between Columns"
 msgstr ""
 
-#: lib/process-package.php:299
+#: lib/process-package.php:345
 msgid "Structural Settings"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:64
+#: inc/wrcpt-enqueue.php:69
 msgid "Successfully Created! Redirecting..."
 msgstr ""
 
-#: action/init-functions.php:83 inc/wrcpt-sidebar.php:175
+#: action/init-functions.php:83 inc/wrcpt-sidebar.php:176
 msgid "Support"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:132
+#: inc/wrcpt-sidebar.php:133
 msgid "T4B News Ticker"
 msgstr ""
 
-#: lib/process-package.php:168
+#: inc/wrcpt-plugins.php:109
+msgid ""
+"T4B News Ticker is a flexible and user-friendly news ticker plugin for "
+"WordPress, designed to create horizontal news tickers with 4 unique "
+"animations."
+msgstr ""
+
+#: lib/process-package.php:195
 msgid "Table Background Color"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:76
+#: inc/wrcpt-enqueue.php:81
 msgid "Table deleted successfully! Reloading..."
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:63 template/process-template.php:77
+#: inc/wrcpt-enqueue.php:68 template/process-template.php:77
 msgid "Table is being created. Please wait..."
 msgstr ""
 
@@ -877,7 +963,7 @@ msgstr ""
 msgid "Template"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:65
+#: inc/wrcpt-enqueue.php:70
 msgid "Template is being switched. Please wait..."
 msgstr ""
 
@@ -885,15 +971,15 @@ msgstr ""
 msgid "Template Preview"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:66
+#: inc/wrcpt-enqueue.php:71
 msgid "Template Switched Successfully! Reloading..."
 msgstr ""
 
-#: inc/admin-menu.php:76
+#: inc/admin-menu.php:79
 msgid "Templates"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:86
+#: inc/wrcpt-sidebar.php:89
 msgid "Test Drive Pro"
 msgstr ""
 
@@ -923,23 +1009,23 @@ msgstr ""
 msgid "The changes are being updated. Please wait..."
 msgstr ""
 
-#: lib/process-package.php:147
+#: lib/process-package.php:173
 msgid "There are no feature items!"
 msgstr ""
 
-#: lib/process-package.php:265
+#: lib/process-package.php:311
 msgid "Tick/Cross Icons"
 msgstr ""
 
-#: lib/process-package.php:305
+#: lib/process-package.php:351
 msgid "Title Body Height"
 msgstr ""
 
-#: lib/process-package.php:188
+#: lib/process-package.php:215
 msgid "Title Font Color"
 msgstr ""
 
-#: lib/process-package.php:351
+#: lib/process-package.php:398
 msgid "Title Font Size"
 msgstr ""
 
@@ -949,7 +1035,7 @@ msgid ""
 "to access the post or page editor in the WordPress dashboard. Here's how:"
 msgstr ""
 
-#: lib/process-package.php:317
+#: lib/process-package.php:363
 msgid "Tooltip Width"
 msgstr ""
 
@@ -957,17 +1043,21 @@ msgstr ""
 msgid "Type"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:81
+#: inc/wrcpt-sidebar.php:86
 msgid "Ultimate Features"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:90
+#: inc/wrcpt-sidebar.php:93
 msgid ""
 "Ultimate version has been developed to present Pricing Tables more "
 "proficiently. Some of the most notable features are:"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:74
+#: lib/plugin-data-checker.php:174
+msgid "Untested with your version of WordPress"
+msgstr ""
+
+#: inc/wrcpt-enqueue.php:79
 msgid "Update completed successfully!"
 msgstr ""
 
@@ -975,19 +1065,19 @@ msgstr ""
 msgid "Update Feature"
 msgstr ""
 
-#: inc/wrcpt-enqueue.php:73
+#: inc/wrcpt-enqueue.php:78
 msgid "Update is being processed. Please wait..."
 msgstr ""
 
-#: lib/process-package.php:393
+#: lib/process-package.php:444
 msgid "Update Package"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:158
+#: inc/wrcpt-sidebar.php:159
 msgid "Version: "
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:106
+#: inc/wrcpt-plugins.php:241 inc/wrcpt-sidebar.php:108
 msgid "View Demo"
 msgstr ""
 
@@ -1021,7 +1111,11 @@ msgstr ""
 msgid "WRC Pricing Tables"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:126
+#. Name of the plugin
+msgid "WRC Pricing Tables - Responsive CSS3 Pricing Tables"
+msgstr ""
+
+#: inc/wrcpt-sidebar.php:128
 msgid "WRC Pricing Tables - Ultimate"
 msgstr ""
 
@@ -1029,15 +1123,11 @@ msgstr ""
 msgid "WRC Pricing Tables Getting Started Video"
 msgstr ""
 
-#: inc/wrcpt-sidebar.php:78
+#: inc/wrcpt-sidebar.php:83
 msgid "WRC Pricing Tables Ultimate"
 msgstr ""
 
-#. Name of the plugin
-msgid "WRC Pricing Tables – Responsive CSS3 Pricing Tables"
-msgstr ""
-
-#: inc/admin-menu.php:66
+#: inc/admin-menu.php:69
 msgid "WRCPT Lists"
 msgstr ""
 
@@ -1045,29 +1135,30 @@ msgstr ""
 msgid "Yes"
 msgstr ""
 
-#: lib/process-shortcode.php:404
+#: lib/process-shortcode.php:411
 msgid "You didn't add any pricing column yet!"
 msgstr ""
 
-#: lib/process-shortcode.php:402
+#: lib/process-shortcode.php:409
 msgid "You didn't add any pricing tables yet!"
 msgstr ""
 
-#: lib/process-package.php:81 lib/process_table-option.php:133
-#: lib/process_table-option.php:217 lib/process_table-option.php:341
-#: lib/process_table-option.php:616
+#: lib/process-package.php:82 lib/process_table-option.php:133
+#: lib/process_table-option.php:225 lib/process_table-option.php:349
+#: lib/process_table-option.php:624
 msgid ""
 "You do not have sufficient permissions to access this page, or the nonce "
 "verification failed."
 msgstr ""
 
 #: action/init-functions.php:248 action/init-functions.php:268
-#: action/init-functions.php:302 inc/admin-menu.php:99 inc/admin-menu.php:111
-#: inc/admin-menu.php:123 inc/display-package.php:50 inc/display-package.php:59
-#: lib/process-feature.php:72 lib/process-feature.php:81
-#: lib/process-package.php:71 lib/process_table-option.php:232
-#: lib/process_table-option.php:356 lib/process_table-option.php:407
-#: lib/process_table-option.php:681 template/process-template-option.php:55
+#: action/init-functions.php:302 inc/admin-menu.php:113 inc/admin-menu.php:126
+#: inc/admin-menu.php:139 inc/admin-menu.php:148 inc/display-package.php:50
+#: inc/display-package.php:59 lib/process-feature.php:72
+#: lib/process-feature.php:81 lib/process-package.php:72
+#: lib/process_table-option.php:240 lib/process_table-option.php:364
+#: lib/process_table-option.php:415 lib/process_table-option.php:689
+#: template/process-template-option.php:55
 #: template/process-template-option.php:94
 #: template/process-template-option.php:103
 #: template/process-template-option.php:306

@@ -9,7 +9,7 @@
  * In the tablet view, the pricing table will be divided into two columns.
  * In the mobile view, each column of the price table will be displayed below each other.
  * 
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {

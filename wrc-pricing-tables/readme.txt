@@ -1,11 +1,11 @@
-=== WRC Pricing Tables – Responsive CSS3 Pricing Tables ===
+=== WRC Pricing Tables - Responsive CSS3 Pricing Tables ===
 Contributors: realwebcare
 Tags: responsive pricing table, pricing table, comparison table, price table, pricing
 Requires at least: 5.2
-Tested up to: 6.9
-Stable Tag: 2.7
+Tested up to: 7.0
+Stable Tag: 2.7.1
 Requires PHP: 7.4
-Donate link: https://www.realwebcare.com/billing/store/support/donation
+Donate link: https://item.realwebcare.com/checkout/buy/d18dfcb8-ea0d-40f6-ac66-c495d7c45f86
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -174,24 +174,27 @@ Please note that you can only determine the gap between the columns manually, an
 You can report security bugs through the Patchstack Vulnerability Disclosure Program. The Patchstack team help validate, triage and handle any security vulnerabilities. [Report a security vulnerability.](https://patchstack.com/database/vdp/wrc-pricing-tables)
 
 == Upgrade Notice ==
-= 2.7 =
-This update properly addresses backend compatibility issues. It resolves several "undefined" variable warnings and fixes an "undefined" Javascript alert that appeared when trying to update features with empty rows. Additionally, it patches a PHP Deprecated warning related to `wp_kses()` throwing a preg_replace null error on newer PHP versions. Highly recommended to update for a smoother admin experience.
-
-= 2.6 =
-This major update brings a full OOP refactor for better stability, performance, security, and future development. All existing pricing tables remain fully intact and functional. New features include proper activation/deactivation handling, a built-in help guide, improved user flow after table creation, and smoother AJAX modals. Safe to update — no data loss. Highly recommended for all users!
+= 2.7.1 =
+This is a minor update with some bug fixes and improvements.
 
 == Changelog ==
+= 2.7.1 (11 June, 2026) =
+* `Enhanced:` Ensure compatibility with WordPress 7.0.
+* `Improved:` UI of Edit Pricing Table.
+* `Fixed:` **Undefined array key** warning.
+* `Fixed:` Minor JS & CSS bugs.
+
 = 2.7 (7 March, 2026) =
-- `Fixed:` Undefined variable warnings
-- `Fixed:` Undefined message when updating features
-- `Fixed:` PHP Deprecated warning for wp_kses.
+* `Fixed:` Undefined variable warnings
+* `Fixed:` Undefined message when updating features
+* `Fixed:` PHP Deprecated warning for wp_kses.
 
 = 2.6 (9 December, 2025) =
-- `Improved:` Full OOP refactor for better performance and maintainability
-- `Added:` Plugin activation/deactivation handling
-- `Added:` In-plugin Help & Guide documentation
-- `Updated:` Auto-redirect to table list after creation
-- `Enhanced:` Improved modal feedback and UX
+* `Improved:` Full OOP refactor for better performance and maintainability
+* `Added:` Plugin activation/deactivation handling
+* `Added:` In-plugin Help & Guide documentation
+* `Updated:` Auto-redirect to table list after creation
+* `Enhanced:` Improved modal feedback and UX
 
 = 2.5 (28 May, 2025) =
 * `Added:` 7 more stunning ready-made templates (now 22 total designs)

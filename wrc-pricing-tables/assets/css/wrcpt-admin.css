@@ -1,5 +1,5 @@
 /*!
- * WRC Pricing Tables v2.7 - 7 March, 2026
+ * WRC Pricing Tables v2.7.1 - 11 June, 2026
  * by @realwebcare - https://www.realwebcare.com
  */
 .wrap .wrcpt-clear {
@@ -211,8 +211,8 @@
     width: 100%
 }
 #add_new_table .table_list table thead tr {
-    background: #2d3748;
-    border-bottom: 4px solid #191f28;
+    background: #0c85e7;
+    border-bottom: 4px solid #2271b1;
 }
 #add_new_table .table_list table td,
 #add_new_table .table_list table th {
@@ -394,7 +394,8 @@
     padding: 0 0 0 .7em;
     color: #32373c;
     cursor: pointer;
-    font-size: 16px
+    font-size: 16px;
+    line-height: normal;
 }
 /* Arrow */
 #add_new_table .table_list table tbody td .temp_choice::after {
@@ -516,7 +517,6 @@
     bottom: 0
 }
 #add_new_table #tablenamediv {
-    /* background-color:#eee;border:1px solid #ccc; */
     border-radius: 5px;
     margin-top: 10px;
     line-height: 0
@@ -533,19 +533,55 @@
     padding: 30px 1px 15px
 }
 #add_new_table .tablecolumnwrap {
-    position: relative
+    position: relative;
+    display: inline-block;
+    padding: 15px;
+}
+#add_new_table .tablecolumnwrap h3 {
+    margin: 0 0 1em;
 }
 #tablecolumndiv .accordion-expand-holder {
     position: absolute;
-    top: 0;
-    right: 5px
+    top: 39px;
+    right: 15px;
 }
-#tablecolumndiv .accordion-expand-holder button.expand,
-#tablecolumndiv .accordion-expand-holder button.collapse {
-    color: #444444;
-    padding: 5px;
+#tablecolumndiv .accordion-expand-holder .expand,
+#tablecolumndiv .accordion-expand-holder .collapse {
+    background: #f0f0f1;
+    color: #333333;
+    font-weight: 600;
     text-transform: uppercase;
-    cursor: pointer
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    padding-right: 10px;
+    width: 110px;
+    height: 36px;
+    line-height: 36px;
+    border: none;
+    border-radius: 5px;
+}
+#tablecolumndiv .accordion-expand-holder .collapse {
+    width: 122px;
+}
+#tablecolumndiv .accordion-expand-holder .expand .dashicons-editor-expand,
+#tablecolumndiv .accordion-expand-holder .collapse .dashicons-fullscreen-exit-alt {
+    position: relative;
+    left: -4px;
+    top: 0;
+    background: #dbdbdb;
+    color: #333333;
+    font-size: 24px;
+    font-weight: 600;
+    width: 36px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #dbdbdb;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#tablecolumndiv .accordion-expand-holder .collapse .dashicons-fullscreen-exit-alt {
+    left: -3px;
 }
 #add_new_table .tablenamewrap {
     border-bottom: 1px solid #CCC;
@@ -683,61 +719,157 @@
 /* Pricing Columns */
 #add_new_table #tablecolumndiv {
     float: left;
-    /* background-color:#eee;border-bottom:1px solid #ccc; */
-    margin-top: 10px;
-    padding-bottom: 30px;
-    line-height: 5px
+    margin: 0;
+    padding-bottom: 15px;
+    line-height: 5px;
+    background: #fff;
+    box-shadow: 0 0 4px 1px #c0c0d4;
+    width: 100%;
 }
 #tablecolumndiv #addButtons {
     position: relative;
     clear: both;
     margin-bottom: 5px
 }
-#tablecolumndiv #addButtons a#addPackage {
-    padding: 0 10px 0 26px;
-    font-size: 14px;
-    height: 30px;
-    line-height: 28px;
-    vertical-align: top
+#tablecolumndiv #addButtons a#addPackage.newcolumn {
+    display: inline-block;
+    background-color: #f0f0f1;
+    width: 164px;
+    height: 36px;
+    line-height: 34px;
+    margin: auto;
+    color: #333333;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0 0 0 2px #dbdbdb;
+    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4)
 }
-#tablecolumndiv #addButtons a#addPackage:before {
-    content: "";
+#tablecolumndiv #addButtons a#addPackage.newcolumn.column-success {
+    background-color: #27ae60
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn:hover {
+    opacity: .9
+}
+#tablecolumndiv #addButtons a.newcolumn span,
+#tablecolumndiv #addButtons a.newcolumn .icon {
+    display: block;
+    height: 100%;
+    text-align: center;
     position: absolute;
-    background: url(../images/wrcpt-buttons.png) no-repeat -486px -43px;
-    left: 6px;
-    width: 16px;
-    height: 16px;
-    margin: 6px 0 0 0;
+    top: 0
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn span {
+    width: 72%;
+    line-height: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+    left: 2px;
+    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4)
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn.column-success span,
+#tablecolumndiv #addButtons a#addPackage.newcolumn:hover span {
+    left: -72%;
+    opacity: 0
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn span::before,
+#tablecolumndiv #addButtons a#addPackage.newcolumn span::after {
+    content: "";
+    background-color: #b9b9b9;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: -3px
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn span::after {
+    background-color: #ffffff;
+    width: 1px
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn .icon {
+    width: 28%;
+    right: 0;
+    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4)
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn.column-success .icon, #tablecolumndiv #addButtons a#addPackage.newcolumn:hover .icon {
+    width: 100%
+}
+#tablecolumndiv #addButtons a.newcolumn .icon .dashicons {
+    font-size: 24px;
+    vertical-align: middle;
+    transition: all .25s cubic-bezier(0.31, -0.105, 0.43, 1.4), height .25s ease
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn .icon .dashicons-plus-alt {
+    height: 25px
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn:hover .icon .dashicons-plus-alt,
+#tablecolumndiv #addButtons a#addPackage.newcolumn.column-success .icon .dashicons-yes-alt {
+    height: 32px;
+    width: 32px
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn .icon .dashicons-yes-alt, #tablecolumndiv #addButtons a#addPackage.newcolumn.column-success .icon .dashicons-plus-alt {
+    display: none
+}
+#tablecolumndiv #addButtons a.newcolumn.column-success .icon .dashicons, #tablecolumndiv #addButtons a.newcolumn:hover .icon .dashicons {
+    font-size: 32px
+}
+#tablecolumndiv #addButtons a#addPackage.newcolumn.column-success .icon .dashicons-yes-alt {
     display: inline-block
 }
 #tablecolumndiv #sortable_column {
-    margin-left: -5px
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 35px;
+    margin: 0;
+    padding: 0;
 }
 #tablecolumndiv #sortable_column .package_details h3.ptitle {
     margin: 1px
 }
 #tablecolumndiv .package_details {
     float: left;
-    /* display:inline-block; */
-    margin: 5px;
+    margin: 0;
     position: relative
 }
-#tablecolumndiv .package_details h4 {
+#tablecolumndiv .package_details h4.column_count {
+    position: absolute;
+    top: 0;
+    left: 1px;
+    width: 141px;
+    height: 30px;
+    line-height: 27px;
+    text-align: center;
     margin: 0;
-    padding: 10px 0px 13px 2px;
-    font-size: 15px
+    padding: 0;
+    font-size: 15px;
+    background: #f0f0f1;
+    color: #333333;
+    display: inline-block;
+    border: 1px solid #cccccc;
+    border-bottom: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 #tablecolumndiv .package_details span.column_hide,
 #tablecolumndiv .package_details span.column_show {
     position: absolute;
-    top: 0;
-    right: 38px;
+    top: -2px;
+    right: 36px;
     margin: 0;
-    padding: 5px 10px 9px;
-    border-right: 2px solid #ccc;
+    padding: 6px 8px;
+    background: #f0f0f1;
+    color: #333333;
+    border-top: 1px solid #cccccc;
+    border-right: 2px solid #cccccc;
+    border-bottom: 0;
+    border-left: 1px solid #cccccc;
     display: inline-block;
+    border-top-left-radius: 5px;
     cursor: pointer;
-    z-index: 9999
+    z-index: 9999;
 }
 #tablecolumndiv .package_details span.column_hide .dashicons,
 #tablecolumndiv .package_details span.column_show .dashicons,
@@ -779,12 +911,18 @@
 #tablecolumndiv .package_details span#delDisable,
 #tablecolumndiv .package_details span#delPackage {
     position: absolute;
-    top: 0;
-    right: 7px;
-    padding: 5px 5px 9px;
-    border-left: 2px solid #f9f9f9;
+    top: -2px;
+    right: 1px;
+    padding: 6px 7px;
+    background: #f0f0f1;
+    color: #333333;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 0;
+    border-left: 1px solid #ffffff;
     display: inline-block;
-    z-index: 9999
+    border-top-right-radius: 5px;
+    z-index: 9999;
 }
 #tablecolumndiv .package_details span#delDisable {
     opacity: 0.3
@@ -885,18 +1023,15 @@
     color: #fff
 }
 #tablecolumndiv .element-input hr {
-    width: 490px;
     border-top: 1px solid #E6E6E6
 }
 
 /* Pricing Column Common */
 #tablecolumndiv .package_details,
 #settingcolumndiv .package_advance {
-    background: #f0f0f1;
-    width: 525px;
-    padding: 5px !important;
-    border: 1px solid #ccc !important;
-    border-radius: 3px
+    width: 532px;
+    margin-top: 30px;
+    padding: 30px 0 10px !important;
 }
 #tablecolumndiv .package_details .column_container {
     position: relative;
@@ -927,8 +1062,8 @@
 #tablecolumndiv .element-input,
 #add_new_table .advance-input {
     background: #fff;
-    width: 511px;
     margin-left: 1px !important;
+    margin-right: 1px !important;
     padding: 10px;
     border: 1px solid #ccc !important;
     cursor: auto
@@ -2433,29 +2568,34 @@
     background: #333
 }
 
+/* Plugin Card */
+.toplevel_page_wrcpt-menu .wp-submenu li:nth-of-type(4) a:after {
+    border-bottom: 1px solid #fff3;
+    content: "";
+    display: block;
+    float: left;
+    margin: 13px -15px 8px;
+    width: calc(100% + 32px);
+}
+.plugin-card.wrcpt-plugin-card .plugin-card-top {
+    min-height: 206px
+}
+
 /* //Review */
 /* Responsive */
 @media only screen and (min-width:1366px) {
     #tablecolumndiv .package_details {
-        width: 525px
+        width: 532px
     }
 }
 
 @media only screen and (max-width:1365px) and (min-width:1300px) {
     #tablecolumndiv .package_details {
-        width: 484.1px
+        width: 499px
     }
 
     #tablecolumndiv .package_details .column_container::before {
         width: 475px
-    }
-
-    #tablecolumndiv .element-input {
-        width: 463px
-    }
-
-    #tablecolumndiv .element-input hr {
-        width: 445px
     }
 
     #tablecolumndiv .element-input label.input-title,
@@ -2465,7 +2605,7 @@
     }
 
     #tablecolumndiv .element-input input.medium {
-        width: 219px
+        width: 238px
     }
 
     #tablecolumndiv .element-input textarea[id=package_desc],
@@ -2494,19 +2634,11 @@
 
 @media only screen and (max-width:1299px) and (min-width:1200px) {
     #tablecolumndiv .package_details {
-        width: 434.1px
+        width: 449px
     }
 
     #tablecolumndiv .package_details .column_container::before {
-        width: 425px
-    }
-
-    #tablecolumndiv .element-input {
-        width: 413px
-    }
-
-    #tablecolumndiv .element-input hr {
-        width: 395px
+        width: 440px
     }
 
     #tablecolumndiv .element-input label.input-title,
@@ -2516,7 +2648,7 @@
     }
 
     #tablecolumndiv .element-input input.medium {
-        width: 194px
+        width: 213px
     }
 
     #tablecolumndiv .element-input textarea[id=package_desc],
@@ -2559,15 +2691,11 @@
     }
 
     #tablecolumndiv .package_details {
-        width: 360px
+        width: 361px
     }
 
     #tablecolumndiv .package_details h4.tablenum {
         left: -70px
-    }
-
-    #tablecolumndiv .package_details {
-        padding-left: 14px !important
     }
 
     #tablecolumndiv .package_details .column_container::before {
@@ -2581,20 +2709,12 @@
         line-height: 33px
     }
 
-    #tablecolumndiv .element-input {
-        width: 339px
-    }
-
     #tablecolumndiv .element-input label.input-title,
     #add_new_table .element-input label.input-check,
     #tablecolumndiv .element-input label.input-title-check,
     #settingcolumndiv .advance-input label.input-radio {
         padding: 10px;
         width: 214px
-    }
-
-    #tablecolumndiv .element-input hr {
-        width: 320px
     }
 
     #tablecolumndiv .element-input input.col_price {
@@ -3100,15 +3220,11 @@
     }
 
     #tablecolumndiv .package_details {
-        width: 382.1px
+        width: 100%
     }
 
     #tablecolumndiv .package_details h4.tablenum {
         left: -70px
-    }
-
-    #tablecolumndiv .package_details {
-        padding-left: 14px !important
     }
 
     #tablecolumndiv .package_details .column_container::before {
@@ -3122,11 +3238,6 @@
         line-height: 33px
     }
 
-    #tablecolumndiv .element-input,
-    #add_new_table .advance-input {
-        width: 361px
-    }
-
     #tablecolumndiv .element-input label.input-title,
     #add_new_table .element-input label.input-check,
     #tablecolumndiv .element-input label.input-title-check,
@@ -3134,10 +3245,6 @@
     #settingcolumndiv .advance-input label.input-radio {
         padding: 10px;
         width: 214px
-    }
-
-    #tablecolumndiv .element-input hr {
-        width: 348px
     }
 
     #tablecolumndiv .element-input input.col_price {
@@ -3270,16 +3377,8 @@
         top: unset
     }
 
-    #tablecolumndiv .package_details {
-        width: 298px
-    }
-
     #tablecolumndiv .package_details h4.tablenum {
         left: -70px
-    }
-
-    #tablecolumndiv .package_details {
-        padding-left: 14px !important
     }
 
     #tablecolumndiv .package_details .column_container::before {
@@ -3293,11 +3392,6 @@
         line-height: 24px
     }
 
-    #tablecolumndiv .element-input,
-    #add_new_table .advance-input {
-        width: 277px
-    }
-
     #tablecolumndiv .element-input label.input-title,
     #add_new_table .element-input label.input-check,
     #tablecolumndiv .element-input label.input-title-check,
@@ -3305,10 +3399,6 @@
     #settingcolumndiv .advance-input label.input-radio {
         padding: 10px;
         width: 214px
-    }
-
-    #tablecolumndiv .element-input hr {
-        width: 260px
     }
 
     #tablecolumndiv .element-input input.col_price {

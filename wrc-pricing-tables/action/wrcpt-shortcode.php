@@ -7,7 +7,7 @@
  * The shortcode allows users to customize how the pricing tables are displayed
  * and provides a seamless way to integrate the pricing table's information into posts or pages.
  *
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  * @link https://www.realwebcare.com/
  */
 if (!defined('ABSPATH')) {

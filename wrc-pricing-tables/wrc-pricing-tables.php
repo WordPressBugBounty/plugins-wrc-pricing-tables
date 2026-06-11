@@ -1,9 +1,9 @@
 <?php
 /*
- * Plugin Name:       WRC Pricing Tables – Responsive CSS3 Pricing Tables
+ * Plugin Name:       WRC Pricing Tables - Responsive CSS3 Pricing Tables
  * Plugin URI:        http://wordpress.org/plugins/wrc-pricing-tables/
  * Description:       Responsive pricing table plugin developed to display pricing table in a lot more professional way on different posts or pages by SHORTCODE.
- * Version:           2.7
+ * Version:           2.7.1
  * Requires at least: 5.2
  * Requires PHP:      7.4
  * Author:            Realwebcare
@@ -23,7 +23,7 @@ if (!defined('ABSPATH')) {
  *
  * Main plugin file that initializes and manages the "WRC Pricing Tables" plugin.
  *
- * @package WRC Pricing Tables v2.7 - 7 March, 2026
+ * @package WRC Pricing Tables v2.7.1 - 11 June, 2026
  */
 
 if (!class_exists('WRCPT_Index')) {
@@ -69,6 +69,8 @@ if (!class_exists('WRCPT_Index')) {
          */
         private function define_constants()
         {
+            define('WRCPT_PLUGIN_VERSION', '2.7.1');
+            define('WRCPT_LAST_UPDATED', '11 June, 2026');
             define('WRCPT_PLUGIN_PATH', plugin_dir_path(__FILE__));
             define('WRCPT_PLUGIN_URL', plugin_dir_url(__FILE__));
             define('WRCPT_AUF', __FILE__);
